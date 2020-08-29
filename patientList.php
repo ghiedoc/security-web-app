@@ -261,8 +261,8 @@ $(document).ready(function() {
                 return $(this).text();
             }
         ).get();
-        console.log(data);
-
+        // console.log(data);
+        $('#id').val(data[0]);
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
         $('#email').val(data[3]);
