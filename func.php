@@ -162,12 +162,16 @@ function getPatientDetails() {
         $fname = $row['fname'];
         $lname = $row['lname'];
         $email = $row['email'];
+        $address = $row['adds'];
         echo "<tr>
             <td>$id</td>
             <td>$fname</td>
             <td>$lname</td>
             <td>$email</td>
-            <td><button>Edit</button> &nbsp; <button>Delete</button></td>
+            <td>$address</td>
+            <td>
+            <button type='button' class='editbtn' name= 'edit_btn'>Edit</button> &nbsp; <button>Delete</button>
+            </td>
             </tr>";
     }
 }
@@ -188,4 +192,21 @@ if ( isset( $_POST['update_data'] ) ) {
 
 }
 
+//UPDATE THE PATIENT LIST TABLE
+if(isset($_POST['edit'])){
+    $id = $_POST['id'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $add = $_POST['address'];
+
+    $query= "UPDATE patienttb SET fname= '$fname', lname='$lname',email= '$email',adds='$add' WHERE patient_id = '$id' ";
+    $query_run =  mysqli_query( $con, $query );
+    if ($query_run) {
+        echo "<script>alert('Payment Status Updated!')</script>";
+        header("location:patientList.php");
+    } else {
+        header( 'Location:updated.php' );
+    }
+}
 ?>
