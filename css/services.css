@@ -1,0 +1,120 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+} */
+
+body {}
+
+h3 {
+    font-weight: 700;
+}
+
+.holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.holder .box {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 30px;
+    text-align: center;
+}
+
+.holder .box:before {
+    content: '';
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.holder .box .icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    color: #4e4e4e;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+.holder .box:nth-child(1) .icon {
+    box-shadow: 0 0 0 0 #f3a08f;
+    background: #f3a08f;
+}
+
+.holder .box:nth-child(1):hover .icon {
+    box-shadow: 0 0 0 600px #f3a08f;
+    background: #f3a08f;
+}
+
+.holder .box:nth-child(2) .icon {
+    box-shadow: 0 0 0 0 #f3a08f;
+    background: #f3a08f;
+}
+
+.holder .box:nth-child(2):hover .icon {
+    box-shadow: 0 0 0 600px #f3a08f;
+    background: #f3a08f;
+}
+
+.holder .box:nth-child(3) .icon {
+    box-shadow: 0 0 0 0 #f3a08f;
+    background: #f3a08f;
+}
+
+.holder .box:nth-child(3):hover .icon {
+    box-shadow: 0 0 0 600px #f3a08f;
+    background: #f3a08f;
+}
+
+.holder .box .content {
+    position: relative;
+    z-index: 1;
+    transition: 0.2s;
+}
+
+.holder .box:hover .content {
+    color: white;
+}
+
+.holder .box .content h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.holder .box .content p {
+    margin: 0;
+    padding: 0;
+}
+
+.holder .box .image {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+}

@@ -1,0 +1,264 @@
+/* LANDING PAGE/ BANNER SECTION */
+#banner {
+  background-image: linear-gradient(to right, #ed765e, #e3bde5);
+  color: #fff;
+  height: 768px;
+}
+
+#banner .col-md-6 {
+  position: absolute;
+  top: 20px;
+  left: 200px;
+  bottom: auto;
+  width: 300px;
+  height: auto;
+  /* background: #646464; */
+}
+
+#banner a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.banner-img {
+  margin-top: -10%;
+  margin-left: 500px;
+}
+
+.promo-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 100px;
+}
+
+/*BUTTON BOOK LAYOUT*/
+.btn-book {
+  padding: 0.5vw 3vw;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  background-color: #e26349;
+  box-shadow: 2px 3px 15px #646464;
+}
+
+.btn-book:hover {
+  background-color: #e75b3f;
+  color: white;
+  border: 5px;
+  border-color: black;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.promo-title {
+  font-size: 92px;
+  letter-spacing: 5px;
+}
+
+.promo-description {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* LANDING PAGE/ BANNER SECTION */
+
+
+/* SERVICES SECTION */
+#services {
+  padding: 100px 0;
+}
+
+.service-img {
+  width: 120px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.services {
+  padding: 20px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.services h4 {
+  margin-top: 20px;
+  font-size: 1.75rem;
+  text-transform: capitalize;
+}
+
+.services p {
+  margin-top: 20px;
+  font-size: 1.125rem;
+  text-transform: none;
+  text-align: justify;
+  padding: 1rem;
+  color: #646464;
+}
+
+.section-title::before {
+  content: "";
+  background: #ed765e;
+  height: 5px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transform: translateY(63px);
+}
+
+.section-title::after {
+  content: "";
+  background: #ed765e;
+  height: 10px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  display: block;
+  transform: translateY(8px);
+}
+
+#services .btn-primary {
+  box-shadow: none;
+  padding: 8px 25px;
+  border: none;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #ed765e, #e3bde5);
+}
+
+/* SERVICES END */
+
+/* ABOUT US SECTION */
+#about-us {
+  background-image: linear-gradient(to right, #f0f0f0, #ffffff);
+  /* background: #f8f9fa; */
+  padding-bottom: 50px;
+  padding-top: 50px;
+  padding: 100px 0;
+
+}
+
+.about-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 8%;
+}
+
+#about-us ul li {
+  margin: 10px 0;
+  
+}
+
+#about-us ul {
+  margin-left: 20px;
+}
+
+/* CONNECT WITH US SECTION */
+#contact-us {
+  /* background-image: linear-gradient(to right, #ed765e, #e3bde5); */
+  background: #f8f9fa;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  padding: 100px 0;
+}
+
+#contact-us .btn-primary {
+  box-shadow: none;
+  padding: 8px 25px;
+  border: none;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #ed765e, #e3bde5);
+  text-align: center;
+  margin: 0 auto;
+}
+
+#contact-us .btn-primary:hover {
+  background-color: aqua;
+}
+
+.contact-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 8%;
+}
+
+/* other code is located on services.css */
+
+/* MODAL */
+/* login and sign up modal */
+.hero {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+
+.form-box {
+  height: 480px;
+  width: 380px;
+  position: relative;
+  margin: 6% auto;
+  background: #fff;
+  padding: 5px;
+}
+
+#bg-modal {
+  text-align: center;
+}
+
+.modal-body {
+  /* background-color: #e3bde5; */
+}
+
+.modal-dialog {
+  width: 700px;
+}
+
+.modal-content {
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+input {
+  margin: 15px auto;
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid gray;
+}
+
+p {
+  text-transform: none;
+}
+
+.brand {
+  width: 150px;
+}
+
+.circle{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 240 0px;
+  left: -200px;
+  z-index: 0;
+  padding: 0;
+}
+
+/* FOOTER */
+footer {
+  background-color: #e26349;
+}
+
+/* Sign Up */
+.wrapper {
+  background-image: linear-gradient(to right, #ed765e, #e3bde5);
+}
+html{
+  scroll-behavior: smooth;
+}
+
