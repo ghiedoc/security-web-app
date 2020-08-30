@@ -307,8 +307,8 @@ $(document).ready(function() {
 
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
-        $('#email').val(data[3]);
-        $('#address').val(data[4]);
+        $('#email').val(data[4]);
+        $('#address').val(data[5]);
     });
 });
 </script>
