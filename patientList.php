@@ -108,16 +108,12 @@
                         </div>
                         <div class='modal-body'>
                             <table class='table table-bordered table-hover data-tables'>
-
                                 <form action='func.php' method='POST'>
-
                                     <tr>
-
                                         <td>
                                             <input type="hidden" name="id" id="id" >
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <th>First Name :</th>
                                         <td>
@@ -151,7 +147,6 @@
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
                             <button type="edit" name="edit" class='btn btn-primary'>Edit</button>
-
                             </form>
                         </div>
                     </div>
@@ -180,12 +175,7 @@
                                         <td>
                                             <input type="hidden" name="id" id="deleteId">
                                         </td>
-                                    </tr>
-
-                                    
-                                    
-                                  
-                                   
+                                    </tr>            
                             </table>
                         </div>
                         <div class='modal-footer'>

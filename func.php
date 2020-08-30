@@ -137,7 +137,10 @@ function getPatientAppointment() {
             <td>$time</td>
             <td>$services</td> 
             <td>$status</td>
-            <td><button type='button' class=approvebtn>Approve</button> &nbsp; <button type='button' class=declinebtn>Decline</button></td>
+            <td>
+            <button type='button' class='approvebtn btn btn-success'>Approve</button>
+            <button type='button' class='declinebtn btn btn-danger'>Decline</button>
+            </td>
             </tr>";
     }
 }
