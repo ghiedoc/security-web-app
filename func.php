@@ -1,6 +1,9 @@
+<?php include('alertconfig.php');?>
 <?php
 
+
 // connection sa database sa mysql
+
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
 //FOR LOGGING IN OF PATIENT
@@ -80,21 +83,30 @@ if ( isset( $_POST['pat_submit'] ) ) {
 }
 
 //PATIENT REGISTRATION
+try{
 if ( isset( $_POST['pat_register'] ) ) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
+    $gender = $_POST['gender'];
     $email = $_POST['email'];
+    $adds = $_POST['address'];
     $password = $_POST['password'];
-    $query = "INSERT INTO patienttb(fname, lname, email, password) VALUE('$fname','$lname','$email','$password')";
+    $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
     $result = mysqli_query( $con, $query );
     if ( $result ) {
-        echo "<script>alert('Patient Registered!')</script>";
+        $_SESSION['status'] = "ADDED SUCCESSFULLY!";
+        $_SESSION['status_code']= "success";
         echo "<script>window.open('index.php', '_self')</script>";
     } else {
-        echo "<script>alert('Error Adding Patient!')</script>";
+        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status_code']= "error";
         echo "<script>window.open('signup.php', '_self')</script>";
     }
 }
+}catch(Exception $e){
+    echo $e->getMessage();
+}
+
 
 //POPULATE THE DATA FROM DATABASE IN appointment TO TABLE IN APPOINTMENT HISTORY
 
@@ -161,12 +173,14 @@ function getPatientDetails() {
         $id = $row['patient_id'];
         $fname = $row['fname'];
         $lname = $row['lname'];
+        $gender = $row['gender'];
         $email = $row['email'];
         $address = $row['adds'];
         echo "<tr>
             <td>$id</td>
             <td>$fname</td>
             <td>$lname</td>
+            <td>$gender</td>
             <td>$email</td>
             <td>$address</td>
             <td>
@@ -193,20 +207,29 @@ if ( isset( $_POST['update_data'] ) ) {
 }
 
 //UPDATE THE PATIENT LIST TABLE
+try{
 if(isset($_POST['edit'])){
     $id = $_POST['id'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
+    $gender = $_POST['gender'];
     $email = $_POST['email'];
     $add = $_POST['address'];
 
-    $query= "UPDATE patienttb SET fname= '$fname', lname='$lname',email= '$email',adds='$add' WHERE patient_id = '$id' ";
+    $query= "UPDATE patienttb SET fname= '$fname', lname='$lname',gender='$gender',email= '$email',adds='$add' WHERE patient_id = '$id' ";
     $query_run =  mysqli_query( $con, $query );
     if ($query_run) {
-        echo "<script>alert('Payment Status Updated!')</script>";
+        // echo "<script>alert('Payment Status Updated!')</script>";
+        $_SESSION['status'] = "UPDATED SUCCESSFULLY!";
+        $_SESSION['status_code']= "success";
         header("location:patientList.php");
     } else {
+        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status_code']= "error";
         header( 'Location:updated.php' );
     }
+}
+}catch(Exception $e){
+    echo $e->getMessage();
 }
 ?>

@@ -222,6 +222,7 @@
                                                 <th>ID</th>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
+                                                <th>Gender</th>
                                                 <th>Email</th>
                                                 <th>Address</th>
                                                 <th>Options</th>
@@ -248,6 +249,9 @@
 <script src="vendor/chartsjs/Chart.min.js"></script>
 <script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
+<?php include('alertconfig.php');?>
+
+
 
 <!-- Show modal edit -->
 <script>
@@ -255,18 +259,19 @@ $(document).ready(function() {
     $('.editbtn').on('click', function() {
         $('#myModalPatient').modal('show');
 
+
         Str = $(this).closest('tr');
 
         var data = Str.children("td").map(function() {
-                return $(this).text();
-            }
-        ).get();
+            return $(this).text();
+        }).get();
         // console.log(data);
         $('#id').val(data[0]);
         $('#fname').val(data[1]);
-        $('#lname').val(data[2]);
-        $('#email').val(data[3]);
-        $('#address').val(data[4]);
+        $('#lname').val(data[2]) ;
+        $('#gender').val(data[3]);
+        $('#email').val(data[4]);
+        $('#address').val(data[5]);
     });
 });
 </script>
