@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include("func.php");?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -124,7 +125,7 @@
                       <div class="col-sm-8">
                         <div class="detail text-center">
                           <p>No. of Appointments</p>
-                          <span class="number">9</span>
+                          <span class="number"><?php echo $values;?></span>
                         </div>
                       </div>
                     </div>

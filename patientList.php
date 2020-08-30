@@ -114,7 +114,7 @@
                                     <tr>
 
                                         <td>
-                                            <input type="hidden" name="id" id="id">
+                                            <input type="hidden" name="id" id="id" >
                                         </td>
                                     </tr>
 

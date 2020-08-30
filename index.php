@@ -75,10 +75,10 @@
                         <!-- LOGIN -->
                         <form action="func.php" method="post">
                             <div class="form-group">
-                                <input type="email" name="username" class="form-control" placeholder="Email" required />
+                                <input type="email" name="username" class="form-control" placeholder="Email" required autocomplete="off"/>
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password"
+                                <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off"
                                     required />
                             </div>
                             <!-- <div class="form-group text-left">
@@ -119,26 +119,26 @@
                     <div class="card-body text-center">
                         <form action="func.php" class="form-group" method="post">
                             <div class="form-group">
-                                <input type="text" name="fname" class="form-control" placeholder="First Name" required>
+                                <input type="text" name="fname" class="form-control" placeholder="First Name" required autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="lname" class="form-control" placeholder="Last Name" required>
+                                <input type="text" name="lname" class="form-control" placeholder="Last Name" required autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="address" class="form-control" placeholder="Address" required>
+                                <input type="text" name="address" class="form-control" placeholder="Address" required autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <select name="gender" class="form-control" placeholder="Gender" required>
+                                <select name="gender" class="form-control" placeholder="Gender" required autocomplete="off">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Email" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" class="form-control" placeholder="Password"
-                                    required>
+                                    required autocomplete="off">
                             </div>
                             <button type="submit" name="pat_register" value="Add Registration"
                                 class="btn btn-primary shadow-2 mb-4">Register</button>

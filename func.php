@@ -232,4 +232,16 @@ if(isset($_POST['edit'])){
 }catch(Exception $e){
     echo $e->getMessage();
 }
+
+// COUNT THE TOTAL APPOINTMENT
+    $query_count = "SELECT (Appointment_Id) FROM appointment";
+    $result = mysqli_query($con, $query_count);
+    $values=mysqli_num_rows($result);
+    // $total = $values;
+    // echo $values;
+
+// COUNT THE TOTAL PATIENT wala pang table para sa patient
+//  $query_count = "SELECT (Appointment_Id) AS TOTAL FROM appointment";
+//     $result = mysqli_query($con, $query_count);
+//     $values=mysqli_num_rows($result);
 ?>
