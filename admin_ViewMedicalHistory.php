@@ -50,7 +50,7 @@
                         class="dropdown-toggle no-caret-down"><i class="fas fa-calendar-check"></i> Appointment</a>
                     <ul class="collapse list-unstyled" id="appointmenu">
                         <li>
-                            <a href="patient_AppointmentHistory.php"><i class="fas fa-eye"></i> View Appointment</a>
+                            <a href="admin_AppointmentHistory.php"><i class="fas fa-eye"></i> View Appointment</a>
                         </li>
                         <li>
                             <a href="patientList.php"><i class="fas fa-notes-medical"></i> Patient History</a>
@@ -62,24 +62,6 @@
                 </li>
                 <li>
                     <a href=""><i class="fas fa-tools"></i> Services</a>
-                </li>
-                <li>
-                    <a href="#authmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle no-caret-down"><i class="fas fa-cog"></i> Settings</a>
-                    <ul class="collapse list-unstyled" id="authmenu">
-                        <li>
-                            <a href="login.php"><i class="fas fa-lock"></i> Login</a>
-                        </li>
-                        <li>
-                            <a href="signup.php"><i class="fas fa-user-plus"></i> Signup</a>
-                        </li>
-                        <li>
-                            <a href="forgot-password.php"><i class="fas fa-user-lock"></i> Forgot password</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="users.php"><i class="fas fa-user-friends"></i>Users</a>
                 </li>
             </ul>
         </nav>
@@ -93,37 +75,10 @@
                         <li class="nav-item dropdown">
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
-                                        class="fas fa-link"></i>
-                                    <span>Quick Links</span> <i style="font-size: .8em;"
-                                        class="fas fa-caret-down"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right nav-link-menu">
-                                    <ul class="nav-list">
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-list"></i> Access Logs</a>
-                                        </li>
-                                        <div class="dropdown-divider"></div>
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-database"></i> Back
-                                                ups</a></li>
-                                        <div class="dropdown-divider"></div>
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-cloud-download-alt"></i>
-                                                Updates</a></li>
-                                        <div class="dropdown-divider"></div>
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-user-shield"></i>
-                                                Roles</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div class="nav-dropdown">
-                                <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user"></i>
                                     <span>John Doe</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i>
-                                                Profile</a></li>
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i>
-                                                Messages</a></li>
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
                                         </li>
                                         <div class="dropdown-divider"></div>
