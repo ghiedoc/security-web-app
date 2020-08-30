@@ -1,3 +1,4 @@
+
 <?php include('alertconfig.php');?>
 <?php
 
@@ -184,11 +185,24 @@ function getPatientDetails() {
             <td>$email</td>
             <td>$address</td>
             <td>
-            <button type='button' class='editbtn' name= 'edit_btn'>Edit</button> &nbsp; <button>Delete</button>
+            <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
+            <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
+            
             </td>
             </tr>";
+        
+//        <form action = 'func.php' method = 'post'>
+//            <input type='submit' class='btn btn-danger' name='delete' value='Delete'>
+//           
+//            <input type='hidden' name='deleteId' value='$row[patient_id]'>
+//            </form>
     }
 }
+
+
+
+
+
 
 // UPDATE PAYMENT OF PATIENT
 if ( isset( $_POST['update_data'] ) ) {
@@ -232,6 +246,33 @@ if(isset($_POST['edit'])){
 }catch(Exception $e){
     echo $e->getMessage();
 }
+
+
+
+//DELETE FUNCTION IN POPULATING THE DATA IN THE DATABASE IN patienttb TO ADMIN PATIENT LIST
+
+try{
+if(isset($_POST['delete'])){
+    $deleteId = $_POST['id'];
+   
+    $query= "DELETE FROM patienttb WHERE patient_id = '$deleteId'";
+    $query_run =  mysqli_query( $con, $query );
+    if ($query_run) {
+        // echo "<script>alert('Payment Status Updated!')</script>";
+        $_SESSION['status'] = "DELETE SUCCESSFULLY!";
+        $_SESSION['status_code']= "success";
+        header("location:patientList.php");
+    } else {
+        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status_code']= "error";
+        header( 'Location:updated.php' );
+    }
+    
+}
+}catch(Exception $e){
+    echo $e->getMessage();
+}
+
 
 // COUNT THE TOTAL APPOINTMENT
     $query_count = "SELECT (Appointment_Id) FROM appointment";

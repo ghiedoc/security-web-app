@@ -14,8 +14,9 @@
     <link href="chartsjs/Chart.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
-    
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+
 
     <title>Book an Appointment</title>
 </head>
@@ -95,21 +96,21 @@
                 <div class="card">
                     <div class="card-body" style="background-color:#ed765e;#ffffff;">
                         <h3>Book an Appointment</h3>
-                    
+
                     </div>
                     <div class="card-body">
                         <form action="func.php" class="form-group" method="post">
-                            <h3>Patient Details</h3>    
+                            <h3>Patient Details</h3>
                             <label for="">First Name: </label>
-                            <input type="text" name="fname" class="form-control"><br>
+                            <input type="text" name="fname" class="form-control" required autocomplete="off"><br>
                             <label for="">Last Name: </label>
-                            <input type="text" name="lname" class="form-control"><br>
+                            <input type="text" name="lname" class="form-control" required autocomplete="off"><br>
                             <label for="">Cellphone Number: </label>
-                            <input type="text" name="mobile" class="form-control"><br>
+                            <input type="text" name="mobile" class="form-control" required autocomplete="off"><br>
                             <h3>Appointment Details</h3>
                             <label for="">Date: </label>
                             <div id="datepicker" class="input-group input-daterange">
-                                <input type="text" name="date" class="form-control"><br>
+                                <input type="text" name="date" class="form-control" required autocomplete="off"><br>
                             </div>
                             <label for="">Time: </label>
                             <select name="time" class="form-control" id="">
@@ -131,8 +132,9 @@
                                 <option value="Tooth Filling">Tooth Filling</option>
                             </select>
                             <br>
-                            <input type="submit" name="pat_submit" value="Enter Appointment" class="btn btn-primary shadow-2 mb-4">
-                        </form>                                             
+                            <input type="submit" name="pat_submit" value="Enter Appointment"
+                                class="btn btn-primary shadow-2 mb-4" required autocomplete="off">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -140,9 +142,9 @@
 </body>
 
 <script type="text/javascript">
-    $(function () {
-        $('#datetimepicker1').datetimepicker();
-    });
+$(function() {
+    $('#datetimepicker1').datetimepicker();
+});
 </script>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
@@ -152,15 +154,17 @@
 <script src="vendor/chartsjs/Chart.min.js"></script>
 <script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+    integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
 
 <!-- DATE PICKER -->
 <script>
-    $(function () {
-        $("#datepicker").datepicker({ 
-            autoclose: true, 
-            todayHighlight: true
-        }).datepicker('update', new Date());
-    });
+$(function() {
+    $("#datepicker").datepicker({
+        autoclose: true,
+        todayHighlight: true
+    }).datepicker('update', new Date());
+});
 </script>
+
 </html>
