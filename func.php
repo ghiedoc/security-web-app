@@ -117,6 +117,7 @@ function getPatientAppointment() {
     $result = mysqli_query( $con, $query );
 
     while( $row = mysqli_fetch_array( $result ) ) {
+        $ids = $row['Appointment_Id'];
         $fname = $row['Fname'];
         $lname = $row['Lname'];
         $email = $row['Email'];
@@ -125,14 +126,18 @@ function getPatientAppointment() {
         $time = $row['Appointment_Time'];
         $services = $row['Appointment_Service'];
         $patientfk = $row['patient_fk'];
-        echo "<tr> <td>$fname</td>
+        $status = $row['stats'];
+        echo "<tr> 
+            <td>$ids</td>
+            <td>$fname</td>
             <td>$lname</td>
             <td>$email</td>
             <td>$mobile</td>
             <td>$date</td>
             <td>$time</td>
             <td>$services</td> 
-            <td><button>Approve</button> &nbsp; <button>Decline</button></td>
+            <td>$status</td>
+            <td><button type='button' class=approvebtn>Approve</button> &nbsp; <button type='button' class=declinebtn>Decline</button></td>
             </tr>";
     }
 }
@@ -143,6 +148,7 @@ function getPatientAppointmentHistory() {
     $result = mysqli_query( $con, $query );
 
     while( $row = mysqli_fetch_array( $result ) ) {
+        $ids = $row['Appointment_Id'];
         $fname = $row['Fname'];
         $lname = $row['Lname'];
         $email = $row['Email'];
@@ -151,13 +157,17 @@ function getPatientAppointmentHistory() {
         $time = $row['Appointment_Time'];
         $services = $row['Appointment_Service'];
         $patientfk = $row['patient_fk'];
-        echo "<tr> <td>$fname</td>
+        $status = $row['stats'];
+        echo "<tr> 
+            <td>$ids</td>
+            <td>$fname</td>
             <td>$lname</td>
             <td>$email</td>
             <td>$mobile</td>
             <td>$date</td>
             <td>$time</td>
             <td>$services</td> 
+            <td>$status</td> 
             </tr>";
     }
 }
@@ -285,4 +295,55 @@ if(isset($_POST['delete'])){
 //  $query_count = "SELECT (Appointment_Id) AS TOTAL FROM appointment";
 //     $result = mysqli_query($con, $query_count);
 //     $values=mysqli_num_rows($result);
+
+try{
+    if(isset($_POST['approve'])){
+        $id = $_POST['id'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $mobile = $_POST['mobile'];
+    
+        $query= "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='APPROVED' WHERE Appointment_Id = '$id' ";
+        $query_run =  mysqli_query( $con, $query );
+        if ($query_run) {
+            // echo "<script>alert('Approved Status Updated!')</script>";
+            $_SESSION['status'] = "Approved SUCCESSFULLY!";
+            $_SESSION['status_code']= "success";
+            header("location:patientList.php");
+        } else {
+            $_SESSION['status'] = "SOMETHING ERROR!";
+            $_SESSION['status_code']= "error";
+            header( 'Location:updated.php' );
+        }
+    }
+
+}catch(Exception $e){
+    echo $e->getMessage();
+}
+try{
+    if(isset($_POST['decline'])){
+        $id = $_POST['Id'];
+        $fname = $_POST['Fname'];
+        $lname = $_POST['Lname'];
+        $email = $_POST['Email'];
+        $mobile = $_POST['Mobile'];
+    
+        $query= "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='DECLINED' WHERE Appointment_Id = '$id' ";
+        $query_run =  mysqli_query( $con, $query );
+        if ($query_run) {
+            // echo "<script>alert('Declined Status Updated!')</script>";
+            $_SESSION['status'] = "Declined SUCCESSFULLY!";
+            $_SESSION['status_code']= "success";
+            header("location:patientList.php");
+        } else {
+            $_SESSION['status'] = "SOMETHING ERROR!";
+            $_SESSION['status_code']= "error";
+            header( 'Location:updated.php' );
+        }
+    }
+
+}catch(Exception $e){
+    echo $e->getMessage();
+}
 ?>

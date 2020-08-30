@@ -107,6 +107,7 @@
                             <table width="100%" class="table table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Email</th>
@@ -114,7 +115,7 @@
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>Service</th>
-                                        <th></th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -127,6 +128,130 @@
                     </div>
                 </div>
             </div>
+
+            
+                        <!-- MODAL approve patient here... -->
+                        <div class='modal fade' id='modalApprove' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
+                aria-hidden='true'>
+                <div class='modal-dialog' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title' id='exampleModalLabel'>Edit Patient Details</h5>
+                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                <span aria-hidden='true'>&times;
+                                </span>
+                            </button>
+                        </div>
+                        <div class='modal-body'>
+                            <table class='table table-bordered table-hover data-tables'>
+
+                                <form action='func.php' method='POST'>
+
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" name="id" id="id">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Name :</th>
+                                        <td>
+                                            <input type="text" name="fname" id="fname" placeholder='First Name'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Name :</th>
+                                        <td>
+                                            <input type="text" name="lname" id="lname" placeholder='Last Name'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patient Email :</th>
+                                        <td>
+                                            <input type="text" name="email" id="email" placeholder='Email'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patient Mobile No. :</th>
+                                        <td>
+                                            <input type="text" name="mobile" id="mobile" placeholder='Patient Address'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                            <button type="approve" name="approve" class='btn btn-primary'>approve</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                <!-- MODAL Decline patient here... -->
+                <div class='modal fade' id='modalDecline' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title' id='exampleModalLabel'>Edit Patient Details</h5>
+                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                <span aria-hidden='true'>&times;
+                                </span>
+                            </button>
+                        </div>
+                        <div class='modal-body'>
+                            <table class='table table-bordered table-hover data-tables'>
+                                <form action='func.php' method='POST'>
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" name="Id" id="Id">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Name :</th>
+                                        <td>
+                                            <input type="text" name="Fname" id="Fname" placeholder='First Name'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Name :</th>
+                                        <td>
+                                            <input type="text" name="Lname" id="Lname" placeholder='Last Name'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patient Email :</th>
+                                        <td>
+                                            <input type="text" name="Email" id="Email" placeholder='Email'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patient Mobile No. :</th>
+                                        <td>
+                                            <input type="text" name="Mobile" id="Mobile" placeholder='Patient Address'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                            <button type="decline" name="decline" class='btn btn-primary'>Decline</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 </body>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
@@ -137,4 +262,47 @@
 <script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
 
+<script>
+$(document).ready(function() {
+    $('.approvebtn').on('click', function() {
+        $('#modalApprove').modal('show');
+
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+        // console.log(data);
+        $('#id').val(data[0]);
+        $('#fname').val(data[1]);
+        $('#lname').val(data[2]);
+        $('#email').val(data[3]) ;
+        $('#mobile').val(data[4]);
+       
+    });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('.declinebtn').on('click', function() {
+        $('#modalDecline').modal('show');
+
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+        // console.log(data);
+        $('#Id').val(data[0]);
+        $('#Fname').val(data[1]);
+        $('#Lname').val(data[2]);
+        $('#Email').val(data[3]) ;
+        $('#Mobile').val(data[4]);
+       
+    });
+});
+</script>
 </html>

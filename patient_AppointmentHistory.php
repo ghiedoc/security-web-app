@@ -100,6 +100,7 @@
                             <table width="100%" class="table table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>id</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Email</th>
@@ -107,6 +108,7 @@
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>Service</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
