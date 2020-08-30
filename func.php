@@ -1,4 +1,4 @@
-<?php include('alertconfig.php');?>
+
 <?php
 
 
@@ -185,15 +185,23 @@ function getPatientDetails() {
             <td>$address</td>
             <td>
             <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
-            <form action = 'func.php' method = 'post'>
-            <input type='submit' class='btn btn-danger' name='delete' value='Delete'>
-           
-            <input type='hidden' name='deleteId' value='$row[patient_id]'>
-            </form>
+            <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
+            
             </td>
             </tr>";
+        
+//        <form action = 'func.php' method = 'post'>
+//            <input type='submit' class='btn btn-danger' name='delete' value='Delete'>
+//           
+//            <input type='hidden' name='deleteId' value='$row[patient_id]'>
+//            </form>
     }
 }
+
+
+
+
+
 
 // UPDATE PAYMENT OF PATIENT
 if ( isset( $_POST['update_data'] ) ) {
@@ -239,31 +247,35 @@ if(isset($_POST['edit'])){
 }
 
 
-//DELETE THE PATIENT IN THE LIST TABLE
 
 //DELETE FUNCTION IN POPULATING THE DATA IN THE DATABASE IN patienttb TO ADMIN PATIENT LIST
 
-if(isset ($_POST['delete'])){
-    global $con;
-
-    $confirm = print "<script>confirm('Are you sure?')</script>";
-    if($confirm == true){
-         $deleteId = $_POST['deleteId'];
-
-     $queryDELETE = "DELETE FROM patienttb WHERE patient_id = '$deleteId'";
-     $resultDELETE = mysqli_query( $con, $queryDELETE);
+try{
+if(isset($_POST['delete'])){
+    $deleteId = $_POST['id'];
+   
+    $query= "DELETE FROM patienttb WHERE patient_id = '$deleteId'";
+    $query_run =  mysqli_query( $con, $query );
+    if ($query_run) {
+        // echo "<script>alert('Payment Status Updated!')</script>";
+        $_SESSION['status'] = "DELETE SUCCESSFULLY!";
+        $_SESSION['status_code']= "success";
+        header("location:patientList.php");
+    } else {
+        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status_code']= "error";
+        header( 'Location:updated.php' );
+    }
     
-
-
-     if ( $resultDELETE ) {
-         echo "<script>alert('Delete Successfully!')</script>";
-         echo "<script>window.open('patientList.php', '_self')</script>";
-     } else {
-         header( 'Location:dashboard.php' );
-     }
-
-     }
 }
+}catch(Exception $e){
+    echo $e->getMessage();
+}
+
+
+
+
+
 
 
 
