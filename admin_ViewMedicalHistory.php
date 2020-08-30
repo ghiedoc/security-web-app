@@ -98,7 +98,7 @@
                 <div class="container-fluid">
                     <div class="page-title">
                         <h3>Manage Medical History
-                            <a href="roles.html" class="btn btn-sm btn-outline-primary float-right"><i
+                            <a href="admin_AppointmentHistory.php" class="btn btn-sm btn-outline-primary float-right"><i
                                     class="fas fa-user-shield"></i> Appointments</a>
                         </h3>
                     </div>
@@ -133,13 +133,8 @@
                             </table>
                             <br>
                             <br>
-                            <!-- BUTTTON EDIT PATIENT INFO... -->
-                            <p align="center">
-                                <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal"
-                                    data-target="#myModalPatient">Edit Patient</button>
-                            </p>
-                            <!-- MEDICAL HISTORY TABLE-->
 
+                            <!-- MEDICAL HISTORY TABLE-->
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <tr align="center">
