@@ -43,9 +43,8 @@ if ( isset( $_POST['login_submit'] ) ) {
         }
     } elseif ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
         if ( $row = mysqli_fetch_array( $results ) ) {
-
-            $id = $row['patient_id'];
-            $_SESSION['id'] = $id;
+            $id = $row['fname'];
+            $_SESSION['fname'] = $id;
         }
         echo $id;
         header( 'Location:patientDashboard.php' );
