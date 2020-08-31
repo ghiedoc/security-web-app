@@ -33,9 +33,6 @@
               <a href="patientList.php"><i class="fas fa-list-ul"></i> Patient List</a>
             </li>
             <li>
-              <a href="admin_ViewMedicalHistory.php"><i class="fas fa-notes-medical"></i> Patient History</a>
-            </li>
-            <li>
               <a href="admin_Payment.php"><i class="fas fa-receipt"></i>Payments</a>
             </li>
           </ul>
@@ -46,9 +43,6 @@
           <ul class="collapse list-unstyled" id="appointmenu">
             <li>
               <a href="admin_AppointmentHistory.php"><i class="fas fa-eye"></i> View Appointment</a>
-            </li>
-            <li>
-              <a href="admin_ViewMedicalHistory.php"><i class="fas fa-notes-medical"></i> Patient History</a>
             </li>
             <li>
               <a href="admin_Payment.php"><i class="fas fa-receipt"></i>Payments</a>
