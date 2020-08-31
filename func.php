@@ -109,6 +109,34 @@ if ( isset( $_POST['pat_register'] ) ) {
 }
 
 
+//PATIENT ADD HISTORY
+try{
+if ( isset( $_POST['addsubmit'] ) ) {
+    $addid = $_POST["addid"];
+    $height = $_POST["bp"];
+    $weight = $_POST["weight"];
+    $mh = $_POST["med_history"];
+    $vdate = $_POST["vdate"];
+    
+    
+    
+    $query = "INSERT INTO medicalhistorytb(patient_id, Height, Weight, Visit_Date, Medical_History)VALUE('$addid','$height','$weight','$mh','$vdate')";
+    $result = mysqli_query( $con, $query );
+    
+    if ( $result ) {
+        $_SESSION['status'] = "ADDED SUCCESSFULLY!";
+        $_SESSION['status_code']= "success";
+        echo "<script>window.open('patientList.php', '_self')</script>";
+    } else {
+        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status_code']= "error";
+        echo "<script>window.open('patientList.php', '_self')</script>";
+    }
+}
+}catch(Exception $e){
+    echo $e->getMessage();
+}
+
 //POPULATE THE DATA FROM DATABASE IN appointment TO TABLE IN APPOINTMENT HISTORY
 
 function getPatientAppointment() {
@@ -198,18 +226,53 @@ function getPatientDetails() {
             <td>$email</td>
             <td>$address</td>
             <td>
+            
+            <form action='admin_ViewMedicalHistory.php' method='post'>
+            <input type='text' name='id' value='$id' style='display:none'>
+            <input type='text' name='fname' value='$fname' style='display:none'>
+            <input type='text' name='lname' value='$lname' style='display:none'>
+             <input type='text' name='email' value='$gender' style='display:none'>
+              <input type='text' name='gender' value='$email' style='display:none'>
+               <input type='text' name='address' value='$address' style='display:none'>
+            <button type='submit' class='viewbtn btn btn-success' name= 'view_btn'>View</button>
+            
             <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
             <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
+         </form>
             
             </td>
             </tr>";
         
-//        <form action = 'func.php' method = 'post'>
-//            <input type='submit' class='btn btn-danger' name='delete' value='Delete'>
-//           
-//            <input type='hidden' name='deleteId' value='$row[patient_id]'>
-//            </form>
+
     }
+}
+
+function getPatientMedicalHistory($x) {
+    global $con;
+    $id = $x;
+
+    $query = "SELECT * FROM medicalhistorytb WHERE patient_id = '$id'";
+    $result = mysqli_query( $con, $query );
+
+    while( $row = mysqli_fetch_array( $result ) ) {
+        $id = $row['mh_id'];
+        $height = $row['Height'];
+        $weight = $row['Weight'];
+        $mh = $row['Medical_History'];
+        $visit = $row['Visit_Date'];
+        
+        echo "<tr>
+            <td>$id</td>
+            <td>$height</td>
+            <td>$weight</td>
+            <td>$mh</td>
+            <td>$visit</td>
+            
+            </tr>
+            ";
+        
+
+    }    
 }
 
 
