@@ -37,10 +37,6 @@
                             <a href="patientList.php"><i class="fas fa-list-ul"></i> Patient List</a>
                         </li>
                         <li>
-                            <a href="admin_ViewMedicalHistory.php"><i class="fas fa-notes-medical"></i> Patient
-                                History</a>
-                        </li>
-                        <li>
                             <a href="admin_Payment.php"><i class="fas fa-receipt"></i>Payments</a>
                         </li>
                     </ul>
@@ -51,10 +47,6 @@
                     <ul class="collapse list-unstyled" id="appointmenu">
                         <li>
                             <a href="admin_AppointmentHistory.php"><i class="fas fa-eye"></i> View Appointment</a>
-                        </li>
-                        <li>
-                            <a href="admin_ViewMedicalHistory.php"><i class="fas fa-notes-medical"></i> Patient
-                                History</a>
                         </li>
                         <li>
                             <a href="admin_Payment.php"><i class="fas fa-receipt"></i>Payments</a>
@@ -108,16 +100,12 @@
                         </div>
                         <div class='modal-body'>
                             <table class='table table-bordered table-hover data-tables'>
-
                                 <form action='func.php' method='POST'>
-
                                     <tr>
-
                                         <td>
                                             <input type="hidden" name="id" id="id" >
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <th>First Name :</th>
                                         <td>
@@ -151,7 +139,6 @@
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
                             <button type="edit" name="edit" class='btn btn-primary'>Edit</button>
-
                             </form>
                         </div>
                     </div>
@@ -180,12 +167,7 @@
                                         <td>
                                             <input type="hidden" name="id" id="deleteId">
                                         </td>
-                                    </tr>
-
-                                    
-                                    
-                                  
-                                   
+                                    </tr>            
                             </table>
                         </div>
                         <div class='modal-footer'>

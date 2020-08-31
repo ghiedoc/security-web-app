@@ -19,7 +19,8 @@
 </head>
 
 <body>
-
+    
+    
     <!-- NAVIGATION BAR -->
     <div class="wrapper">
         <nav id="sidebar" class="active">
@@ -38,9 +39,6 @@
                             <a href="patientList.php"><i class="fas fa-list-ul"></i> Patient List</a>
                         </li>
                         <li>
-                            <a href="admin_ViewMedicalHistory.php"><i class="fas fa-notes-medical"></i> Patient History</a>
-                        </li>
-                        <li>
                             <a href="admin_Payment.php"><i class="fas fa-receipt"></i>Payments</a>
                         </li>
                     </ul>
@@ -51,9 +49,6 @@
                     <ul class="collapse list-unstyled" id="appointmenu">
                         <li>
                             <a href="admin_AppointmentHistory.php"><i class="fas fa-eye"></i> View Appointment</a>
-                        </li>
-                        <li>
-                            <a href="patientList.php"><i class="fas fa-notes-medical"></i> Patient History</a>
                         </li>
                         <li>
                             <a href="admin_Payment.php"><i class="fas fa-receipt"></i>Payments</a>
@@ -98,7 +93,7 @@
                 <div class="container-fluid">
                     <div class="page-title">
                         <h3>Manage Medical History
-                            <a href="roles.html" class="btn btn-sm btn-outline-primary float-right"><i
+                            <a href="admin_AppointmentHistory.php" class="btn btn-sm btn-outline-primary float-right"><i
                                     class="fas fa-user-shield"></i> Appointments</a>
                         </h3>
                     </div>
@@ -114,32 +109,27 @@
 
                                 <tr>
                                     <th scope>First Name:</th>
-                                    <td></td>
+                                    <td><?php echo $_POST["fname"];?></td>
                                     <th scope>Last Name:</th>
-                                    <td></td>
+                                    <td><?php echo $_POST["lname"];?></td>
                                 </tr>
                                 <tr>
                                     <th>Patient Email:</th>
-                                    <td></td>
+                                    <td><?php echo $_POST["gender"];?></td>
                                     <th>Patient Gender:</th>
-                                    <td></td>
+                                    <td><?php echo $_POST["email"];?></td>
                                 </tr>
                                 <tr>
                                     <th>Patient Address:</th>
-                                    <td></td>
+                                    <td><?php echo $_POST["address"];?></td>
                                     <th>Registration Date:</th>
                                     <td></td>
                                 </tr>
                             </table>
                             <br>
                             <br>
-                            <!-- BUTTTON EDIT PATIENT INFO... -->
-                            <p align="center">
-                                <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal"
-                                    data-target="#myModalPatient">Edit Patient</button>
-                            </p>
-                            <!-- MEDICAL HISTORY TABLE-->
 
+                            <!-- MEDICAL HISTORY TABLE-->
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <tr align="center">
@@ -154,14 +144,11 @@
                                     <th>Medical History</th>
                                     <th>Visit Date</th>
                                 </tr>
-
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                
+                                <tbody>
+                                <?php getPatientMedicalHistory( $_POST["id"]); ?>
+                                </tbody>
+                                
                             </table>
 
                             <!-- BUTTTON ADD MEDICAL HISTORY HERE... -->
@@ -169,6 +156,10 @@
                                 <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal"
                                     data-target="#myModal">Add Medical History</button>
                             </p>
+
+                            
+                                            
+                                            
 
                             <!-- MODAL ADD MEDICAL HISTORY HERE... -->
                             <div class='modal fade' id='myModal' tabindex='-1' role='dialog'
@@ -185,13 +176,14 @@
                                         <div class='modal-body'>
                                             <table class='table table-bordered table-hover data-tables'>
 
-                                                <form method='' name='submit'>
+                                                <form method='post' action='func.php'>
 
                                                     <tr>
                                                         <th>Height :</th>
                                                         <td>
                                                             <input name='bp' placeholder='Height'
                                                                 class='form-control wd-450' required='true'></td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                         <th>Weight :</th>
@@ -209,24 +201,35 @@
                                                     <tr>
                                                         <th>Visit Date :</th>
                                                         <td>
-                                                            <input name='vdate' placeholder='Visit Date'
+                                                            <input type="date" name='vdate' placeholder='Visit Date'
                                                                 class='form-control wd-450' required='true'>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr style="display:none">
+                                                        <th></th>
+                                                        <td>
+                                                            <input value='<?php echo $_POST["id"] ?>' name='addid'>
+                                                           
                                                         </td>
                                                     </tr>
 
                                             </table>
                                         </div>
                                         <div class='modal-footer'>
+                                          
                                             <button type='button' class='btn btn-secondary'
                                                 data-dismiss='modal'>Close</button>
-                                            <button type='submit' name='submit' class='btn btn-primary'>Submit</button>
+                                            <button type='submit' name='addsubmit' class='btn btn-primary'>Submit</button>
 
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                            
+                            
+                                            
                             <!-- MODAL EDIT PATIENT DETAILS HERE... -->
                             <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog'
                                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -276,6 +279,8 @@
                                             <button type='edit' name='edit' class='btn btn-primary'>Edit</button>
 
                                             </form>
+                                            
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -289,7 +294,11 @@
     </div>
     </div>
     </div>
+
+    
 </body>
+
+
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
