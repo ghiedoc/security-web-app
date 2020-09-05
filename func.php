@@ -136,7 +136,6 @@ if ( isset( $_POST['addsubmit'] ) ) {
 }
 
 //POPULATE THE DATA FROM DATABASE IN appointment TO TABLE IN APPOINTMENT HISTORY
-
 function getPatientAppointment() {
     global $con;
     $query = 'SELECT * FROM appointment';
@@ -174,6 +173,37 @@ function getPatientAppointment() {
 function getPatientAppointmentHistory() {
     global $con;
     $query = 'SELECT * FROM appointment';
+    $result = mysqli_query( $con, $query );
+
+    while( $row = mysqli_fetch_array( $result ) ) {
+        $ids = $row['Appointment_Id'];
+        $fname = $row['Fname'];
+        $lname = $row['Lname'];
+        $email = $row['Email'];
+        $mobile = $row['Mobile'];
+        $date = $row['Appointment_Date'];
+        $time = $row['Appointment_Time'];
+        $services = $row['Appointment_Service'];
+        $patientfk = $row['patient_fk'];
+        $status = $row['stats'];
+        echo "<tr> 
+            <td>$ids</td>
+            <td>$fname</td>
+            <td>$lname</td>
+            <td>$email</td>
+            <td>$mobile</td>
+            <td>$date</td>
+            <td>$time</td>
+            <td>$services</td> 
+            <td>$status</td> 
+            </tr>";
+    }
+}
+
+//PATIENT APPOINTMENT HISTORY, dito sana mafefetch lang yung info nung user na naka login
+function getPatientAppointmentLogs() {
+    global $con;
+    $query = 'SELECT * FROM appointment WHERE patient_fk = ?';
     $result = mysqli_query( $con, $query );
 
     while( $row = mysqli_fetch_array( $result ) ) {

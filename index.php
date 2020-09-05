@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/auth.css">
-    <link rel="stylesheet" href="css/sidebar-dafault.css">
-
 
 
     <!-- <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet" /> -->
@@ -66,9 +64,6 @@
                 </div>
                 <div class="modal-body mx-3">
                     <div class="card-body text-center">
-                        <!-- <div class="mb-4">
-                            <img class="brand" src="./images/001-teeth.svg" alt="logo here" />
-                        </div> -->
                         <h6 class="mb-4 text-muted">Sign in to your Account</h6>
 
                         <!-- LOGIN -->
