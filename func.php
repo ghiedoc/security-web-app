@@ -56,7 +56,7 @@ if ( isset( $_POST['login_submit'] ) ) {
     }
 }
 
-// ADDING APPOINTMENT
+// BOOKING/ADDING AN APPOINTMENT
 if ( isset( $_POST['pat_submit'] ) ) {
 
     $fname = $_POST['fname'];
@@ -94,11 +94,11 @@ if ( isset( $_POST['pat_register'] ) ) {
     $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
     $result = mysqli_query( $con, $query );
     if ( $result ) {
-        $_SESSION['status'] = "ADDED SUCCESSFULLY!";
+        $_SESSION['status'] = "You are now Registered!";
         $_SESSION['status_code']= "success";
         echo "<script>window.open('index.php', '_self')</script>";
     } else {
-        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status'] = "Something went wrong!";
         $_SESSION['status_code']= "error";
         echo "<script>window.open('signup.php', '_self')</script>";
     }
@@ -108,7 +108,7 @@ if ( isset( $_POST['pat_register'] ) ) {
 }
 
 
-//PATIENT ADD HISTORY
+//PATIENT ADD MEDICAL HISTORY
 try{
 if ( isset( $_POST['addsubmit'] ) ) {
     $addid = $_POST["addid"];
@@ -117,17 +117,16 @@ if ( isset( $_POST['addsubmit'] ) ) {
     $mh = $_POST["med_history"];
     $vdate = $_POST["vdate"];
     
-    
-    
+
     $query = "INSERT INTO medicalhistorytb(patient_id, Height, Weight, Visit_Date, Medical_History)VALUE('$addid','$height','$weight','$mh','$vdate')";
     $result = mysqli_query( $con, $query );
     
     if ( $result ) {
-        $_SESSION['status'] = "ADDED SUCCESSFULLY!";
+        $_SESSION['status'] = "Added Successfully!";
         $_SESSION['status_code']= "success";
         echo "<script>window.open('patientList.php', '_self')</script>";
     } else {
-        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status'] = "Something went wrong!";
         $_SESSION['status_code']= "error";
         echo "<script>window.open('patientList.php', '_self')</script>";
     }
@@ -203,7 +202,6 @@ function getPatientAppointmentHistory() {
 }
 
 //POPULATE THE DATA FROM DATABASE IN patienttb TO TABLE IN ADMIN PATIENT LIST
-
 function getPatientDetails() {
     global $con;
 
@@ -217,7 +215,8 @@ function getPatientDetails() {
         $gender = $row['gender'];
         $email = $row['email'];
         $address = $row['adds'];
-        echo "<tr>
+        echo "
+        <tr>
             <td>$id</td>
             <td>$fname</td>
             <td>$lname</td>
@@ -225,24 +224,20 @@ function getPatientDetails() {
             <td>$email</td>
             <td>$address</td>
             <td>
-            
             <form action='admin_ViewMedicalHistory.php' method='post'>
-            <input type='text' name='id' value='$id' style='display:none'>
-            <input type='text' name='fname' value='$fname' style='display:none'>
-            <input type='text' name='lname' value='$lname' style='display:none'>
-             <input type='text' name='email' value='$gender' style='display:none'>
-              <input type='text' name='gender' value='$email' style='display:none'>
-               <input type='text' name='address' value='$address' style='display:none'>
-            <button type='submit' class='viewbtn btn btn-success' name= 'view_btn'>View</button>
+                <input type='text' name='id' value='$id' style='display:none'>
+                <input type='text' name='fname' value='$fname' style='display:none'>
+                <input type='text' name='lname' value='$lname' style='display:none'>
+                <input type='text' name='email' value='$gender' style='display:none'>
+                <input type='text' name='gender' value='$email' style='display:none'>
+                <input type='text' name='address' value='$address' style='display:none'>
+                <button type='submit' class='viewbtn btn btn-success' name= 'view_btn'>View</button>
             
-            <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
-            <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
-         </form>
-            
+                <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
+                <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
+            </form>
             </td>
-            </tr>";
-        
-
+        </tr>";
     }
 }
 
@@ -269,14 +264,8 @@ function getPatientMedicalHistory($x) {
             
             </tr>
             ";
-        
-
     }    
 }
-
-
-
-
 
 
 // UPDATE PAYMENT OF PATIENT
@@ -309,11 +298,11 @@ if(isset($_POST['edit'])){
     $query_run =  mysqli_query( $con, $query );
     if ($query_run) {
         // echo "<script>alert('Payment Status Updated!')</script>";
-        $_SESSION['status'] = "UPDATED SUCCESSFULLY!";
+        $_SESSION['status'] = "Updated Successfully!";
         $_SESSION['status_code']= "success";
         header("location:patientList.php");
     } else {
-        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status'] = "Something went wrong!";
         $_SESSION['status_code']= "error";
         header( 'Location:updated.php' );
     }
@@ -323,9 +312,7 @@ if(isset($_POST['edit'])){
 }
 
 
-
 //DELETE FUNCTION IN POPULATING THE DATA IN THE DATABASE IN patienttb TO ADMIN PATIENT LIST
-
 try{
 if(isset($_POST['delete'])){
     $deleteId = $_POST['id'];
@@ -334,11 +321,11 @@ if(isset($_POST['delete'])){
     $query_run =  mysqli_query( $con, $query );
     if ($query_run) {
         // echo "<script>alert('Payment Status Updated!')</script>";
-        $_SESSION['status'] = "DELETE SUCCESSFULLY!";
+        $_SESSION['status'] = "Delete Successfully!";
         $_SESSION['status_code']= "success";
         header("location:patientList.php");
     } else {
-        $_SESSION['status'] = "SOMETHING ERROR!";
+        $_SESSION['status'] = "Something went wrong!";
         $_SESSION['status_code']= "error";
         header( 'Location:updated.php' );
     }
@@ -373,11 +360,11 @@ try{
         $query_run =  mysqli_query( $con, $query );
         if ($query_run) {
             // echo "<script>alert('Approved Status Updated!')</script>";
-            $_SESSION['status'] = "Approved SUCCESSFULLY!";
+            $_SESSION['status'] = "Approved Successfuly!";
             $_SESSION['status_code']= "success";
             header("location:patientList.php");
         } else {
-            $_SESSION['status'] = "SOMETHING ERROR!";
+            $_SESSION['status'] = "Something went wrong!";
             $_SESSION['status_code']= "error";
             header( 'Location:updated.php' );
         }
@@ -398,16 +385,15 @@ try{
         $query_run =  mysqli_query( $con, $query );
         if ($query_run) {
             // echo "<script>alert('Declined Status Updated!')</script>";
-            $_SESSION['status'] = "Declined SUCCESSFULLY!";
+            $_SESSION['status'] = "Declined Successfully!";
             $_SESSION['status_code']= "success";
             header("location:patientList.php");
         } else {
-            $_SESSION['status'] = "SOMETHING ERROR!";
+            $_SESSION['status'] = "Something went wrong";
             $_SESSION['status_code']= "error";
             header( 'Location:updated.php' );
         }
     }
-
 }catch(Exception $e){
     echo $e->getMessage();
 }

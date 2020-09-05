@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/services.css">
     <link rel="stylesheet" href="css/auth.css">
     <link rel="stylesheet" href="css/sidebar-dafault.css">
 
@@ -68,8 +67,8 @@
                 <div class="modal-body mx-3">
                     <div class="card-body text-center">
                         <!-- <div class="mb-4">
-                  <img class="brand" src="./images/001-teeth.svg" alt="logo here" />
-                </div> -->
+                            <img class="brand" src="./images/001-teeth.svg" alt="logo here" />
+                        </div> -->
                         <h6 class="mb-4 text-muted">Sign in to your Account</h6>
 
                         <!-- LOGIN -->
@@ -82,19 +81,19 @@
                                     required />
                             </div>
                             <!-- <div class="form-group text-left">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="remember" class="custom-control-input" id="remember-me" />
-                      <label class="custom-control-label" for="remember-me">Remember me</label>
-                    </div>
-                  </div> -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="remember" class="custom-control-input" id="remember-me" />
+                                    <label class="custom-control-label" for="remember-me">Remember me</label>
+                                </div>
+                            </div> -->
                             <!-- SUBMIT BUTTON -->
                             <button type="submit" name="login_submit" class="btn btn-primary shadow-2 mb-4">
                                 Login
                             </button>
                         </form>
                         <!-- <p class="mb-2 text-muted">
-                  Forgot password? <a href="forgot-password.php">Reset</a>
-                </p> -->
+                            Forgot password? <a href="forgot-password.php">Reset</a>
+                        </p> -->
                         <p class="mb-0 text-muted">
                             Don’t have an account? <a href="signup.php">Signup</a>
                         </p>
@@ -119,13 +118,13 @@
                     <div class="card-body text-center">
                         <form action="func.php" class="form-group" method="post">
                             <div class="form-group">
-                                <input type="text" name="fname" class="form-control" placeholder="First Name" required autocomplete="off">
+                                <input type="text" name="fname" class="form-control" placeholder="First Name" pattern="[a-z][A-Z]" required autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="lname" class="form-control" placeholder="Last Name" required autocomplete="off">
+                                <input type="text" name="lname" class="form-control" placeholder="Last Name" pattern="[a-z][A-Z]" required autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="address" class="form-control" placeholder="Address" required autocomplete="off">
+                                <input type="text" name="address" class="form-control" placeholder="Address" pattern="[a-z][A-Z][0-9]" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <select name="gender" class="form-control" placeholder="Gender" required autocomplete="off">
@@ -151,9 +150,6 @@
 
     <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
     <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
-
-    
-
 
 </body>
 <?php include('alertconfig.php');?>
