@@ -113,8 +113,8 @@ if ( isset( $_POST['addsubmit'] ) ) {
     $addid = $_POST["addid"];
     $height = $_POST["bp"];
     $weight = $_POST["weight"];
-    $mh = $_POST["med_history"];
-    $vdate = $_POST["vdate"];
+    $mh = $_POST["vdate"];
+    $vdate = $_POST["med_history"];
     
     
     
