@@ -64,7 +64,7 @@
             <li class="nav-item dropdown">
               <div class="nav-dropdown">
                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i>
-                  <span>John Doe</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                  <span>Welcome, Administrator</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                   <ul class="nav-list">
                     <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
@@ -139,39 +139,6 @@
             </div>
 
           </div>
-
-          <!-- Charts -->
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <div class="content">
-                  <div class="head">
-                    <h4 class="mb-0">Traffic Overview</h4>
-                    <p class="text-muted">Your year long website traffic data</p>
-                  </div>
-                  <div class="canvas-wrapper">
-                    <canvas class="chart" id="trafficflow"></canvas>
-                  </div>
-                  <div class="ui hidden divider"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <div class="content">
-                  <div class="head">
-                    <h4 class="mb-0">Sales Overview</h4>
-                    <p class="text-muted">Your year long sales data</p>
-                  </div>
-                  <div class="canvas-wrapper">
-                    <canvas class="chart" id="sales"></canvas>
-                  </div>
-                  <div class="ui hidden divider"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Charts -->
         </div>
       </div>
     </div>
@@ -183,8 +150,6 @@
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
-<script src="vendor/chartsjs/Chart.min.js"></script>
-<script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
 
 </html>
