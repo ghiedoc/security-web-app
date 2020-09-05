@@ -49,10 +49,9 @@ if ( isset( $_POST['login_submit'] ) ) {
         header( 'Location:patientDashboard.php' );
 
     } else {
-        // MAY ERROR SOMETHING DITO KAPAG MALI YUNG CREDENTIALS NA NILAGAY
-        echo "<script>alert('Error Logging in Admin!')</script>";
-        echo "<script>window.open('index.php', '_self')</script>";
-    }
+        // MAY ERROR SOMETHING DITO KAPAG MALI YUNG CREDENTIALS NA NILAGA
+        $_message= 'LOGIN ERROR';
+    }   
 }
 
 // BOOKING/ADDING AN APPOINTMENT
@@ -83,6 +82,7 @@ if ( isset( $_POST['pat_submit'] ) ) {
 
 //PATIENT REGISTRATION
 try{
+    $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
 if ( isset( $_POST['pat_register'] ) ) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -90,17 +90,28 @@ if ( isset( $_POST['pat_register'] ) ) {
     $email = $_POST['email'];
     $adds = $_POST['address'];
     $password = $_POST['password'];
-    $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
-    $result = mysqli_query( $con, $query );
+
+     $query_email = "SELECT * FROM patienttb WHERE email='$email'";
+     $res = mysqli_query( $con, $query_email );
+     if(mysqli_num_rows($res) > 0){
+        echo'Email Already Exist!';
+     }else{    
+        if(preg_match($pattern,$password)){
+            $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
+         $result = mysqli_query( $con, $query );
     if ( $result ) {
-        $_SESSION['status'] = "You are now Registered!";
+        $_SESSION['status'] = "You have been Signed Up!";
         $_SESSION['status_code']= "success";
         echo "<script>window.open('index.php', '_self')</script>";
     } else {
         $_SESSION['status'] = "Something went wrong!";
         $_SESSION['status_code']= "error";
         echo "<script>window.open('signup.php', '_self')</script>";
-    }
+}
+}else{
+    echo 'error';
+}
+}
 }
 }catch(Exception $e){
     echo $e->getMessage();

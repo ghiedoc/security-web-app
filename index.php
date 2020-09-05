@@ -72,84 +72,97 @@
                         <h6 class="mb-4 text-muted">Sign in to your Account</h6>
 
                         <!-- LOGIN -->
-                        <form action="func.php" method="post">
-                            <div class="form-group">
-                                <input type="email" name="username" class="form-control" placeholder="Email" required autocomplete="off"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off"
-                                    required />
-                            </div>
-                            <!-- <div class="form-group text-left">
+                        <!-- error validation login-->
+                        <div class="alert alert-danger alert-dismissable" dispaly="none">
+                            <a href="#" class="close" data-dismiss="alert" aria-hidden="true"">&times;</a>
+                            <strong><?php $message;?></strong>
+                        </div>
+
+                        <form action=" func.php" method="post">
+
+                                <div class="form-group">
+                                    <input type="email" name="username" class="form-control" placeholder="Email"
+                                        required autocomplete="off" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password"
+                                        autocomplete="off" required />
+                                </div>
+                                <!-- <div class="form-group text-left">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" name="remember" class="custom-control-input" id="remember-me" />
                                     <label class="custom-control-label" for="remember-me">Remember me</label>
                                 </div>
                             </div> -->
-                            <!-- SUBMIT BUTTON -->
-                            <button type="submit" name="login_submit" class="btn btn-primary shadow-2 mb-4">
-                                Login
-                            </button>
-                        </form>
-                        <!-- <p class="mb-2 text-muted">
+                                <!-- SUBMIT BUTTON -->
+                                <button type="submit" name="login_submit" class="btn btn-primary shadow-2 mb-4">
+                                    Login
+                                </button>
+                                </form>
+                                <!-- <p class="mb-2 text-muted">
                             Forgot password? <a href="forgot-password.php">Reset</a>
                         </p> -->
-                        <p class="mb-0 text-muted">
-                            Don’t have an account? <a href="signup.php">Signup</a>
-                        </p>
+                                <p class="mb-0 text-muted">
+                                    Don’t have an account? <a href="signup.php">Signup</a>
+                                </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Modal Sign Up-->
-    <div class=" modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body mx-3">
-                    <h6 class="mb-4 text-muted">Create a New Account</h6>
-                    <div class="card-body text-center">
-                        <form action="func.php" class="form-group" method="post">
-                            <div class="form-group">
-                                <input type="text" name="fname" class="form-control" placeholder="First Name" pattern="[a-z][A-Z]" required autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="lname" class="form-control" placeholder="Last Name" pattern="[a-z][A-Z]" required autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="address" class="form-control" placeholder="Address" pattern="[a-z][A-Z][0-9]" required autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <select name="gender" class="form-control" placeholder="Gender" required autocomplete="off">
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Email" required autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password"
-                                    required autocomplete="off">
-                            </div>
-                            <button type="submit" name="pat_register" value="Add Registration"
-                                class="btn btn-primary shadow-2 mb-4">Register</button>
-                        </form>
+        <!-- Modal Sign Up-->
+        <div class=" modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <h6 class="mb-4 text-muted">Create a New Account</h6>
+                        <div class="card-body text-center">
+                            <form action="func.php" class="form-group" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="fname" class="form-control" placeholder="First Name"
+                                        required autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="lname" class="form-control" placeholder="Last Name"
+                                        required autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="address" class="form-control" placeholder="Address"
+                                        required autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <select name="gender" class="form-control" placeholder="Gender" required
+                                        autocomplete="off">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" required
+                                        autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password"
+                                        required autocomplete="off">
+                                </div>
+                                <button type="submit" name="pat_register" value="Add Registration"
+                                    class="btn btn-primary shadow-2 mb-4">Register</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
-    <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
+        <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
 
 </body>
 <?php include('alertconfig.php');?>
