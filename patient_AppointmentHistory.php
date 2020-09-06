@@ -40,9 +40,9 @@
                             <a href="patient_BookAppointment.php"><i class="fas fa-notes-medical"></i> Book
                                 Appointment</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="patient_AppointmentHistory.php"><i class="fas fa-eye"></i> Appointment History</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="patient_MedicalHistory.php"><i class="fas fa-notes-medical"></i>Medical
                                 History</a>
@@ -113,7 +113,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <?php getPatientAppointmentLog(); ?>
+                                        <?php getPatientMedicalHistory(); ?>
                                     </tr>
                                 </tbody>
                             </table>

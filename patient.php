@@ -54,14 +54,14 @@ History</a>
 </ul>
 </li>
 <!-- SETTINGS -->
-<li>
+<!-- <li>
 <a href = '#authmenu' data-toggle = 'collapse' aria-expanded = 'false'
 
 class = 'dropdown-toggle no-caret-down'><i class = 'fas fa-cog'></i> Settings</a>
 <ul class = 'collapse list-unstyled' id = 'authmenu'>
 <li>
 <a href = 'forgot-password.php'><i class = 'fas fa-user-lock'></i> Change password</a>
-</li>
+</li> -->
 </ul>
 </li>
 </ul>
