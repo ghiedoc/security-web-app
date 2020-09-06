@@ -84,22 +84,13 @@
                                         autocomplete="off" required />
                                 </div>
                                 
-                                <!-- <div class="form-group text-left">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="remember" class="custom-control-input" id="remember-me" />
-                                    <label class="custom-control-label" for="remember-me">Remember me</label>
-                                </div>
-                            </div> -->
                                 <!-- SUBMIT BUTTON -->
                                 <button type="submit" name="login_submit" class="btn btn-primary shadow-2 mb-4">
                                     Login
                                 </button>
                                 </form>
-                                <!-- <p class="mb-2 text-muted">
-                            Forgot password? <a href="forgot-password.php">Reset</a>
-                        </p> -->
                                 <p class="mb-0 text-muted">
-                                    Don’t have an account? <a href="signup.php">Signup</a>
+                                    Don’t have an account? <a href="index.php">Signup</a>
                                 </p>
                         </div>
                     </div>

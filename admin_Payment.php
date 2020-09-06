@@ -91,8 +91,8 @@
                         <form action="func.php" method="post" class="form-group">
                             <input type="text" name="contact" class="form-control" placeholder="Enter contact"><br>
                             <select name="status" id="" class="form-control">
-                                <option value="paid">Paid</option>
-                                <option value="pay later">Pay Later</option>
+                                <option value="PAID">Paid</option>
+                                <option value="PAY LATER">Pay Later</option>
                             </select> <br>
                             <hr>
                             <input type="submit" value="Update" name="update_data" class="btn btn-primary">
@@ -110,8 +110,6 @@
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
-<script src="vendor/chartsjs/Chart.min.js"></script>
-<script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
 
 

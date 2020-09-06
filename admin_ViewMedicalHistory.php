@@ -154,10 +154,6 @@
                                     data-target="#myModal">Add Medical History</button>
                             </p>
 
-                            
-                                            
-                                            
-
                             <!-- MODAL ADD MEDICAL HISTORY HERE... -->
                             <div class='modal fade' id='myModal' tabindex='-1' role='dialog'
                                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -231,9 +227,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            
-                                            
+                                                                                                   
                             <!-- MODAL EDIT PATIENT DETAILS HERE... -->
                             <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog'
                                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -283,13 +277,11 @@
                                             <button type='edit' name='edit' class='btn btn-primary'>Edit</button>
 
                                             </form>
-                                            
-                                           
+                                                                                      
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -302,14 +294,10 @@
     
 </body>
 
-
-
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
-<script src="vendor/chartsjs/Chart.min.js"></script>
-<script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
 
 </html>
