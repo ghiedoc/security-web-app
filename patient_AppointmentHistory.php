@@ -40,22 +40,12 @@
                             <a href="patient_BookAppointment.php"><i class="fas fa-notes-medical"></i> Book
                                 Appointment</a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="patient_AppointmentHistory.php"><i class="fas fa-eye"></i> Appointment History</a>
-                        </li> -->
+                        </li>
                         <li>
                             <a href="patient_MedicalHistory.php"><i class="fas fa-notes-medical"></i>Medical
                                 History</a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- SETTINGS -->
-                <li>
-                    <a href="#authmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle no-caret-down"><i class="fas fa-cog"></i> Settings</a>
-                    <ul class="collapse list-unstyled" id="authmenu">
-                        <li>
-                            <a href="forgot-password.php"><i class="fas fa-user-lock"></i> Change password</a>
                         </li>
                     </ul>
                 </li>
@@ -91,7 +81,7 @@
                 <div class="container-fluid">
                     <div class="page-title">
                         <h3>My Appointment's History
-                            <a href="roles.html" class="btn btn-sm btn-outline-primary float-right"><i
+                            <a href="patient_AppointmentHistory.php" class="btn btn-sm btn-outline-primary float-right"><i
                                     class="fas fa-user-shield"></i> Appointments</a>
                         </h3>
                     </div>
@@ -103,8 +93,6 @@
                                         <th>id</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
-                                        <th>Email</th>
-                                        <th>Mobile Nos.</th>
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>Service</th>
@@ -113,7 +101,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <?php getPatientMedicalHistory(); ?>
+                                        <?php getPatientAppointmentLogs(); ?>
                                     </tr>
                                 </tbody>
                             </table>

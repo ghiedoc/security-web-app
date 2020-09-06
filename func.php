@@ -1,6 +1,6 @@
-<?php include('alertconfig.php');?>
+<?php include( 'alertconfig.php' );
+?>
 <?php
-
 
 // connection sa database sa mysql
 
@@ -39,7 +39,7 @@ if ( isset( $_POST['login_submit'] ) ) {
         if ( mysqli_num_rows( $result ) == 1 ) {
 
             header( 'Location:dashboard.php' );
-        }else{
+        } else {
             echo "<script>alert('Error Logging in Admin!')</script>";
             echo "<script>window.open('index.php', '_self')</script>";
         }
@@ -55,10 +55,11 @@ if ( isset( $_POST['login_submit'] ) ) {
 
     } else {
         // MAY ERROR SOMETHING DITO KAPAG MALI YUNG CREDENTIALS NA NILAGA
-        //$_message= 'LOGIN ERROR';
+        //$_message = 'LOGIN ERROR';
         echo "<script>alert('Error Logging in User!')</script>";
         echo "<script>window.open('index.php', '_self')</script>";
-    }   
+    }
+
 }
 
 // BOOKING/ADDING AN APPOINTMENT
@@ -73,7 +74,6 @@ if ( isset( $_POST['pat_submit'] ) ) {
     $services = $_POST['services'];
     $id = $_SESSION['id'];
     $stats = $_POST['pend'];
-   
 
     $query = "INSERT INTO appointment(Fname, Lname, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk,stats)
      VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats')";
@@ -90,72 +90,72 @@ if ( isset( $_POST['pat_submit'] ) ) {
 }
 
 //PATIENT REGISTRATION
-try{
+try {
     $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
-if ( isset( $_POST['pat_register'] ) ) {
-    alert('PASSWORD MUST HAVE ONE UPPER CASE AND A NUMBER');
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $gender = $_POST['gender'];
-    $email = $_POST['email'];
-    $adds = $_POST['address'];
-    $password = $_POST['password'];
+    if ( isset( $_POST['pat_register'] ) ) {
+        alert( 'PASSWORD MUST HAVE ONE UPPER CASE AND A NUMBER' );
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $adds = $_POST['address'];
+        $password = $_POST['password'];
 
-     $query_email = "SELECT * FROM patienttb WHERE email='$email'";
-     $res = mysqli_query( $con, $query_email );
-     if(mysqli_num_rows($res) > 0){
-        echo "<script>alert('Email Already Exist!')</script>";
-        echo "<script>window.open('index.php', '_self')</script>";
+        $query_email = "SELECT * FROM patienttb WHERE email='$email'";
+        $res = mysqli_query( $con, $query_email );
+        if ( mysqli_num_rows( $res ) > 0 ) {
+            echo "<script>alert('Email Already Exist!')</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
 
-    }else{    
-        if(preg_match($pattern,$password)){
-            $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
-         $result = mysqli_query( $con, $query );
-    if ( $result ) {
-        echo "<script>alert('Success Registering!')</script>";
-        echo "<script>window.open('index.php', '_self')</script>";
-    } else {
-        echo "<script>alert('Error Registering!')</script>";
-        echo "<script>window.open('index.php', '_self')</script>";
-}
-}else{
-    echo "<script>alert('Error Registering!')</script>";
-}
-}
-}
-}catch(Exception $e){
+        } else {
+
+            if ( preg_match( $pattern, $password ) ) {
+                $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
+                $result = mysqli_query( $con, $query );
+                if ( $result ) {
+                    echo "<script>alert('Success Registering!')</script>";
+                    echo "<script>window.open('index.php', '_self')</script>";
+                } else {
+                    echo "<script>alert('Error Registering!')</script>";
+                    echo "<script>window.open('index.php', '_self')</script>";
+                }
+            } else {
+                echo "<script>alert('Error Registering!')</script>";
+            }
+        }
+    }
+} catch( Exception $e ) {
     echo $e->getMessage();
 }
 
-
 //PATIENT ADD MEDICAL HISTORY
-try{
-if ( isset( $_POST['addsubmit'] ) ) {
-    $addid = $_POST["addid"];
-    $height = $_POST["bp"];
-    $weight = $_POST["weight"];
-    $mh = $_POST["vdate"];
-    $vdate = $_POST["med_history"];
-    
+try {
+    if ( isset( $_POST['addsubmit'] ) ) {
+        $addid = $_POST['addid'];
+        $height = $_POST['bp'];
+        $weight = $_POST['weight'];
+        $mh = $_POST['vdate'];
+        $vdate = $_POST['med_history'];
 
-    $query = "INSERT INTO medicalhistorytb(patient_id, Height, Weight, Visit_Date, Medical_History)VALUE('$addid','$height','$weight','$mh','$vdate')";
-    $result = mysqli_query( $con, $query );
-    
-    if ( $result ) {
-        $_SESSION['status'] = "Added Successfully!";
-        $_SESSION['status_code']= "success";
-        echo "<script>window.open('patientList.php', '_self')</script>";
-    } else {
-        $_SESSION['status'] = "Something went wrong!";
-        $_SESSION['status_code']= "error";
-        echo "<script>window.open('patientList.php', '_self')</script>";
+        $query = "INSERT INTO medicalhistorytb(patient_id, Height, Weight, Visit_Date, Medical_History)VALUE('$addid','$height','$weight','$mh','$vdate')";
+        $result = mysqli_query( $con, $query );
+
+        if ( $result ) {
+            $_SESSION['status'] = 'Added Successfully!';
+            $_SESSION['status_code'] = 'success';
+            echo "<script>window.open('patientList.php', '_self')</script>";
+        } else {
+            $_SESSION['status'] = 'Something went wrong!';
+            $_SESSION['status_code'] = 'error';
+            echo "<script>window.open('patientList.php', '_self')</script>";
+        }
     }
-}
-}catch(Exception $e){
+} catch( Exception $e ) {
     echo $e->getMessage();
 }
 
 //POPULATE THE DATA FROM DATABASE IN appointment TO TABLE IN APPOINTMENT HISTORY
+
 function getPatientAppointment() {
     global $con;
     $query = 'SELECT * FROM appointment';
@@ -221,17 +221,17 @@ function getPatientAppointmentHistory() {
 }
 
 //PATIENT APPOINTMENT HISTORY, dito sana mafefetch lang yung info nung user na naka login
+
 function getPatientAppointmentLogs() {
     global $con;
-    $query = 'SELECT * FROM appointment WHERE patient_fk = ?';
+    $ids = $_SESSION['id'];
+    $query = "SELECT * FROM appointment WHERE patient_fk='$ids'";
     $result = mysqli_query( $con, $query );
 
     while( $row = mysqli_fetch_array( $result ) ) {
         $ids = $row['Appointment_Id'];
         $fname = $row['Fname'];
         $lname = $row['Lname'];
-        $email = $row['Email'];
-        $mobile = $row['Mobile'];
         $date = $row['Appointment_Date'];
         $time = $row['Appointment_Time'];
         $services = $row['Appointment_Service'];
@@ -241,17 +241,16 @@ function getPatientAppointmentLogs() {
             <td>$ids</td>
             <td>$fname</td>
             <td>$lname</td>
-            <td>$email</td>
-            <td>$mobile</td>
             <td>$date</td>
             <td>$time</td>
             <td>$services</td> 
-            <td>$status</td> 
+            <td>$status</td>
             </tr>";
     }
 }
 
 //POPULATE THE DATA FROM DATABASE IN patienttb TO TABLE IN ADMIN PATIENT LIST
+
 function getPatientDetails() {
     global $con;
 
@@ -291,7 +290,7 @@ function getPatientDetails() {
     }
 }
 
-function getPatientMedicalHistory($x) {
+function getPatientMedicalHistory( $x ) {
     global $con;
     $id = $x;
 
@@ -304,7 +303,7 @@ function getPatientMedicalHistory($x) {
         $weight = $row['Weight'];
         $mh = $row['Medical_History'];
         $visit = $row['Visit_Date'];
-        
+
         echo "<tr>
             <td>$id</td>
             <td>$height</td>
@@ -314,9 +313,9 @@ function getPatientMedicalHistory($x) {
             
             </tr>
             ";
-    }    
-}
+    }
 
+}
 
 // UPDATE PAYMENT OF PATIENT
 if ( isset( $_POST['update_data'] ) ) {
@@ -335,121 +334,119 @@ if ( isset( $_POST['update_data'] ) ) {
 }
 
 //UPDATE THE PATIENT LIST TABLE
-try{
-if(isset($_POST['edit'])){
-    $id = $_POST['id'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $gender = $_POST['gender'];
-    $email = $_POST['email'];
-    $add = $_POST['address'];
+try {
+    if ( isset( $_POST['edit'] ) ) {
+        $id = $_POST['id'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $add = $_POST['address'];
 
-    $query= "UPDATE patienttb SET fname= '$fname', lname='$lname',gender='$gender',email= '$email',adds='$add' WHERE patient_id = '$id' ";
-    $query_run =  mysqli_query( $con, $query );
-    if ($query_run) {
-        // echo "<script>alert('Payment Status Updated!')</script>";
-        $_SESSION['status'] = "Updated Successfully!";
-        $_SESSION['status_code']= "success";
-        header("location:patientList.php");
-    } else {
-        $_SESSION['status'] = "Something went wrong!";
-        $_SESSION['status_code']= "error";
-        header( 'Location:updated.php' );
+        $query = "UPDATE patienttb SET fname= '$fname', lname='$lname',gender='$gender',email= '$email',adds='$add' WHERE patient_id = '$id' ";
+        $query_run =  mysqli_query( $con, $query );
+        if ( $query_run ) {
+            // echo "<script>alert('Payment Status Updated!')</script>";
+            $_SESSION['status'] = 'Updated Successfully!';
+            $_SESSION['status_code'] = 'success';
+            header( 'location:patientList.php' );
+        } else {
+            $_SESSION['status'] = 'Something went wrong!';
+            $_SESSION['status_code'] = 'error';
+            header( 'Location:updated.php' );
+        }
     }
-}
-}catch(Exception $e){
+} catch( Exception $e ) {
     echo $e->getMessage();
 }
-
 
 //DELETE FUNCTION IN POPULATING THE DATA IN THE DATABASE IN patienttb TO ADMIN PATIENT LIST
-try{
-if(isset($_POST['delete'])){
-    $deleteId = $_POST['id'];
-   
-    $query= "DELETE FROM patienttb WHERE patient_id = '$deleteId'";
-    $query_run =  mysqli_query( $con, $query );
-    if ($query_run) {
-        // echo "<script>alert('Payment Status Updated!')</script>";
-        $_SESSION['status'] = "Delete Successfully!";
-        $_SESSION['status_code']= "success";
-        header("location:patientList.php");
-    } else {
-        $_SESSION['status'] = "Something went wrong!";
-        $_SESSION['status_code']= "error";
-        header( 'Location:updated.php' );
+try {
+    if ( isset( $_POST['delete'] ) ) {
+        $deleteId = $_POST['id'];
+
+        $query = "DELETE FROM patienttb WHERE patient_id = '$deleteId'";
+        $query_run =  mysqli_query( $con, $query );
+        if ( $query_run ) {
+            // echo "<script>alert('Payment Status Updated!')</script>";
+            $_SESSION['status'] = 'Delete Successfully!';
+            $_SESSION['status_code'] = 'success';
+            header( 'location:patientList.php' );
+        } else {
+            $_SESSION['status'] = 'Something went wrong!';
+            $_SESSION['status_code'] = 'error';
+            header( 'Location:updated.php' );
+        }
+
     }
-    
-}
-}catch(Exception $e){
+} catch( Exception $e ) {
     echo $e->getMessage();
 }
 
-
 // COUNT THE TOTAL APPOINTMENT
-    $query_count = "SELECT (Appointment_Id) FROM appointment";
-    $result = mysqli_query($con, $query_count);
-    $values=mysqli_num_rows($result);
-    // $total = $values;
-    // echo $values;
+$query_count = 'SELECT (Appointment_Id) FROM appointment';
+$result = mysqli_query( $con, $query_count );
+$values = mysqli_num_rows( $result );
+// $total = $values;
+// echo $values;
 
 // COUNT THE TOTAL PATIENT wala pang table para sa patient
-//  $query_count = "SELECT (Appointment_Id) AS TOTAL FROM appointment";
-//     $result = mysqli_query($con, $query_count);
-//     $values=mysqli_num_rows($result);
+//  $query_count = 'SELECT (Appointment_Id) AS TOTAL FROM appointment';
+//     $result = mysqli_query( $con, $query_count );
+//     $values = mysqli_num_rows( $result );
 
-//TOTAL PATIENT 
-$query_count = "SELECT (patient_id) AS TOTAL FROM patienttb";
-   $result = mysqli_query($con, $query_count);
-   $patient_values=mysqli_num_rows($result);
+//TOTAL PATIENT
+$query_count = 'SELECT (patient_id) AS TOTAL FROM patienttb';
+$result = mysqli_query( $con, $query_count );
+$patient_values = mysqli_num_rows( $result );
 
-try{
-    if(isset($_POST['approve'])){
+try {
+    if ( isset( $_POST['approve'] ) ) {
         $id = $_POST['id'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $email = $_POST['email'];
         $mobile = $_POST['mobile'];
-    
-        $query= "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='APPROVED' WHERE Appointment_Id = '$id' ";
+
+        $query = "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='APPROVED' WHERE Appointment_Id = '$id' ";
         $query_run =  mysqli_query( $con, $query );
-        if ($query_run) {
+        if ( $query_run ) {
             // echo "<script>alert('Approved Status Updated!')</script>";
-            $_SESSION['status'] = "Approved Successfuly!";
-            $_SESSION['status_code']= "success";
-            header("location:patientList.php");
+            $_SESSION['status'] = 'Approved Successfuly!';
+            $_SESSION['status_code'] = 'success';
+            header( 'location:patientList.php' );
         } else {
-            $_SESSION['status'] = "Something went wrong!";
-            $_SESSION['status_code']= "error";
+            $_SESSION['status'] = 'Something went wrong!';
+            $_SESSION['status_code'] = 'error';
             header( 'Location:updated.php' );
         }
     }
 
-}catch(Exception $e){
+} catch( Exception $e ) {
     echo $e->getMessage();
 }
-try{
-    if(isset($_POST['decline'])){
+try {
+    if ( isset( $_POST['decline'] ) ) {
         $id = $_POST['Id'];
         $fname = $_POST['Fname'];
         $lname = $_POST['Lname'];
         $email = $_POST['Email'];
         $mobile = $_POST['Mobile'];
-    
-        $query= "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='DECLINED' WHERE Appointment_Id = '$id' ";
+
+        $query = "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='DECLINED' WHERE Appointment_Id = '$id' ";
         $query_run =  mysqli_query( $con, $query );
-        if ($query_run) {
+        if ( $query_run ) {
             // echo "<script>alert('Declined Status Updated!')</script>";
-            $_SESSION['status'] = "Declined Successfully!";
-            $_SESSION['status_code']= "success";
-            header("location:patientList.php");
+            $_SESSION['status'] = 'Declined Successfully!';
+            $_SESSION['status_code'] = 'success';
+            header( 'location:patientList.php' );
         } else {
-            $_SESSION['status'] = "Something went wrong";
-            $_SESSION['status_code']= "error";
+            $_SESSION['status'] = 'Something went wrong';
+            $_SESSION['status_code'] = 'error';
             header( 'Location:updated.php' );
         }
     }
-}catch(Exception $e){
+} catch( Exception $e ) {
     echo $e->getMessage();
 }
 ?>

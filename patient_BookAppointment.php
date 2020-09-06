@@ -43,25 +43,15 @@
                             <a href="patient_BookAppointment.php"><i class="fas fa-notes-medical"></i> Book
                                 Appointment</a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="patient_AppointmentHistory.php"><i class="fas fa-eye"></i> Appointment History</a>
-                        </li> -->
+                        </li>
                         <li>
                             <a href="patient_MedicalHistory.php"><i class="fas fa-notes-medical"></i>Medical
                                 History</a>
                         </li>
                     </ul>
                 </li>
-                <!-- SETTINGS -->
-                <!-- <li>
-                    <a href="#authmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle no-caret-down"><i class="fas fa-cog"></i> Settings</a>
-                    <ul class="collapse list-unstyled" id="authmenu">
-                        <li>
-                            <a href="forgot-password.php"><i class="fas fa-user-lock"></i> Change password</a>
-                        </li>
-                    </ul>
-                </li> -->
             </ul>
         </nav>
 

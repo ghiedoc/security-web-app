@@ -55,9 +55,6 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href=""><i class="fas fa-tools"></i> Services</a>
-                </li>
             </ul>
         </nav>
 
@@ -71,7 +68,7 @@
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user"></i>
-                                    <span>John Doe</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                                    <span>Welcome, Admin</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
