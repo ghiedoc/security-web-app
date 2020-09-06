@@ -127,8 +127,6 @@
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
-<script src="vendor/chartsjs/Chart.min.js"></script>
-<script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
 
 </html>

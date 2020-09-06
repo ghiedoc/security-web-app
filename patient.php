@@ -53,15 +53,6 @@ History</a>
 </li>
 </ul>
 </li>
-<!-- SETTINGS -->
-<!-- <li>
-<a href = '#authmenu' data-toggle = 'collapse' aria-expanded = 'false'
-
-class = 'dropdown-toggle no-caret-down'><i class = 'fas fa-cog'></i> Settings</a>
-<ul class = 'collapse list-unstyled' id = 'authmenu'>
-<li>
-<a href = 'forgot-password.php'><i class = 'fas fa-user-lock'></i> Change password</a>
-</li> -->
 </ul>
 </li>
 </ul>
@@ -162,8 +153,6 @@ class = 'fas fa-sign-out-alt'></i> Logout</a></li>
 <script src = 'vendor/bootstrap4/js/bootstrap.bundle.min.js'></script>
 <script src = 'vendor/fontawesome5/js/solid.min.js'></script>
 <script src = 'vendor/fontawesome5/js/fontawesome.min.js'></script>
-<script src = 'vendor/chartsjs/Chart.min.js'></script>
-<script src = 'js/dashboard-charts.js'></script>
 <script src = 'js/script.js'></script>
 
 </html>

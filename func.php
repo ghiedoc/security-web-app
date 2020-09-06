@@ -93,7 +93,6 @@ if ( isset( $_POST['pat_submit'] ) ) {
 try {
     $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
     if ( isset( $_POST['pat_register'] ) ) {
-        alert( 'PASSWORD MUST HAVE ONE UPPER CASE AND A NUMBER' );
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $gender = $_POST['gender'];
@@ -318,19 +317,22 @@ function getPatientMedicalHistory( $x ) {
 }
 
 // UPDATE PAYMENT OF PATIENT
-if ( isset( $_POST['update_data'] ) ) {
-    $contact = $_POST['contact'];
-    $status = $_POST['status'];
-    $query = "UPDATE appointment SET Payment='$status' WHERE Mobile='$contact'";
-    $result =  mysqli_query( $con, $query );
+try {
+    if ( isset( $_POST['update_data'] ) ) {
+        $contact = $_POST['contact'];
+        $status = $_POST['status'];
+        $query = "UPDATE appointment SET Payment='$status' WHERE Mobile='$contact'";
+        $result =  mysqli_query( $con, $query );
 
-    if ( $result ) {
-        echo "<script>alert('Payment Status Updated!')</script>";
-        echo "<script>window.open('admin_Payment.php', '_self')</script>";
-    } else {
-        header( 'Location:updated.php' );
+        if ( $result ) {
+            echo "<script>alert('Payment Status Updated!')</script>";
+            echo "<script>window.open('admin_Payment.php', '_self')</script>";
+        } else {
+            header( 'Location:updated.php' );
+        }
     }
-
+} catch( Exception $e ) {
+    echo $e->getMessage();
 }
 
 //UPDATE THE PATIENT LIST TABLE
