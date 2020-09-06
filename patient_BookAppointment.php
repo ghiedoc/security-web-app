@@ -76,7 +76,7 @@
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user-injured"></i>
-                                    <span><?php echo( $_SESSION['fname']);?></span> <i style="font-size: .8em;"
+                                    <span><?php echo( $_SESSION['fname']);?></span><span><?php echo( $_SESSION['id']);?></span> <i style="font-size: .8em;"
                                         class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
@@ -102,9 +102,11 @@
                         <form action="func.php" class="form-group" method="post">
                             <h3>Patient Details</h3>
                             <label for="">First Name: </label>
-                            <input type="text" name="fname" class="form-control" pattern="[a-z][A-Z]" required autocomplete="on"><br>
+                            <input type="text" name="fname" class="form-control" required autocomplete="on"><br>
                             <label for="">Last Name: </label>
-                            <input type="text" name="lname" class="form-control" pattern="[a-z][A-Z]" required autocomplete="on"><br>
+                            <input type="text" name="lname" class="form-control" required autocomplete="on"><br>
+                            <label for="">Status: </label>
+                            <input type="text" name="pend" class="form-control"  required autocomplete="on" value="PENDING" class="field left" readonly><br>
                             <label for="">Cellphone Number: </label>
                             <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required autocomplete="on"><br>
                             <h3>Appointment Details</h3>

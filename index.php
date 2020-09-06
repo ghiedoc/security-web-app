@@ -68,10 +68,10 @@
 
                         <!-- LOGIN -->
                         <!-- error validation login-->
-                        <div class="alert alert-danger alert-dismissable" dispaly="none">
+                        <!-- <div class="alert alert-danger alert-dismissable" dispaly="none">
                             <a href="#" class="close" data-dismiss="alert" aria-hidden="true"">&times;</a>
                             <strong><?php $message;?></strong>
-                        </div>
+                        </div> -->
 
                         <form action=" func.php" method="post">
 
@@ -83,6 +83,7 @@
                                     <input type="password" name="password" class="form-control" placeholder="Password"
                                         autocomplete="off" required />
                                 </div>
+                                
                                 <!-- <div class="form-group text-left">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" name="remember" class="custom-control-input" id="remember-me" />
@@ -120,6 +121,9 @@
                         <h6 class="mb-4 text-muted">Create a New Account</h6>
                         <div class="card-body text-center">
                             <form action="func.php" class="form-group" method="post">
+
+                               
+
                                 <div class="form-group">
                                     <input type="text" name="fname" class="form-control" placeholder="First Name"
                                         required autocomplete="off">
@@ -146,6 +150,9 @@
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control" placeholder="Password"
                                         required autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                <input type="text" name="pend" class="form-control"  required autocomplete="on" value="1 Uppercase MIN. 8 Characters and Number" class="field left" readonly>
                                 </div>
                                 <button type="submit" name="pat_register" value="Add Registration"
                                     class="btn btn-primary shadow-2 mb-4">Register</button>

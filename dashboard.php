@@ -95,7 +95,7 @@
                       <div class="col-sm-8">
                         <div class="detail text-center">
                           <p>Total Patients</p>
-                          <span class="number">55</span>
+                          <span class="number"><?php echo $patient_values;?></span>
                         </div>
                       </div>
                     </div>

@@ -39,18 +39,25 @@ if ( isset( $_POST['login_submit'] ) ) {
         if ( mysqli_num_rows( $result ) == 1 ) {
 
             header( 'Location:dashboard.php' );
+        }else{
+            echo "<script>alert('Error Logging in Admin!')</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
         }
     } elseif ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
         if ( $row = mysqli_fetch_array( $results ) ) {
             $id = $row['fname'];
             $_SESSION['fname'] = $id;
+            $ids = $row['patient_id'];
+            $_SESSION['id'] = $ids;
         }
         echo $id;
         header( 'Location:patientDashboard.php' );
 
     } else {
         // MAY ERROR SOMETHING DITO KAPAG MALI YUNG CREDENTIALS NA NILAGA
-        $_message= 'LOGIN ERROR';
+        //$_message= 'LOGIN ERROR';
+        echo "<script>alert('Error Logging in User!')</script>";
+        echo "<script>window.open('index.php', '_self')</script>";
     }   
 }
 
@@ -59,15 +66,17 @@ if ( isset( $_POST['pat_submit'] ) ) {
 
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
-    $email = $_POST['email'];
+    //$email = $_POST['email'];
     $mobile = $_POST['mobile'];
     $date = $_POST['date'];
     $time = $_POST['time'];
     $services = $_POST['services'];
     $id = $_SESSION['id'];
+    $stats = $_POST['pend'];
+   
 
-    $query = "INSERT INTO appointment(Fname, Lname, Email, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk)
-     VALUE('$fname','$lname','$email','$mobile','$date','$time','$services','$id')";
+    $query = "INSERT INTO appointment(Fname, Lname, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk,stats)
+     VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats')";
     $result = mysqli_query( $con, $query );
 
     if ( $result ) {
@@ -84,6 +93,7 @@ if ( isset( $_POST['pat_submit'] ) ) {
 try{
     $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
 if ( isset( $_POST['pat_register'] ) ) {
+    alert('PASSWORD MUST HAVE ONE UPPER CASE AND A NUMBER');
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $gender = $_POST['gender'];
@@ -94,22 +104,22 @@ if ( isset( $_POST['pat_register'] ) ) {
      $query_email = "SELECT * FROM patienttb WHERE email='$email'";
      $res = mysqli_query( $con, $query_email );
      if(mysqli_num_rows($res) > 0){
-        echo'Email Already Exist!';
-     }else{    
+        echo "<script>alert('Email Already Exist!')</script>";
+        echo "<script>window.open('index.php', '_self')</script>";
+
+    }else{    
         if(preg_match($pattern,$password)){
             $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
          $result = mysqli_query( $con, $query );
     if ( $result ) {
-        $_SESSION['status'] = "You have been Signed Up!";
-        $_SESSION['status_code']= "success";
+        echo "<script>alert('Success Registering!')</script>";
         echo "<script>window.open('index.php', '_self')</script>";
     } else {
-        $_SESSION['status'] = "Something went wrong!";
-        $_SESSION['status_code']= "error";
-        echo "<script>window.open('signup.php', '_self')</script>";
+        echo "<script>alert('Error Registering!')</script>";
+        echo "<script>window.open('index.php', '_self')</script>";
 }
 }else{
-    echo 'error';
+    echo "<script>alert('Error Registering!')</script>";
 }
 }
 }
@@ -387,6 +397,11 @@ if(isset($_POST['delete'])){
 //  $query_count = "SELECT (Appointment_Id) AS TOTAL FROM appointment";
 //     $result = mysqli_query($con, $query_count);
 //     $values=mysqli_num_rows($result);
+
+//TOTAL PATIENT 
+$query_count = "SELECT (patient_id) AS TOTAL FROM patienttb";
+   $result = mysqli_query($con, $query_count);
+   $patient_values=mysqli_num_rows($result);
 
 try{
     if(isset($_POST['approve'])){
