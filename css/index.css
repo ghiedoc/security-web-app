@@ -1,6 +1,6 @@
 /* LANDING PAGE/ BANNER SECTION */
 #banner {
-  /* background-image: linear-gradient(to right, #ed765e, #e3bde5); */
+  background-image: linear-gradient(to right, #ed765e, #e3bde5);
   color: #fff;
   height: 768px;
 }
