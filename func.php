@@ -132,12 +132,16 @@ try {
 try {
     if ( isset( $_POST['addsubmit'] ) ) {
         $addid = $_POST['addid'];
-        $height = $_POST['bp'];
+        $bpupper = $_POST['upper'];
+        $bplower = $_POST['lower'];
         $weight = $_POST['weight'];
-        $mh = $_POST['vdate'];
-        $vdate = $_POST['med_history'];
+        $temp = $_POST['temp'];
+        $mh = $_POST['med_history'];
+        
+       
+        
 
-        $query = "INSERT INTO medicalhistorytb(patient_id, Height, Weight, Visit_Date, Medical_History)VALUE('$addid','$height','$weight','$mh','$vdate')";
+        $query = "INSERT INTO medicalhistorytb(patient_id, Blood_Pressure, Weight,Temperature, Medical_History)VALUE('$addid','$bpupper/$bplower','$weight','$temp','$mh')";
         $result = mysqli_query( $con, $query );
 
         if ( $result ) {
@@ -264,6 +268,7 @@ function getPatientDetails() {
         $gender = $row['gender'];
         $email = $row['email'];
         $address = $row['adds'];
+         $regiDate = $row['regiDate'];
         echo "
         <tr>
             <td>$id</td>
@@ -280,6 +285,7 @@ function getPatientDetails() {
                 <input type='text' name='email' value='$gender' style='display:none'>
                 <input type='text' name='gender' value='$email' style='display:none'>
                 <input type='text' name='address' value='$address' style='display:none'>
+                <input type='text' name='regiDate' value='$regiDate' style='display:none'>
                 <button type='submit' class='viewbtn btn btn-success' name= 'view_btn'>View</button>
             
                 <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
@@ -299,17 +305,18 @@ function getPatientMedicalHistory( $x ) {
 
     while( $row = mysqli_fetch_array( $result ) ) {
         $id = $row['mh_id'];
-        $height = $row['Height'];
+        $bp = $row['Blood_Pressure'];
         $weight = $row['Weight'];
+        $temp = $row['Temperature'];
         $mh = $row['Medical_History'];
-        $visit = $row['Visit_Date'];
+       
 
         echo "<tr>
             <td>$id</td>
-            <td>$height</td>
+            <td>$bp</td>
             <td>$weight</td>
+            <td>$temp</td>
             <td>$mh</td>
-            <td>$visit</td>
             
             </tr>
             ";

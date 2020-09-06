@@ -120,7 +120,7 @@
                                     <th>Patient Address:</th>
                                     <td><?php echo $_POST["address"];?></td>
                                     <th>Registration Date:</th>
-                                    <td></td>
+                                    <td><?php echo $_POST["regiDate"];?></td>
                                 </tr>
                             </table>
                             <br>
@@ -136,10 +136,10 @@
                                 </tr>
                                 <tr>
                                     <th>#</th>
-                                    <th>Height</th>
+                                    <th>Blood Pressure</th>
                                     <th>Weight</th>
+                                    <th>Temperature</th>
                                     <th>Medical History</th>
-                                    <th>Visit Date</th>
                                 </tr>
                                 
                                 <tbody>
@@ -176,10 +176,16 @@
                                                 <form method='post' action='func.php'>
 
                                                     <tr>
-                                                        <th>Height :</th>
+                                                        <th>Blood Pressure :</th>
                                                         <td>
-                                                            <input name='bp' placeholder='Height'
-                                                                class='form-control wd-450' required='true'></td>
+                                                            <div class='col-xs-3'>
+                                                                <input type="number" id="upper" name="upper" min="50" max="180" placeholder='120' required='true'>
+                                                            /
+                                                            <input type="number"  id="lower" name="lower" min="50" max="120" placeholder='80' required='true'>
+                                                            mm Hg
+                                                            </div>
+                                                            
+                                                        </td>
                                                         
                                                     </tr>
                                                     <tr>
@@ -188,20 +194,21 @@
                                                             <input name='weight' placeholder='Weight'
                                                                 class='form-control wd-450' required='true'></td>
                                                     </tr>
+                                                    
+                                                    <tr>
+                                                        <th>Temperature :</th>
+                                                        <td>
+                                                            <input type="number" name='temp' step="any" placeholder='36.0'
+                                                                class='form-control wd-450' min="30" max="45" required='true'></td>
+                                                    </tr>
                                                     <tr>
                                                         <th>Medical History :</th>
                                                         <td>
                                                             <textarea name='med_history' placeholder='Medical History'
-                                                                rows='12' cols='14' class='form-control wd-450'
+                                                                rows='3' cols='5' class='form-control wd-450' style='resize: none;'
                                                                 required='true'></textarea></td>
                                                     </tr>
-                                                    <tr>
-                                                        <th>Visit Date :</th>
-                                                        <td>
-                                                            <input type="date" name='vdate' placeholder='Visit Date'
-                                                                class='form-control wd-450' required='true'>
-                                                        </td>
-                                                    </tr>
+                                                    
                                                     
                                                     <tr style="display:none">
                                                         <th></th>
