@@ -137,7 +137,7 @@
                                         autocomplete="off">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Password"
+                                    <input type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
                                         required autocomplete="off">
                                 </div>
                                 <div class="form-group">
