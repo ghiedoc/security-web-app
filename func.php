@@ -312,7 +312,6 @@ function getPatientMedicalHistory( $x ) {
             <td>$weight</td>
             <td>$temp</td>
             <td>$mh</td>
-            
             </tr>
             ";
     }
@@ -332,6 +331,7 @@ function getPaymentHistory() {
         $mobile = $row['Mobile'];
         $services = $row['Appointment_Service'];
         $payment = $row['Payment'];
+        $pay_date = $row['Payment_Date'];
         echo "<tr> 
         <td>$id</td>
         <td>$fname</td>
@@ -339,6 +339,7 @@ function getPaymentHistory() {
         <td>$mobile</td>
         <td>$services</td> 
         <td>$payment</td>
+        <td>$pay_date</td>
         </tr>";
     }
 }
