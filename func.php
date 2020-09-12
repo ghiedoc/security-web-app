@@ -137,9 +137,6 @@ try {
         $temp = $_POST['temp'];
         $mh = $_POST['med_history'];
         
-       
-        
-
         $query = "INSERT INTO medicalhistorytb(patient_id, Blood_Pressure, Weight,Temperature, Medical_History)VALUE('$addid','$bpupper/$bplower','$weight','$temp','$mh')";
         $result = mysqli_query( $con, $query );
 

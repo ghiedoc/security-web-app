@@ -85,24 +85,26 @@
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body" style="background-color:#ed765e;#ffffff;">
-                        <h3>Book an Appointment</h3>
-
+                        <h3 style="color:white; font-weight: bold;" align="center">Book an Appointment Here</h3>
                     </div>
                     <div class="card-body">
                         <form action="func.php" class="form-group" method="post">
-                            <h3>Patient Details</h3>
+                            <!-- Patient details form -->
+                            <h3 align="center">Patient Details</h3>
                             <label for="">First Name: </label>
-                            <input type="text" name="fname" class="form-control" required autocomplete="on"><br>
+                            <input type="text" name="fname" pattern="[A-Za-z]{1,30}" class="form-control" required autocomplete="on"><br>
                             <label for="">Last Name: </label>
-                            <input type="text" name="lname" class="form-control" required autocomplete="on"><br>
+                            <input type="text" name="lname" pattern="[A-Za-z]{1,30}" class="form-control" required autocomplete="on"><br>
                             <label for="">Status: </label>
                             <input type="text" name="pend" class="form-control"  required autocomplete="on" value="PENDING" class="field left" readonly><br>
                             <label for="">Cellphone Number: </label>
-                            <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required autocomplete="on"><br>
-                            <h3>Appointment Details</h3>
+                            <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required autocomplete="on" placeholder="Enter your 11 digit number">
+                            <!-- Appointment Details form -->
+                            <hr>
+                            <h3 align="center">Appointment Details</h3>
                             <label for="">Date: </label>
                             <div id="datepicker" class="input-group input-daterange">
-                                <input type="text" name="date" class="form-control" required autocomplete="off"><br>
+                                <input type="text" name="date" class="form-control" required autocomplete="off" placeholder="Click to choose date"><br>
                             </div>
                             <label for="">Time: </label>
                             <select name="time" class="form-control" id="">
@@ -125,7 +127,7 @@
                             </select>
                             <br>
                             <input type="submit" name="pat_submit" value="Enter Appointment"
-                                class="btn btn-primary shadow-2 mb-4" required autocomplete="off">
+                                class="btn btn-success shadow-2 mb-4 float-right" required autocomplete="off">
                         </form>
                     </div>
                 </div>
