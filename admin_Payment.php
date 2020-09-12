@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include("func.php");?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -86,6 +87,7 @@
 
             <!-- CONTENT HERE -->
             <div class="content">
+                <!-- Update Payment Status -->
                 <div class="col-md-5">
                     <div class="card-body">
                     <h3>Update Payment Status Here</h3>
@@ -98,6 +100,37 @@
                             </select> <br>
                             <input type="submit" value="Update" name="update_data" class="btn btn-success btn-block float-right">
                         </form>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- View Payment's Table -->
+                <div class="col-md">
+                    <div class="card-body">
+                    <h3>List of Payment's</h3>
+                    <hr>
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <table width="100%" class="table table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Appointment ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Mobile #</th>
+                                        <th>Service</th>
+                                        <th>Payment Status</th>
+                                        <th>Payment Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <?php getPaymentHistory(); ?>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     </div>
                 </div>
 

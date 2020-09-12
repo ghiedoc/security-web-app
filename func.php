@@ -316,7 +316,31 @@ function getPatientMedicalHistory( $x ) {
             </tr>
             ";
     }
+}
+//POPULATE PAYMENT HISTORY
 
+function getPaymentHistory() {
+    global $con;
+
+    $query = 'SELECT * FROM appointment';
+    $result = mysqli_query( $con, $query );
+
+    while( $row = mysqli_fetch_array( $result ) ) {
+        $id = $row['Appointment_Id'];
+        $fname = $row['Fname'];
+        $lname = $row['Lname'];
+        $mobile = $row['Mobile'];
+        $services = $row['Appointment_Service'];
+        $payment = $row['Payment'];
+        echo "<tr> 
+        <td>$id</td>
+        <td>$fname</td>
+        <td>$lname</td>
+        <td>$mobile</td>
+        <td>$services</td> 
+        <td>$payment</td>
+        </tr>";
+    }
 }
 
 // UPDATE PAYMENT OF PATIENT
