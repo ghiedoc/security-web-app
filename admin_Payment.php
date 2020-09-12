@@ -88,14 +88,15 @@
             <div class="content">
                 <div class="col-md-5">
                     <div class="card-body">
+                    <h3>Update Payment Status Here</h3>
+                    <hr>
                         <form action="func.php" method="post" class="form-group">
-                            <input type="text" name="contact" class="form-control" placeholder="Enter contact"><br>
+                            <input type="text" name="contact" class="form-control" pattern="[0-9]{11}" placeholder="Enter contact number" required autocomplete="off">
+                            <small id="contactHelp" class="form-text text-muted">Enter the 11 digit contact number of patient.</small><br>
                             <select name="status" id="" class="form-control">
                                 <option value="PAID">Paid</option>
-                                <option value="PAY LATER">Pay Later</option>
                             </select> <br>
-                            <hr>
-                            <input type="submit" value="Update" name="update_data" class="btn btn-primary">
+                            <input type="submit" value="Update" name="update_data" class="btn btn-success btn-block float-right">
                         </form>
                     </div>
                 </div>

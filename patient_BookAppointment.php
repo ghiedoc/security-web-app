@@ -95,8 +95,6 @@
                             <input type="text" name="fname" pattern="[A-Za-z]{1,30}" class="form-control" required autocomplete="on"><br>
                             <label for="">Last Name: </label>
                             <input type="text" name="lname" pattern="[A-Za-z]{1,30}" class="form-control" required autocomplete="on"><br>
-                            <label for="">Status: </label>
-                            <input type="text" name="pend" class="form-control"  required autocomplete="on" value="PENDING" class="field left" readonly><br>
                             <label for="">Cellphone Number: </label>
                             <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required autocomplete="on" placeholder="Enter your 11 digit number">
                             <!-- Appointment Details form -->
@@ -126,8 +124,14 @@
                                 <option value="Tooth Filling">Tooth Filling</option>
                             </select>
                             <br>
-                            <input type="submit" name="pat_submit" value="Enter Appointment"
-                                class="btn btn-success shadow-2 mb-4 float-right" required autocomplete="off">
+                            <label for="">Appointment Status: </label>
+                            <input type="text" name="pend" class="form-control"  required autocomplete="on" value="PENDING" class="field left" readonly><br>
+                            <hr>
+                            <h3 align="center">Payment Details</h3>
+                            <label for="">Payment Status: </label>
+                            <input type="text" name="payment" class="form-control"  required autocomplete="on" value="PAY LATER" class="field left" readonly><br>
+                            <input type="submit" name="pat_submit" value="Submit Appointment"
+                                class="btn btn-success shadow-2 mb-4 float-right btn-block" required autocomplete="off">
                         </form>
                     </div>
                 </div>
