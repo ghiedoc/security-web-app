@@ -147,28 +147,28 @@
                                         <th>First Name :</th>
                                         <td>
                                             <input type="text" name="fname" id="fname" placeholder='First Name'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly >
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Last Name :</th>
                                         <td>
                                             <input type="text" name="lname" id="lname" placeholder='Last Name'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Patient Email :</th>
                                         <td>
                                             <input type="text" name="email" id="email" placeholder='Email'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Patient Mobile No. :</th>
                                         <td>
                                             <input type="text" name="mobile" id="mobile" placeholder='Patient Address'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                             </table>
@@ -206,28 +206,28 @@
                                         <th>First Name :</th>
                                         <td>
                                             <input type="text" name="Fname" id="Fname" placeholder='First Name'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Last Name :</th>
                                         <td>
                                             <input type="text" name="Lname" id="Lname" placeholder='Last Name'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Patient Email :</th>
                                         <td>
                                             <input type="text" name="Email" id="Email" placeholder='Email'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Patient Mobile No. :</th>
                                         <td>
                                             <input type="text" name="Mobile" id="Mobile" placeholder='Patient Address'
-                                                class='form-control wd-450' required='true'>
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                             </table>
