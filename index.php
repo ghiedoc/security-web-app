@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/auth.css">
 
-
-    <!-- <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet" /> -->
     <title>Dental Clinic | Home</title>
 </head>
 

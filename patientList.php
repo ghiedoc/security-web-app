@@ -177,7 +177,7 @@
                 </div>
             </div>
 
-
+            <!-- table -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">

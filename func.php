@@ -67,16 +67,16 @@ if ( isset( $_POST['pat_submit'] ) ) {
 
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
-    //$email = $_POST['email'];
     $mobile = $_POST['mobile'];
     $date = $_POST['date'];
     $time = $_POST['time'];
     $services = $_POST['services'];
     $id = $_SESSION['id'];
     $stats = $_POST['pend'];
+    $payment = $_POST['payment'];
 
-    $query = "INSERT INTO appointment(Fname, Lname, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk,stats)
-     VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats')";
+    $query = "INSERT INTO appointment(Fname, Lname, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk, stats, Payment)
+     VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats', '$payment')";
     $result = mysqli_query( $con, $query );
 
     if ( $result ) {
@@ -136,9 +136,6 @@ try {
         $weight = $_POST['weight'];
         $temp = $_POST['temp'];
         $mh = $_POST['med_history'];
-        
-       
-        
 
         $query = "INSERT INTO medicalhistorytb(patient_id, Blood_Pressure, Weight,Temperature, Medical_History)VALUE('$addid','$bpupper/$bplower','$weight','$temp','$mh')";
         $result = mysqli_query( $con, $query );
@@ -267,7 +264,7 @@ function getPatientDetails() {
         $gender = $row['gender'];
         $email = $row['email'];
         $address = $row['adds'];
-         $regiDate = $row['regiDate'];
+        $regiDate = $row['regiDate'];
         echo "
         <tr>
             <td>$id</td>
@@ -308,7 +305,6 @@ function getPatientMedicalHistory( $x ) {
         $weight = $row['Weight'];
         $temp = $row['Temperature'];
         $mh = $row['Medical_History'];
-       
 
         echo "<tr>
             <td>$id</td>
@@ -316,11 +312,36 @@ function getPatientMedicalHistory( $x ) {
             <td>$weight</td>
             <td>$temp</td>
             <td>$mh</td>
-            
             </tr>
             ";
     }
+}
+//POPULATE PAYMENT HISTORY
 
+function getPaymentHistory() {
+    global $con;
+
+    $query = 'SELECT * FROM appointment';
+    $result = mysqli_query( $con, $query );
+
+    while( $row = mysqli_fetch_array( $result ) ) {
+        $id = $row['Appointment_Id'];
+        $fname = $row['Fname'];
+        $lname = $row['Lname'];
+        $mobile = $row['Mobile'];
+        $services = $row['Appointment_Service'];
+        $payment = $row['Payment'];
+        $pay_date = $row['Payment_Date'];
+        echo "<tr> 
+        <td>$id</td>
+        <td>$fname</td>
+        <td>$lname</td>
+        <td>$mobile</td>
+        <td>$services</td> 
+        <td>$payment</td>
+        <td>$pay_date</td>
+        </tr>";
+    }
 }
 
 // UPDATE PAYMENT OF PATIENT
