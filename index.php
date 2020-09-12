@@ -50,7 +50,7 @@
         </div>
     </section>
     </section>
-
+    
     <!-- MODAL FOR SIGNING IN -->
     <!-- Modal Sign In-->
     <div class=" modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -97,7 +97,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Modal Sign Up-->
         <div class=" modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
@@ -117,15 +117,15 @@
 
                                 <div class="form-group">
                                     <input type="text" name="fname" class="form-control" placeholder="First Name"
-                                        required autocomplete="off">
+                                        required autocomplete="off"  style="text-transform: capitalize;" size="30">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="lname" class="form-control" placeholder="Last Name"
-                                        required autocomplete="off">
+                                        required autocomplete="off" style="text-transform: capitalize;" size="30">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="address" class="form-control" placeholder="Address"
-                                        required autocomplete="off">
+                                        required autocomplete="off" >
                                 </div>
                                 <div class="form-group">
                                     <select name="gender" class="form-control" placeholder="Gender" required
@@ -156,7 +156,7 @@
 
         <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
         <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
-
+        
 </body>
 <?php include('alertconfig.php');?>
 
@@ -176,3 +176,4 @@
 <!-- Footer -->
 
 </html>
+
