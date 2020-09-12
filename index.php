@@ -140,9 +140,7 @@
                                     <input type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
                                         required autocomplete="off">
                                 </div>
-                                <div class="form-group">
-                                <input type="text" name="pend" class="form-control"  required autocomplete="on" value="1 Uppercase MIN. 8 Characters and Number" class="field left" readonly>
-                                </div>
+                                
                                 <button type="submit" name="pat_register" value="Add Registration"
                                     class="btn btn-primary shadow-2 mb-4">Register</button>
                             </form>
