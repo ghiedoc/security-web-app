@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -17,6 +16,8 @@
     <link rel="stylesheet" href="css/auth.css">
 
     <title>Dental Clinic | Home</title>
+
+
 </head>
 
 <body>
@@ -28,7 +29,6 @@
             <a class="up-butt" data-toggle="modal" href="#modalSignUpForm">Sign up</a>
         </div>
     </div>
-    <!-- HAMBURGER MENU -->
 
     <!-- LANDING PAGE -->
     <section id="banner">
@@ -43,11 +43,17 @@
                         A better life starts with a beautiful smileeee.
                     </p>
                     <a class="btn-book" data-toggle="modal" type="button" data-target="#modalLoginForm">Book Now</a>
-                </div>s
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
             </div>
         </div>
     </section>
-    </section>
+
+
+
+
 
     <!-- MODAL FOR SIGNING IN -->
     <!-- Modal Sign In-->
@@ -95,7 +101,7 @@
                 </div>
             </div>
         </div>
-
+    
         <!-- Modal Sign Up-->
         <div class=" modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
@@ -158,19 +164,6 @@
 </body>
 <?php include('alertconfig.php');?>
 
-<!-- Footer -->
-<footer class=" page-footer font-small cyan darken-3">
 
-    <div class="container">
-    </div>
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
 
 </html>
