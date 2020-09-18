@@ -106,8 +106,8 @@ if ( isset( $_POST['pat_submit'] ) ) {
 try {
     $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
     if ( isset( $_POST['pat_register'] ) ) {
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
+        $fname = ucwords( $_POST['fname'] );
+        $lname = ucwords( $_POST['lname'] );
         $gender = $_POST['gender'];
         $email = $_POST['email'];
         $adds = $_POST['address'];
