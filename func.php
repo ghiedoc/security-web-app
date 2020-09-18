@@ -98,6 +98,9 @@ try {
         $adds = $_POST['address'];
         $password = $_POST['password'];
 
+        // ? HASHED PASSWORD
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         $query_email = "SELECT * FROM patienttb WHERE email='$email'";
         $res = mysqli_query( $con, $query_email );
         if ( mysqli_num_rows( $res ) > 0 ) {
@@ -107,7 +110,7 @@ try {
         } else {
 
             if ( preg_match( $pattern, $password ) ) {
-                $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$password')";
+                $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$hashed_password')";
                 $result = mysqli_query( $con, $query );
                 if ( $result ) {
                     echo "<script>alert('Success Registering!')</script>";
