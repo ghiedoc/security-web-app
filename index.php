@@ -17,7 +17,6 @@
 
     <title>Dental Clinic | Home</title>
 
-
 </head>
 
 <body>
@@ -74,19 +73,18 @@
                             <strong><?php $message;?></strong>
                         </div> -->
 
-                        <form action=" func.php" method="post">
-
+                        <!-- <form action=" func.php" method="post"> -->
+                                <p class="statusMsg"></p>
                                 <div class="form-group">
-                                    <input type="email" name="username" class="form-control" placeholder="Email"
+                                    <input type="email" id="username" class="form-control" placeholder="Email"
                                         required autocomplete="off" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Password"
+                                    <input type="password" id="password" class="form-control" placeholder="Password"
                                         autocomplete="off" required />
                                 </div>
-                                
                                 <!-- SUBMIT BUTTON -->
-                                <button type="submit" name="login_submit" class="btn btn-primary shadow-2 mb-4">
+                                <button type="submit" id="login_submit" class="btn btn-primary shadow-2 mb-4">
                                     Login
                                 </button>
                                 </form>
@@ -159,7 +157,76 @@
 </body>
 <?php include('alertconfig.php');?>
 
+<!-- Log in Validation  -->
 
+<script>
+$(document).ready(function(){
+    var login_attempts = 3;
+    $('#login_submit').on('click', function(){
+        var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+        var username = $('#username').val();
+        var password = $('#password').val();
+if(login_attempts > 0){
+        if(username.trim() == '' || !reg.test(username)){
+                
+                console.log('Invalid Email');
+                $('.statusMsg').html('<span style="color:red;">Invalid Email</p>');
+                document.getElementById("username").value = "";
+        }else if(password.trim() == ''){
+                console.log('Password Field is Empty');
+                $('.statusMsg').html("<span style='color:red;'>Password field can't be empty</p>");
+        }else{
+            $.ajax({
+                type:'POST',
+                dataType: "text",
+                url:'func.php',
+                data: {'loginFormSubmit':1,
+                        'username' : username,
+                        'password' : password},
+                beforeSend: function(){
+                    console.log('Processing. . .');
+                },
+                success: function(response){
+                    response = response.substr(response.lastIndexOf('.')+1);
+                    console.log(response);
+                    if(response === 'admin'){
+                        login_attempts = 3; 
+                        window.location.href =  "dashboard.php"
+                    }else if(response === 'error'){
+                        login_attempts --; 
+                        console.log("Atempts left: " +login_attempts)
+                        alert("Login Attempts Left: " +login_attempts);
+                        $('.statusMsg').html("<span style='color:red;'>Invalid Credentials</p>");  
+                        // document.getElementById("username").value = "";
+                        // document.getElementById("password").value = "";
+                    }else{
+                        login_attempts = 3;
+                        console.log('User login');
+                        window.location.href =  "patientDashboard.php"
+                    }
+                }
+
+            });
+
+        }
+}else{
+    $('.statusMsg').html("<span style='color:red;'>Login limit reached. Please wait for 30 seconds.</p>");  
+    document.getElementById("login_submit").style.visibility = "hidden";
+    document.getElementById("username").disabled = true;
+    document.getElementById("password").disabled = true;
+
+    setTimeout(function(){
+        document.getElementById("username").disabled = false;
+        document.getElementById("password").disabled = false;
+        document.getElementById("login_submit").style.visibility = "visible";
+        login_attempts = 3;
+    }, 1500);
+}
+
+    });
+});
+
+</script>
 
 </html>
 

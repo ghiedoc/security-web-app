@@ -25,41 +25,39 @@ $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
 //FOR LOGGING IN MULTI-USER
 session_start();
-if ( isset( $_POST['login_submit'] ) ) {
+if ( isset( $_POST['loginFormSubmit'] )) {
+
     $username = $_POST['username'];
     $password = $_POST['password'];
+
     $query = "SELECT * FROM admindb WHERE username='$username' and password='$password'";
     $result = mysqli_query( $con, $query );
 
     $email = $_POST['username'];
     $querys = "SELECT * FROM patienttb WHERE email='$email' and password='$password'";
     $results = mysqli_query( $con, $querys );
-
+ 
     if ( $username == 'admin@email.com' ) {
         if ( mysqli_num_rows( $result ) == 1 ) {
-
-            header( 'Location:dashboard.php' );
+            $status = '.admin';
         } else {
-            echo "<script>alert('Error Logging in Admin!')</script>";
-            echo "<script>window.open('index.php', '_self')</script>";
+            $status = '.error';
         }
-    } elseif ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
+    }
+     elseif ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
         if ( $row = mysqli_fetch_array( $results ) ) {
             $id = $row['fname'];
             $_SESSION['fname'] = $id;
             $ids = $row['patient_id'];
             $_SESSION['id'] = $ids;
         }
-        echo $id;
-        header( 'Location:patientDashboard.php' );
-
+        // echo $id;
+        // header( 'Location:patientDashboard.php' );
     } else {
-        // MAY ERROR SOMETHING DITO KAPAG MALI YUNG CREDENTIALS NA NILAGA
-        //$_message = 'LOGIN ERROR';
-        echo "<script>alert('Error Logging in User!')</script>";
-        echo "<script>window.open('index.php', '_self')</script>";
+        $status = '.error';
     }
 
+    echo $status;
 }
 
 // BOOKING/ADDING AN APPOINTMENT
