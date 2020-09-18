@@ -49,7 +49,7 @@
             </div>
         </div>
     </section>
-    </section>
+   
     
     <!-- MODAL FOR SIGNING IN -->
     <!-- Modal Sign In-->
@@ -84,12 +84,22 @@
                                         autocomplete="off" required />
                                         <span toggle="#input-pwd" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
+                        
+                               
+                        
+                        
                                 <!-- SUBMIT BUTTON -->
                                 <button type="submit" id="login_submit" class="btn btn-primary shadow-2 mb-4">
                                 
                                     Login
                                 </button>
-                                </form>
+                        
+                                <div class="form-group">
+                                    <p class="mb-0 text-muted">
+                                     <a href="forgotPassword.php">Forget Password</a>
+                                </p>
+                                </div>
+                               
                                 <p class="mb-0 text-muted">
                                     Don’t have an account? <a href="index.php">Signup</a>
                                 </p>

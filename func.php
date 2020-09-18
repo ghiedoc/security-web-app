@@ -60,6 +60,21 @@ if ( isset( $_POST['loginFormSubmit'] )) {
     echo $status;
 }
 
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
 // BOOKING/ADDING AN APPOINTMENT
 if ( isset( $_POST['pat_submit'] ) ) {
 
