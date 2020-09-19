@@ -6,23 +6,6 @@
 
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
-//FOR LOGGING IN OF PATIENT
-// if ( isset( $_POST['login_submit'] ) ) {
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-
-//     $query = "SELECT * FROM patienttb WHERE email='$username' and password='$password'";
-
-//     $result = mysqli_query( $con, $query );
-//     if ( mysqli_num_rows( $result ) == 1 ) {
-//         header( 'Location:patientDashboard.php' );
-//     } else {
-//         // MAY ERROR SOMETHING DITO KAPAG MALI YUNG CREDENTIALS NA NILAGAY
-//         echo "<script>alert('Error Logging in Patient!')</script>";
-//         echo "<script>window.open('index.php', '_self')</script>";
-//     }
-// }
-
 //FOR LOGGING IN MULTI-USER
 session_start();
 if ( isset( $_POST['loginFormSubmit'] )) {
@@ -59,19 +42,6 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 
     echo $status;
 }
-
-
-
-
-
-
-
-
-    
-    
-
-
-
 
 
 
@@ -433,13 +403,6 @@ try {
 $query_count = 'SELECT (Appointment_Id) FROM appointment';
 $result = mysqli_query( $con, $query_count );
 $values = mysqli_num_rows( $result );
-// $total = $values;
-// echo $values;
-
-// COUNT THE TOTAL PATIENT wala pang table para sa patient
-//  $query_count = 'SELECT (Appointment_Id) AS TOTAL FROM appointment';
-//     $result = mysqli_query( $con, $query_count );
-//     $values = mysqli_num_rows( $result );
 
 //TOTAL PATIENT
 $query_count = 'SELECT (patient_id) AS TOTAL FROM patienttb';
@@ -495,4 +458,5 @@ try {
 } catch( Exception $e ) {
     echo $e->getMessage();
 }
+
 ?>

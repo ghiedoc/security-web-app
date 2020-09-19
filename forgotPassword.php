@@ -144,6 +144,7 @@ if ( isset( $_POST['forgot'] )) {
         $email = $_POST["username"];
         $oldpassword = $_POST["oldpassword"];
         $newpassword = $_POST["newpassword"];
+        $hash_Pass = password_hash($newpassword, PASSWORD_BCRYPT);
         $checkerEmailPassword;
     
     //email and password exist checker    
@@ -157,7 +158,7 @@ if ( isset( $_POST['forgot'] )) {
       //old and new password validation
       if($oldpassword!==$newpassword){
           
-          $querys = "UPDATE `patienttb` SET `password` = '$newpassword' WHERE `patienttb`.`email` = '$email'";
+         $querys = "UPDATE `patienttb` SET `password` = '$hash_Pass' WHERE `patienttb`.`email` = '$email'";
         $results = mysqli_query( $con, $querys );
           
           if ( $result ) {

@@ -85,9 +85,6 @@
                                         <span toggle="#input-pwd" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                         
-                               
-                        
-                        
                                 <!-- SUBMIT BUTTON -->
                                 <button type="submit" id="login_submit" class="btn btn-primary shadow-2 mb-4">
                                 
