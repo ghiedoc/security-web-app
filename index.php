@@ -229,7 +229,7 @@ if(login_attempts > 0){
         document.getElementById("password").disabled = false;
         document.getElementById("login_submit").style.visibility = "visible";
         login_attempts = 3;
-    }, 1500);
+    }, 30000);
 }
 
     });
