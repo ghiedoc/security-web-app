@@ -143,19 +143,18 @@
     //FORGOT PASSWORD FUNCTION
 if ( isset( $_POST['forgot'] )) {
     
-    
         $email = $_POST["username"];
         $oldpassword = $_POST["oldpassword"];
         $newpassword = $_POST["newpassword"];
     
         if($oldpassword === $newpassword){
-            $hash_Pass = password_hash($newpassword, PASSWORD_BCRYPT);
+            $hash_Pass = password_hash($newpassword, PASSWORD_DEFAULT);
             
             $querys = "UPDATE `patienttb` SET `password` = '$hash_Pass' WHERE `patienttb`.`email` = '$email'";
             $results = mysqli_query( $con, $querys );
           
           if ( $result ) {
-            $_SESSION['status'] = 'Updated Successfully!';
+            $_SESSION['status'] = 'Changed Password Success!';
             $_SESSION['status_code'] = 'success';
             echo "<script>window.open('index.php', '_self')</script>";
         }else {
@@ -169,18 +168,10 @@ if ( isset( $_POST['forgot'] )) {
             echo "<script>
         $( '#invalid' ).css('display', 'block');
     </script>";
-//      
-      
             echo "<script>
         $( '#invalid' ).text('Password Not Match');
     </script>";   
         }
-        
-        
-        
-    
-    
-        
 }
     ?>
     

@@ -113,11 +113,6 @@
     </div>
 
     </section>
-    
-    
-        
-
-
         <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
         <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
         
