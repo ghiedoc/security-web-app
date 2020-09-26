@@ -12,7 +12,9 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+    
+    
+    
     $query = "SELECT * FROM admindb WHERE username='$username' and password='$password'";
     $result = mysqli_query( $con, $query );
 
