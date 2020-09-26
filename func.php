@@ -62,14 +62,18 @@ if ( isset( $_POST['pat_submit'] ) ) {
      VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats', '$payment')";
     $result = mysqli_query( $con, $query );
 
-    if ( $result ) {
+    if(empty($first) || empty($lname) || empty($mobile) || empty($date) || empty($time) || empty($services)){
+        header ("Location: ../patient_BookAppointment.php?booking=empty");
+    }elseif($result){
         echo "<script>alert('Appointment Added!')</script>";
         echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
-    } else {
+    }else {
         echo $id;
         echo "<script>alert('Error Adding Appointment!')</script>";
         echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
     }
+}else{
+    // header ("Location: ../patient_BookAppointment.php?booking=error");
 }
 
 //PATIENT REGISTRATION
