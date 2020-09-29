@@ -71,7 +71,7 @@ if ( isset( $_POST['pat_submit'] ) ) {
         echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
     }
 }
-
+ 
 //PATIENT REGISTRATION
 try {
     $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
