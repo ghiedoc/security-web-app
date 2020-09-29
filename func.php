@@ -7,7 +7,7 @@
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
 //FOR LOGGING IN MULTI-USER
-// session_start();
+session_start();
 if ( isset( $_POST['loginFormSubmit'] )) {
 
     $username = $_POST['username'];
