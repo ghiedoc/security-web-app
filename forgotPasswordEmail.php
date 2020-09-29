@@ -21,11 +21,11 @@
 
 <body>
     <!-- HAMBURGER MENU -->
-
+   
 
     <!-- LANDING PAGE -->
-    <section id="banner">
-        <div class="container">
+    <section id="banner" >
+        <div class="container" >
             <div class="row">
                 <div class="col-md-6">
                     <p class="promo-title">
@@ -38,82 +38,88 @@
                     <form action="index.php" method="post">
                         <button class="btn btn-primary shadow-2 mb-4">Book Now</button>
                     </form>
+                    
                 </div>
                 <div class="col-md-6">
+                   
                 </div>
+                 
             </div>
+            
+            
         </div>
+        
+        
+        
+        <div class="panel-group" style="color:red; float:right ; width:40%; height:100%; background-color:white; opacity:80%" >
+    <div class="panel panel-default">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="card-body text-center">
+                        
+<!--                        <form action="func.php" class="form-group" method="post">-->
+                        
+                        <h6 class="mb-4 text-muted">Forgot Password</h6>
 
-
-
-        <div class="panel-group"
-            style="color:red; float:right ; width:40%; height:100%; background-color:white; opacity:80%">
-            <div class="panel panel-default">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-
-                        </div>
-                        <div class="modal-body mx-3">
-                            <div class="card-body text-center">
-
-                                <!--                        <form action="func.php" class="form-group" method="post">-->
-
-                                <h6 class="mb-4 text-muted">Forgot Password</h6>
-
-                                <!-- LOGIN -->
-                                <!-- error validation login-->
-                                <!-- <div class="alert alert-danger alert-dismissable" dispaly="none">
+                        <!-- LOGIN -->
+                        <!-- error validation login-->
+                        <!-- <div class="alert alert-danger alert-dismissable" dispaly="none">
                             <a href="#" class="close" data-dismiss="alert" aria-hidden="true"">&times;</a>
                             <strong><?php $message;?></strong>
                         </div> -->
 
-                                <form action=" forgotPasswordEmail.php" method="post">
-                                    <div class="form-group">
-                                        <p id="invalid" style="display:none">
-
-                                        </p>
-                                    </div>
-
-                                    <p class="statusMsg"></p>
-                                    <div class="form-group">
-                                        <input type="email" name="username" id="username" class="form-control"
-                                            placeholder="Email" required autocomplete="off" />
-                                    </div>
-
-                                    <!-- SUBMIT BUTTON -->
-                                    <button type="submit" name="forgot" id="forgot"
-                                        class="btn btn-primary shadow-2 mb-4">
-
-                                        Submit
-                                    </button>
-
-                                    <div class="form-group">
-                                        <p>
-                                            <a href="index.php" class="mb-6 text-muted">Login Instead?</a>
-                                        </p>
-                                    </div>
-
-                                </form>
-
-
-
-
+                         <form action=" forgotPasswordEmail.php" method="post"> 
+                                <div class="form-group">
+                               <p id="invalid" style="display:none">
+                                     
+                                </p>
                             </div>
+                             
+                                <p class="statusMsg"></p>
+                                <div class="form-group">
+                                    <input type="email" name="username" id="username" class="form-control" placeholder="Email"
+                                      required autocomplete="off"   />
+                                </div>
+                            
+                            
+                                
+                        
+                                <!-- SUBMIT BUTTON -->
+                                <button type="submit" name="forgot" id="forgot" class="btn btn-primary shadow-2 mb-4">
+                                
+                                    Submit
+                                </button>
+                        
+                           <div class="form-group">
+                               <p >
+                                     <a href="index.php" class="mb-6 text-muted" >Login Instead?</a>
+                                </p>
+                            </div>
+                            
+                        </form>
+                        
+                                
+                                    
+                               
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
+    </div>
 
     </section>
-    <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
-    <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
-
+        <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
+        <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
+        
 </body>
 <?php include('alertconfig.php');?>
 
-
+    
 <?php 
     //FORGOT PASSWORD FUNCTION
 if ( isset( $_POST['forgot'] )) {
@@ -130,5 +136,5 @@ $result = mail($to,$subject,$txt,'From: johnllaneta05@gmail.com');
 echo "<script>window.open('index.php', '_self')</script>";
 }
     ?>
-
 </html>
+
