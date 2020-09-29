@@ -191,6 +191,38 @@ function getPatientAppointment() {
     }
 }
 
+//PATIENT APPOINTMENT HISTORY, dito sana mafefetch lang yung info nung user na naka login
+try{
+    function getPatientAppointmentLogs() {
+        global $con;
+        $ids = $_SESSION['id'];
+        $query = "SELECT * FROM appointment WHERE patient_fk='$ids'";
+        $result = mysqli_query( $con, $query );
+    
+        while( $row = mysqli_fetch_array( $result ) ) {
+            $ids = $row['Appointment_Id'];
+            $fname = $row['Fname'];
+            $lname = $row['Lname'];
+            $date = $row['Appointment_Date'];
+            $time = $row['Appointment_Time'];
+            $services = $row['Appointment_Service'];
+            $patientfk = $row['patient_fk'];
+            $status = $row['stats'];
+            echo "<tr> 
+                <td>$ids</td>
+                <td>$fname</td>
+                <td>$lname</td>
+                <td>$date</td>
+                <td>$time</td>
+                <td>$services</td> 
+                <td>$status</td>
+                </tr>";
+        }
+    }
+}catch(Exception $e){
+    echo 'error contact admin';
+}
+
 function getPatientAppointmentHistory() {
     global $con;
     $query = 'SELECT * FROM appointment';
@@ -217,35 +249,6 @@ function getPatientAppointmentHistory() {
             <td>$time</td>
             <td>$services</td> 
             <td>$status</td> 
-            </tr>";
-    }
-}
-
-//PATIENT APPOINTMENT HISTORY, dito sana mafefetch lang yung info nung user na naka login
-
-function getPatientAppointmentLogs() {
-    global $con;
-    $ids = $_SESSION['id'];
-    $query = "SELECT * FROM appointment WHERE patient_fk='$ids'";
-    $result = mysqli_query( $con, $query );
-
-    while( $row = mysqli_fetch_array( $result ) ) {
-        $ids = $row['Appointment_Id'];
-        $fname = $row['Fname'];
-        $lname = $row['Lname'];
-        $date = $row['Appointment_Date'];
-        $time = $row['Appointment_Time'];
-        $services = $row['Appointment_Service'];
-        $patientfk = $row['patient_fk'];
-        $status = $row['stats'];
-        echo "<tr> 
-            <td>$ids</td>
-            <td>$fname</td>
-            <td>$lname</td>
-            <td>$date</td>
-            <td>$time</td>
-            <td>$services</td> 
-            <td>$status</td>
             </tr>";
     }
 }
