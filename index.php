@@ -94,7 +94,7 @@
                         
                                 <div class="form-group">
                                     <p class="mb-0 text-muted">
-                                     <a href="forgotPassword.php">Forget Password</a>
+                                     <a href="forgotPasswordEmail.php">Forget Password</a>
                                 </p>
                                 </div>
                                

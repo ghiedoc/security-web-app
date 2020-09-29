@@ -72,7 +72,7 @@
                             <strong><?php $message;?></strong>
                         </div> -->
 
-                         <form action="forgotPassword.php?email=<?php echo $_GET['email'];?>" method="post"> 
+                         <form action=" forgotPasswordEmail.php" method="post"> 
                                 <div class="form-group">
                                <p id="invalid" style="display:none">
                                      
@@ -81,22 +81,8 @@
                              
                                 <p class="statusMsg"></p>
                                 <div class="form-group">
-                                    <input type="email" name="username" id="username" class="form-control" value="<?php echo $_GET['email'];?>"
-                                      required autocomplete="off" readonly  />
-                                </div>
-                                <div class="form-group">
-                                   <input type="password" name="oldpassword" id="oldpassword" class="form-control" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
-                                        required autocomplete="off"
-                                         />
-                                        <span toggle="#input-pwd" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                </div>
-                        
-                        
-                                <div class="form-group">
-                                    <input type="password" name="newpassword" id="newpassword" class="form-control" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
-                                        required autocomplete="off"
-                                         />
-                                        <span toggle="#input-pwd" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <input type="email" name="username" id="username" class="form-control" placeholder="Email"
+                                      required autocomplete="off"   />
                                 </div>
                             
                             
@@ -127,11 +113,6 @@
     </div>
 
     </section>
-    
-    
-        
-
-
         <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
         <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
         
@@ -143,36 +124,17 @@
     //FORGOT PASSWORD FUNCTION
 if ( isset( $_POST['forgot'] )) {
     
-        $email = $_POST["username"];
-        $oldpassword = $_POST["oldpassword"];
-        $newpassword = $_POST["newpassword"];
     
-        if($oldpassword === $newpassword){
-            $hash_Pass = password_hash($newpassword, PASSWORD_DEFAULT);
-            
-            $querys = "UPDATE `patienttb` SET `password` = '$hash_Pass' WHERE `patienttb`.`email` = '$email'";
-            $results = mysqli_query( $con, $querys );
-          
-          if ( $result ) {
-            $_SESSION['status'] = 'Changed Password Success!';
-            $_SESSION['status_code'] = 'success';
-            echo "<script>window.open('index.php', '_self')</script>";
-        }else {
-            $_SESSION['status'] = 'Something went wrong!';
-            $_SESSION['status_code'] = 'error';
-            echo "<script>window.open('index.php', '_self')</script>";
-        }
-            
-    
-        }else{
-            echo "<script>
-        $( '#invalid' ).css('display', 'block');
-    </script>";
-            echo "<script>
-        $( '#invalid' ).text('Password Not Match');
-    </script>";   
-        }
+$email = $_POST["username"];
+$to = $email;
+$subject = "Reset Password";
+$txt = "http://localhost/security-web-app/forgotPassword.php?email=$email";
+
+
+$result = mail($to,$subject,$txt,'From: johnllaneta05@gmail.com');
+
+echo "<script>window.open('index.php', '_self')</script>";
 }
     ?>
-    
 </html>
+
