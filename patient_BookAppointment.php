@@ -107,7 +107,7 @@
                             <label for="">Time: </label>
                             <select name="time" class="form-control" id="">
                                 <option value="9am to 10am">9am to 10am</option>
-                                <option value="10am to 11ampm">10am to 11am</option>
+                                <option value="10am to 11am">10am to 11am</option>
                                 <option value="2pm to 3pm">2pm to 3pm</option>
                                 <option value="3pm to 4pm">3pm to 4pm</option>
                                 <option value="4pm to 5pm">4pm to 5pm</option>

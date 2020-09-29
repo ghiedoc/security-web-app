@@ -12,7 +12,9 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+    
+    
+    
     $query = "SELECT * FROM admindb WHERE username='$username' and password='$password'";
     $result = mysqli_query( $con, $query );
 
@@ -46,31 +48,47 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 
 
 // BOOKING/ADDING AN APPOINTMENT
-if ( isset( $_POST['pat_submit'] ) ) {
-
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $mobile = $_POST['mobile'];
-    $date = $_POST['date'];
-    $time = $_POST['time'];
-    $services = $_POST['services'];
-    $id = $_SESSION['id'];
-    $stats = $_POST['pend'];
-    $payment = $_POST['payment'];
-
-    $query = "INSERT INTO appointment(Fname, Lname, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk, stats, Payment)
-     VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats', '$payment')";
-    $result = mysqli_query( $con, $query );
-
-    if ( $result ) {
-        echo "<script>alert('Appointment Added!')</script>";
-        echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
-    } else {
-        echo $id;
-        echo "<script>alert('Error Adding Appointment!')</script>";
-        echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
+try{
+    if ( isset( $_POST['pat_submit'] ) ) {
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $mobile = $_POST['mobile'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $services = $_POST['services'];
+        $id = $_SESSION['id'];
+        $stats = $_POST['pend'];
+        $payment = $_POST['payment'];
+    
+        $query = "INSERT INTO appointment(Fname, Lname, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk, stats, Payment)
+         VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats', '$payment')";
+        $result = mysqli_query( $con, $query);
+    
+        if(empty($fname) || empty($lname) || empty($mobile) || empty($date) || empty($time) || empty($services))
+        {
+            header ("Location: ../patient_BookAppointment.php?booking=empty");
+        }
+        elseif($result)
+        {
+            echo "<script>alert('Appointment Added!')</script>";
+            echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
+        }
+        else 
+        {
+            echo $id;
+            echo "<script>alert('Error Adding Appointment!')</script>";
+            echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
+        }
     }
+    // else{
+    //     // header ("Location: ../patient_BookAppointment.php?booking=error");
+    //     echo "<script>alert('Error Adding Appointment!')</script>";
+    // }
+
+}catch(Exception $e){
+    echo $e->getMessage();
 }
+
 
 //PATIENT REGISTRATION
 try {
