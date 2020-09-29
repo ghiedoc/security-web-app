@@ -179,7 +179,6 @@ function getPatientAppointment() {
             <td>$ids</td>
             <td>$fname</td>
             <td>$lname</td>
-            <td>$email</td>
             <td>$mobile</td>
             <td>$date</td>
             <td>$time</td>
@@ -343,9 +342,6 @@ function getPaymentHistory() {
         <td>$services</td> 
         <td>$payment</td>
         <td>$pay_date</td>
-        <td>
-            <button type='button' class='paybtn btn btn-success'>Pay</button>
-        </td>
         </tr>";
     }
 }

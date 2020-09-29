@@ -101,7 +101,6 @@
                                         <th>ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
-                                        <th>Email</th>
                                         <th>Mobile Nos.</th>
                                         <th>Date</th>
                                         <th>Time</th>
