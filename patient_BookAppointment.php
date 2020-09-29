@@ -66,7 +66,7 @@
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user-injured"></i>
-                                    <span><?php echo( $_SESSION['fname']);?></span><span><?php echo( $_SESSION['id']);?></span> <i style="font-size: .8em;"
+                                    <span><?php echo( $_SESSION['fname']);?></span><span style="visibility: hidden;"><?php echo( $_SESSION['id']);?></span> <i style="font-size: .8em;"
                                         class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
