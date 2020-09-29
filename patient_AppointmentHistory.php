@@ -69,7 +69,7 @@ include("func.php");
                                         class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
-                                        <li><a href="index.php" class="dropdown-item"><i
+                                        <li><a href="logout.php" class="dropdown-item"><i
                                                     class="fas fa-sign-out-alt"></i> Logout</a></li>
                                     </ul>
                                 </div>
