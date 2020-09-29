@@ -1,5 +1,7 @@
+<?php 
+include("func.php");
+?>
 <!DOCTYPE html>
-<?php include("func.php");?>
 <html lang="en">
 
 <head>
