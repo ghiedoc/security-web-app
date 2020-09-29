@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<?php include("func.php");?>
+<?php 
+session_start();
+include("func.php");
+?>
 <html lang="en">
 
 <head>
@@ -74,7 +77,7 @@
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
                                         </li>
                                         <div class="dropdown-divider"></div>
-                                        <li><a href="index.php" class="dropdown-item"><i
+                                        <li><a href="logout.php" class="dropdown-item"><i
                                                     class="fas fa-sign-out-alt"></i> Logout</a></li>
                                     </ul>
                                 </div>
