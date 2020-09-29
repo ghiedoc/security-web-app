@@ -83,7 +83,7 @@
                                 <div class="input-group">
                                     <input type="password" id="password" class="form-control" placeholder="Password"
                                         autocomplete="off" required />
-                                        <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" style="padding-top: 25px"></span>      
+                                        <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" style="padding-top: 15px"></span>      
                                 </div>
                         
                                 <!-- SUBMIT BUTTON -->
@@ -150,7 +150,7 @@
                                 <div class="input-group">
                                     <input type="password" name="password" id="show-pass" class="form-control" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
                                         required autocomplete="off">
-                                    <span toggle="#show-pass" class="fa fa-fw fa-eye field-icon toggle-password" style="padding-top: 25px"></span>      
+                                    <span toggle="#show-pass" class="fa fa-fw fa-eye field-icon toggle-password" style="padding-top: 15px"></span>      
 
                                 </div>
                                 
