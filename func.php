@@ -89,7 +89,6 @@ try{
     echo $e->getMessage();
 }
 
-
 //PATIENT REGISTRATION
 try {
     $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
