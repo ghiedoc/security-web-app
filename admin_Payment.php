@@ -96,12 +96,12 @@
                     <h3>Update Payment Status Here</h3>
                     <hr>
                         <form action="func.php" method="post" class="form-group">
-                            <input type="text" name="contact" class="form-control" pattern="[0-9]{11}" placeholder="Enter contact number" required autocomplete="off">
-                            <small id="contactHelp" class="form-text text-muted">Enter the 11 digit contact number of patient.</small><br>
+                            <input type="text" name="contact" id="contact" class="form-control" pattern="[0-9]{11}" placeholder="Select contact number" required autocomplete="off" readonly >
+                            <small id="contactHelp" class="form-text text-muted">11 digit contact number of patient.</small><br>
                             <select name="status" id="" class="form-control">
                                 <option value="PAID">Paid</option>
                             </select> <br>
-                            <input type="submit" value="Update" name="update_data" class="btn btn-success btn-block float-right">
+                            <input type="submit" value="Update" id="update" name="update_data" class="btn btn-success btn-block float-right" style="display:none">
                         </form>
                         <br>
                     </div>
@@ -149,5 +149,56 @@
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
 <script src="js/script.js"></script>
 
+    
+    <?php 
+    //POPULATE PAYMENT HISTORY
+
+function getPaymentHistory() {
+    global $con;
+
+    $query = 'SELECT * FROM appointment';
+    $result = mysqli_query( $con, $query );
+
+    while( $row = mysqli_fetch_array( $result ) ) {
+        $id = $row['Appointment_Id'];
+        $fname = $row['Fname'];
+        $lname = $row['Lname'];
+        $mobile = $row['Mobile'];
+        $services = $row['Appointment_Service'];
+        $payment = $row['Payment'];
+        $pay_date = $row['Payment_Date'];
+        
+        if($payment !== 'PAID'){
+            $payment = "<form action='#' method='post'> 
+                <input type='text' name='mobile' value='$mobile' style='display:none'>
+                <button type='submit' class='viewbtn btn btn-success' name= 'pay_btn'>PAY NOW</button>
+            </form>" ;
+        }
+        
+        echo "<tr> 
+        <td>$id</td>
+        <td>$fname</td>
+        <td>$lname</td>
+        <td>$mobile</td>
+        <td>$services</td> 
+        <td>$payment</td>
+        <td>$pay_date</td>
+        </tr>";
+    }
+}
+
+
+//PAYNOW BUTTON
+if ( isset( $_POST['pay_btn'] ) ) {
+        $mobile = $_POST['mobile'];
+    echo "<script>
+   $( '#contact' ).val('$mobile');
+   $( '#update' ).css('display', 'block');
+</script>";  
+    
+    
+       
+}
+    ?>
 
 </html>
