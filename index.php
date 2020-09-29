@@ -85,7 +85,7 @@
                                         autocomplete="off" required />
                                         <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" style="padding-top: 15px"></span>      
                                 </div>
-                        
+                                <br>
                                 <!-- SUBMIT BUTTON -->
                                 <button type="submit" id="login_submit" class="btn btn-primary shadow-2 mb-4">
                                 

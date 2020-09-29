@@ -75,7 +75,6 @@ try{
         }
         else 
         {
-            echo $id;
             echo "<script>alert('Error Adding Appointment!')</script>";
             echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
         }
