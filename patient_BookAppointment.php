@@ -92,9 +92,9 @@
                             <!-- Patient details form -->
                             <h3 align="center">Patient Details</h3>
                             <label for="">First Name: </label>
-                            <input type="text" name="fname" pattern="[A-Za-z]{1,30}" class="form-control" required autocomplete="on"><br>
+                            <input type="text" id="fname" class="form-control" value =  <?php echo( $_SESSION['fname'] );?> disabled><br>
                             <label for="">Last Name: </label>
-                            <input type="text" name="lname" pattern="[A-Za-z]{1,30}" class="form-control" required autocomplete="on"><br>
+                            <input type="text" id="lname" class="form-control" value =  <?php echo( $_SESSION['lname'] );?> disabled><br>
                             <label for="">Cellphone Number: </label>
                             <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required autocomplete="on" placeholder="Enter your 11 digit number">
                             <!-- Appointment Details form -->

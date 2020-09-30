@@ -13,8 +13,6 @@ if ( isset( $_POST['loginFormSubmit'] )) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     
-    
-    
     $query = "SELECT * FROM admindb WHERE username='$username' and password='$password'";
     $result = mysqli_query( $con, $query );
 
@@ -65,8 +63,9 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 try{
 if ( isset( $_POST['pat_submit'] ) ) {
 
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+    $email = $_SESSION['email'];
     $mobile = $_POST['mobile'];
     $date = $_POST['date'];
     $time = $_POST['time'];
@@ -75,8 +74,8 @@ if ( isset( $_POST['pat_submit'] ) ) {
     $stats = $_POST['pend'];
     $payment = $_POST['payment'];
 
-    $query = "INSERT INTO appointment(Fname, Lname, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk, stats, Payment)
-     VALUE('$fname','$lname','$mobile','$date','$time','$services','$id','$stats', '$payment')";
+    $query = "INSERT INTO appointment(Fname, Lname,email, Mobile, Appointment_Date, Appointment_Time, Appointment_Service,patient_fk, stats, Payment)
+     VALUE('$fname','$lname','$email','$mobile','$date','$time','$services','$id','$stats', '$payment')";
     $result = mysqli_query( $con, $query );
 
     if ( $result ) {
@@ -412,8 +411,21 @@ try {
     echo $e->getMessage();
 }
 
+// show the fname and lname from book appointment
+// try{
+//     $fname = 'SELECT fname FROM patienttb';
+//     $lname = 'SELECT lname FROM patienttb';
+//     $resultfname = mysqli_query( $con, $fname);
+//     $resultlname = mysqli_query( $con, $lname);
+//     $values = mysqli_fetch_array($resultfname);
+    
+// }catch(Exception $e){
+//     echo 'ERROR',$e->getMessage();
+// }
+
 // COUNT THE TOTAL APPOINTMENT
 try{
+  
 $query_count = 'SELECT (Appointment_Id) FROM appointment';
 $result = mysqli_query( $con, $query_count );
 $values = mysqli_num_rows( $result );
