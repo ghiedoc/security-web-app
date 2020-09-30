@@ -29,12 +29,23 @@ if ( isset( $_POST['loginFormSubmit'] )) {
             $status = '.error';
         }
     }
-     elseif ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
+     else if ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
         if ( $row = mysqli_fetch_array( $results ) ) {
             $id = $row['fname'];
             $_SESSION['fname'] = $id;
             $ids = $row['patient_id'];
             $_SESSION['id'] = $ids;
+            $lname = $row['lname'];
+            $_SESSION['lname'] = $lname;
+            $gender = $row['gender'];
+            $_SESSION['gender'] = $gender;
+            $email = $row['email'];
+            $_SESSION['email'] = $email;
+            $address = $row['adds'];
+            $_SESSION['adds'] = $address;
+            $regiDate = $row['regiDate'];
+            $_SESSION['regiDate'] = $regiDate;
+            
         }
         // echo $id;
         // header( 'Location:patientDashboard.php' );
