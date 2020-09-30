@@ -344,34 +344,6 @@ function getPatientMedicalHistory( $x ) {
 }
 }
 
-
-function getPaymentHistory() {
-    try{
-    global $con;
-
-    while( $row = mysqli_fetch_array( $result ) ) {
-        $id = $row['Appointment_Id'];
-        $fname = $row['Fname'];
-        $lname = $row['Lname'];
-        $mobile = $row['Mobile'];
-        $services = $row['Appointment_Service'];
-        $payment = $row['Payment'];
-        $pay_date = $row['Payment_Date'];
-        echo "<tr> 
-        <td>$id</td>
-        <td>$fname</td>
-        <td>$lname</td>
-        <td>$mobile</td>
-        <td>$services</td> 
-        <td>$payment</td>
-        <td>$pay_date</td>
-        </tr>";
-    }
-}catch(Exception $e){
-    echo 'ERROR',$e->getMessage();
-}
-}
-
 // UPDATE PAYMENT OF PATIENT
 try {
     if ( isset( $_POST['update_data'] ) ) {
