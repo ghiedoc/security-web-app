@@ -3,7 +3,7 @@
 <?php
 
 // connection sa database sa mysql
-
+try{
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
 //FOR LOGGING IN MULTI-USER
@@ -44,10 +44,14 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 
     echo $status;
 }
+}catch(Exception $e){
+    echo 'Error Login', $e->getMessage();
+}
 
 
 
 // BOOKING/ADDING AN APPOINTMENT
+try{
 if ( isset( $_POST['pat_submit'] ) ) {
 
     $fname = $_POST['fname'];
@@ -72,6 +76,9 @@ if ( isset( $_POST['pat_submit'] ) ) {
         echo "<script>alert('Error Adding Appointment!')</script>";
         echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
     }
+}
+}catch(Exception $e){
+    echo 'ERROR Addding appointment: ', $e->getMessage();
 }
 
 //PATIENT REGISTRATION
@@ -112,7 +119,7 @@ try {
         }
     }
 } catch( Exception $e ) {
-    echo $e->getMessage();
+    echo 'Error Patient Register',$e->getMessage();
 }
 
 //PATIENT ADD MEDICAL HISTORY
@@ -139,12 +146,13 @@ try {
         }
     }
 } catch( Exception $e ) {
-    echo $e->getMessage();
+    echo 'ERROR PATIENT HISTORY',$e->getMessage();
 }
 
 //POPULATE THE DATA FROM DATABASE IN appointment TO TABLE IN APPOINTMENT HISTORY
 
 function getPatientAppointment() {
+    try{
     global $con;
     $query = 'SELECT * FROM appointment';
     $result = mysqli_query( $con, $query );
@@ -176,9 +184,14 @@ function getPatientAppointment() {
             </td>
             </tr>";
     }
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 }
 
+
 function getPatientAppointmentHistory() {
+    try{
     global $con;
     $query = 'SELECT * FROM appointment';
     $result = mysqli_query( $con, $query );
@@ -206,11 +219,15 @@ function getPatientAppointmentHistory() {
             <td>$status</td> 
             </tr>";
     }
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 }
 
 //PATIENT APPOINTMENT HISTORY, dito sana mafefetch lang yung info nung user na naka login
 
 function getPatientAppointmentLogs() {
+    try{
     global $con;
     $ids = $_SESSION['id'];
     $query = "SELECT * FROM appointment WHERE patient_fk='$ids'";
@@ -235,11 +252,15 @@ function getPatientAppointmentLogs() {
             <td>$status</td>
             </tr>";
     }
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 }
 
 //POPULATE THE DATA FROM DATABASE IN patienttb TO TABLE IN ADMIN PATIENT LIST
 
 function getPatientDetails() {
+    try{
     global $con;
 
     $query = 'SELECT * FROM patienttb';
@@ -278,9 +299,13 @@ function getPatientDetails() {
             </td>
         </tr>";
     }
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 }
 
 function getPatientMedicalHistory( $x ) {
+    try{
     global $con;
     $id = $x;
 
@@ -303,10 +328,14 @@ function getPatientMedicalHistory( $x ) {
             </tr>
             ";
     }
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 }
 //POPULATE PAYMENT HISTORY
 
 function getPaymentHistory() {
+    try{
     global $con;
 
     $query = 'SELECT * FROM appointment';
@@ -330,6 +359,9 @@ function getPaymentHistory() {
         <td>$pay_date</td>
         </tr>";
     }
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 }
 
 // UPDATE PAYMENT OF PATIENT
@@ -402,14 +434,22 @@ try {
 }
 
 // COUNT THE TOTAL APPOINTMENT
+try{
 $query_count = 'SELECT (Appointment_Id) FROM appointment';
 $result = mysqli_query( $con, $query_count );
 $values = mysqli_num_rows( $result );
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 
 //TOTAL PATIENT
+try{
 $query_count = 'SELECT (patient_id) AS TOTAL FROM patienttb';
 $result = mysqli_query( $con, $query_count );
 $patient_values = mysqli_num_rows( $result );
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
 
 try {
     if ( isset( $_POST['approve'] ) ) {

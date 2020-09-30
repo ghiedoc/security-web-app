@@ -123,16 +123,11 @@
 <?php 
     //FORGOT PASSWORD FUNCTION
 if ( isset( $_POST['forgot'] )) {
-    
-    
 $email = $_POST["username"];
 $to = $email;
 $subject = "Reset Password";
 $txt = "http://localhost/security-web-app/forgotPassword.php?email=$email";
-
-
 $result = mail($to,$subject,$txt,'From: johnllaneta05@gmail.com');
-
 echo "<script>window.open('index.php', '_self')</script>";
 }
     ?>
