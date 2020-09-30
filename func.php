@@ -343,7 +343,6 @@ function getPatientMedicalHistory( $x ) {
     echo 'ERROR',$e->getMessage();
 }
 }
-
 // UPDATE PAYMENT OF PATIENT
 try {
     if ( isset( $_POST['update_data'] ) ) {
