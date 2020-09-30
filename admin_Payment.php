@@ -152,10 +152,8 @@
     
     <?php 
     //POPULATE PAYMENT HISTORY
-
 function getPaymentHistory() {
     global $con;
-
     $query = 'SELECT * FROM appointment';
     $result = mysqli_query( $con, $query );
 
@@ -200,5 +198,4 @@ if ( isset( $_POST['pay_btn'] ) ) {
        
 }
     ?>
-
 </html>

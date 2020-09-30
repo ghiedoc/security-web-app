@@ -348,6 +348,7 @@ function getPatientMedicalHistory( $x ) {
 function getPaymentHistory() {
     try{
     global $con;
+
     while( $row = mysqli_fetch_array( $result ) ) {
         $id = $row['Appointment_Id'];
         $fname = $row['Fname'];
