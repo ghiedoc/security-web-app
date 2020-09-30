@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+
+<?php include("func.php");?>
+
 <html lang="en">
 
 <head>
@@ -63,7 +65,9 @@
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user-injured"></i>
-                                    <span><?php echo( $_SESSION['fname']);?></span> <i style="font-size: .8em;"
+                                    <span><?php echo( $_SESSION['fname']);?></span> 
+                                     
+                                    <i style="font-size: .8em;"
                                         class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
@@ -74,9 +78,81 @@
                             </div>
                         </li>
                     </ul>
+                    
                 </div>
+                
             </nav>
+            <!-- CONTENT-->
+            <br>
+            
+            <!-- CONTENT HERE -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="page-title">
+                        <h3>Manage Medical History
+                            
+                        </h3>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-body">
 
+                            <!-- PATIENT DETAILS TABLE -->
+                            <table border="1" class="table table-bordered">
+                                <tr align="center">
+                                    <td colspan="4" style="font-size:20px;color:black">
+                                        Patient Details</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope>First Name:</th>
+                                    <td><?php echo $_SESSION["fname"];?></td>
+                                    <th scope>Last Name:</th>
+                                    <td><?php echo $_SESSION["lname"];?></td>
+                                </tr>
+                                <tr>
+                                    <th>Patient Email:</th>
+                                    <td><?php echo $_SESSION["email"];?></td>
+                                    <th>Patient Gender:</th>
+                                    <td><?php echo $_SESSION["gender"];?></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <th>Patient Address:</th>
+                                    <td><?php echo $_SESSION["adds"];?></td>
+                                    <th>Registration Date:</th>
+                                    <td><?php echo $_SESSION["regiDate"];?></td>
+                                </tr>
+                            </table>
+                            <br>
+                            <br>
+
+                            <!-- MEDICAL HISTORY TABLE-->
+                            <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <tr align="center">
+                                    <th colspan="8">
+                                        <h3></h3>Medical History
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Blood Pressure</th>
+                                    <th>Weight</th>
+                                    <th>Temperature</th>
+                                    <th>Medical History</th>
+                                </tr>
+                                
+                                <tbody>
+                                <?php getPatientMedicalHistory( $_SESSION['id']); ?>
+                                </tbody>
+                                
+                            </table>
+                        
+            
+            
+            
+            
+       
 </body>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
