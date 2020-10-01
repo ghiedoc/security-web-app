@@ -173,12 +173,12 @@
 
 <script>
 $(document).ready(function(){
-    var login_attempts = 3;
+    var login_attempts = 5;
     $('#login_submit').on('click', function(){
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var username = $('#username').val();
         var password = $('#password').val();
-if(login_attempts > 0){
+if(login_attempts > 1){
         if(username.trim() == '' || !reg.test(username)){
                 
                 console.log('Invalid Email');
@@ -202,7 +202,7 @@ if(login_attempts > 0){
                     response = response.substr(response.lastIndexOf('.')+1);
                     console.log(response);
                     if(response === 'admin'){
-                        login_attempts = 3; 
+                        login_attempts = 5; 
                         window.location.href =  "dashboard.php"
                     }else if(response === 'error'){
                         login_attempts --; 
@@ -212,7 +212,7 @@ if(login_attempts > 0){
                         // document.getElementById("username").value = "";
                         // document.getElementById("password").value = "";
                     }else{
-                        login_attempts = 3;
+                        login_attempts = 5;
                         console.log('User login');
                         window.location.href =  "patientDashboard.php"
                     }
@@ -231,7 +231,7 @@ if(login_attempts > 0){
         document.getElementById("username").disabled = false;
         document.getElementById("password").disabled = false;
         document.getElementById("login_submit").style.visibility = "visible";
-        login_attempts = 3;
+        login_attempts = 5;
     }, 30000);
 }
 
