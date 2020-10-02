@@ -96,8 +96,9 @@
                     <h3>Update Payment Status Here</h3>
                     <hr>
                         <form action="func.php" method="post" class="form-group">
-                            <input type="text" name="contact" id="contact" class="form-control" pattern="[0-9]{11}" placeholder="Select contact number" required autocomplete="off" readonly >
-                            <small id="contactHelp" class="form-text text-muted">11 digit contact number of patient.</small><br>
+                            <input type="text" name="id" id="id" class="form-control" required autocomplete="off" readonly style='display:none' >
+                            <input type="text" name="contact" id="contact" class="form-control" placeholder="Select patient in the table" required autocomplete="off" readonly >
+                            <small id="contactHelp" class="form-text text-muted">Patient Name.</small><br>
                             <select name="status" id="" class="form-control">
                                 <option value="PAID">Paid</option>
                             </select> <br>
@@ -120,10 +121,10 @@
                                         <th>Appointment ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
-                                        <th>Mobile #</th>
                                         <th>Service</th>
-                                        <th>Payment Status</th>
                                         <th>Payment Date</th>
+                                        <th>Payment Status</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -154,21 +155,21 @@
     //POPULATE PAYMENT HISTORY
 function getPaymentHistory() {
     global $con;
-    $query = 'SELECT * FROM appointment';
+    $query = 'SELECT * FROM paymenttable';
     $result = mysqli_query( $con, $query );
 
     while( $row = mysqli_fetch_array( $result ) ) {
         $id = $row['Appointment_Id'];
         $fname = $row['Fname'];
         $lname = $row['Lname'];
-        $mobile = $row['Mobile'];
-        $services = $row['Appointment_Service'];
-        $payment = $row['Payment'];
+        $service = $row['Appointment_Service'];
         $pay_date = $row['Payment_Date'];
+        $payment = $row['Payment_Status'];
         
         if($payment !== 'PAID'){
             $payment = "<form action='#' method='post'> 
-                <input type='text' name='mobile' value='$mobile' style='display:none'>
+                <input type='text' name='id' value='$id' style='display:none'>
+                <input type='text' name='fname' value='$fname $lname' style='display:none'>
                 <button type='submit' class='viewbtn btn btn-success' name= 'pay_btn'>PAY NOW</button>
             </form>" ;
         }
@@ -177,10 +178,9 @@ function getPaymentHistory() {
         <td>$id</td>
         <td>$fname</td>
         <td>$lname</td>
-        <td>$mobile</td>
-        <td>$services</td> 
-        <td>$payment</td>
+        <td>$service</td> 
         <td>$pay_date</td>
+        <td>$payment</td>
         </tr>";
     }
 }
@@ -188,9 +188,11 @@ function getPaymentHistory() {
 
 //PAYNOW BUTTON
 if ( isset( $_POST['pay_btn'] ) ) {
-        $mobile = $_POST['mobile'];
+        $name = $_POST['fname'];
+        $id = $_POST['id'];
     echo "<script>
-   $( '#contact' ).val('$mobile');
+   $( '#contact' ).val('$name');
+   $( '#id' ).val('$id');
    $( '#update' ).css('display', 'block');
 </script>";  
     

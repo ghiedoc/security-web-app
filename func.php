@@ -164,7 +164,8 @@ try {
 function getPatientAppointment() {
     try{
     global $con;
-    $query = 'SELECT * FROM appointment';
+        $stats = 'PENDING';
+    $query = "SELECT * FROM appointment WHERE stats='$stats'";
     $result = mysqli_query( $con, $query );
 
     while( $row = mysqli_fetch_array( $result ) ) {
@@ -187,7 +188,7 @@ function getPatientAppointment() {
             <td>$date</td>
             <td>$time</td>
             <td>$services</td> 
-            <td>$status</td>
+            
             <td>
             <button type='button' class='approvebtn btn btn-success'>Approve</button>
             <button type='button' class='declinebtn btn btn-danger'>Decline</button>
@@ -345,9 +346,9 @@ function getPatientMedicalHistory( $x ) {
 // UPDATE PAYMENT OF PATIENT
 try {
     if ( isset( $_POST['update_data'] ) ) {
-        $contact = $_POST['contact'];
+        $id = $_POST['id'];
         $status = $_POST['status'];
-        $query = "UPDATE appointment SET Payment='$status' WHERE Mobile='$contact'";
+        $query = "UPDATE paymenttable SET Payment_Status='$status' WHERE Appointment_Id='$id'";
         $result =  mysqli_query( $con, $query );
 
         if ( $result ) {
@@ -442,26 +443,30 @@ $patient_values = mysqli_num_rows( $result );
     echo 'ERROR',$e->getMessage();
 }
 
+//approve button appointmentHistory.php
 try {
     if ( isset( $_POST['approve'] ) ) {
         $id = $_POST['id'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
-        $email = $_POST['email'];
-        $mobile = $_POST['mobile'];
+        $service = $_POST['service'];
+        $status = 'NOT PAID';
 
-        $query = "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='APPROVED' WHERE Appointment_Id = '$id' ";
-        $query_run =  mysqli_query( $con, $query );
-        if ( $query_run ) {
-            // echo "<script>alert('Approved Status Updated!')</script>";
-            $_SESSION['status'] = 'Approved Successfuly!';
+        echo "<script>alert('$id $fname $lname $service $status')</script>";
+        
+        $query = "INSERT INTO paymenttable(Appointment_Id, Fname, Lname,Appointment_Service, Payment_Status)VALUE('$id','$fname','$lname','$service','$status')";
+        $result = mysqli_query( $con, $query );
+
+        if ( $result ) {
+            $_SESSION['status'] = 'Approved Successfully!';
             $_SESSION['status_code'] = 'success';
-            header( 'location:patientList.php' );
+            echo "<script>window.open('admin_AppointmentHistory.php', '_self')</script>";
         } else {
             $_SESSION['status'] = 'Something went wrong!';
             $_SESSION['status_code'] = 'error';
-            header( 'Location:updated.php' );
+            echo "<script>window.open('admin_AppointmentHistory.php', '_self')</script>";
         }
+        
     }
 
 } catch( Exception $e ) {
