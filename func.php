@@ -348,10 +348,12 @@ try {
     if ( isset( $_POST['update_data'] ) ) {
         $id = $_POST['id'];
         $status = $_POST['status'];
-        $query = "UPDATE paymenttable SET Payment_Status='$status' WHERE Appointment_Id='$id'";
+        $query = "UPDATE paymenttable SET Payment_Status='$status' WHERE Payment_Id='$id'";
         $result =  mysqli_query( $con, $query );
 
         if ( $result ) {
+            
+            
             echo "<script>alert('Payment Status Updated!')</script>";
             echo "<script>window.open('admin_Payment.php', '_self')</script>";
         } else {
@@ -449,15 +451,20 @@ try {
         $id = $_POST['id'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
         $service = $_POST['service'];
         $status = 'NOT PAID';
 
         echo "<script>alert('$id $fname $lname $service $status')</script>";
         
-        $query = "INSERT INTO paymenttable(Appointment_Id, Fname, Lname,Appointment_Service, Payment_Status)VALUE('$id','$fname','$lname','$service','$status')";
+        $query = "INSERT INTO paymenttable(Appointment_Id, Fname, Lname,Date,Time,Appointment_Service, Payment_Status)VALUE('$id','$fname','$lname','$date','$time','$service','$status')";
         $result = mysqli_query( $con, $query );
 
         if ( $result ) {
+            $stat = 'APPROVED';
+            $querys = "UPDATE appointment SET stats='$stat' WHERE Appointment_Id='$id'";
+            $results =  mysqli_query( $con, $querys );
             $_SESSION['status'] = 'Approved Successfully!';
             $_SESSION['status_code'] = 'success';
             echo "<script>window.open('admin_AppointmentHistory.php', '_self')</script>";

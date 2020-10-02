@@ -121,6 +121,8 @@
                                         <th>Appointment ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
+                                        <th>Appointment Date</th>
+                                        <th>Appointment time</th>
                                         <th>Service</th>
                                         <th>Payment Date</th>
                                         <th>Payment Status</th>
@@ -159,9 +161,11 @@ function getPaymentHistory() {
     $result = mysqli_query( $con, $query );
 
     while( $row = mysqli_fetch_array( $result ) ) {
-        $id = $row['Appointment_Id'];
+        $id = $row['Payment_Id'];
         $fname = $row['Fname'];
         $lname = $row['Lname'];
+        $date = $row['Date'];
+        $time = $row['Time'];
         $service = $row['Appointment_Service'];
         $pay_date = $row['Payment_Date'];
         $payment = $row['Payment_Status'];
@@ -178,6 +182,8 @@ function getPaymentHistory() {
         <td>$id</td>
         <td>$fname</td>
         <td>$lname</td>
+        <td>$date</td>
+        <td>$time</td>
         <td>$service</td> 
         <td>$pay_date</td>
         <td>$payment</td>

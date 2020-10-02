@@ -165,6 +165,22 @@
                                         </td>
                                     </tr>
                                     
+                                    <tr>
+                                        <th>date :</th>
+                                        <td>
+                                            <input type="text" name="date" id="date" placeholder='service'
+                                                class='form-control wd-450' required='true' class="field left" readonly>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th>time :</th>
+                                        <td>
+                                            <input type="text" name="time" id="time" placeholder='service'
+                                                class='form-control wd-450' required='true' class="field left" readonly>
+                                        </td>
+                                    </tr>
+                                    
                             </table>
                         </div>
                         <div class='modal-footer'>
@@ -261,6 +277,8 @@ $(document).ready(function() {
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
         $('#service').val(data[7]) ;
+        $('#date').val(data[5]);
+        $('#time').val(data[6]) ;
         
        
     });
