@@ -38,7 +38,7 @@
                             <a href="patientList.php"><i class="fas fa-list-ul"></i> Patient List</a>
                         </li>
                         <li>
-                            <a href="admin_Payment.php""><i class="fas fa-receipt"></i>Payments</a>
+                            <a href="admin_Payment.php"><i class="fas fa-receipt"></i>Payments</a>
                         </li>
                     </ul>
                 </li>
@@ -157,19 +157,29 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Patient Email :</th>
+                                        <th>Appointment service :</th>
                                         <td>
-                                            <input type="text" name="email" id="email" placeholder='Email'
+                                            <input type="text" name="service" id="service" placeholder='service'
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
+                                    
                                     <tr>
-                                        <th>Patient Mobile No. :</th>
+                                        <th>date :</th>
                                         <td>
-                                            <input type="text" name="mobile" id="mobile" placeholder='Patient Address'
+                                            <input type="text" name="date" id="date" placeholder='service'
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
+                                    
+                                    <tr>
+                                        <th>time :</th>
+                                        <td>
+                                            <input type="text" name="time" id="time" placeholder='service'
+                                                class='form-control wd-450' required='true' class="field left" readonly>
+                                        </td>
+                                    </tr>
+                                    
                             </table>
                         </div>
                         <div class='modal-footer'>
@@ -265,8 +275,10 @@ $(document).ready(function() {
         $('#id').val(data[0]);
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
-        $('#email').val(data[3]) ;
-        $('#mobile').val(data[4]);
+        $('#service').val(data[7]) ;
+        $('#date').val(data[5]);
+        $('#time').val(data[6]) ;
+        
        
     });
 });
