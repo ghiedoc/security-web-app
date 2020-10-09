@@ -12,6 +12,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/index.css">
@@ -82,12 +83,12 @@
                                     <input type="email" id="username" class="form-control" placeholder="Email"
                                         required autocomplete="off" />
                                 </div>
-                                <div class="form-group">
+                                <div class="input-group">
                                     <input type="password" id="password" class="form-control" placeholder="Password"
                                         autocomplete="off" required />
-                                        <span toggle="#input-pwd" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" style="padding-top: 15px"></span>      
                                 </div>
-                        
+                                <br>
                                 <!-- SUBMIT BUTTON -->
                                 <button type="submit" id="login_submit" class="btn btn-primary shadow-2 mb-4">
                                 
@@ -151,9 +152,11 @@
                                     <input type="email" name="email" class="form-control" placeholder="Email" required
                                         autocomplete="off">
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
+                                <div class="input-group">
+                                    <input type="password" name="password" id="show-pass" class="form-control" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
                                         required autocomplete="off">
+                                    <span toggle="#show-pass" class="fa fa-fw fa-eye field-icon toggle-password" style="padding-top: 15px"></span>      
+
                                 </div>
                                 
                                 <button type="submit" name="pat_register" value="Add Registration"
@@ -239,6 +242,20 @@ if(login_attempts > 1){
 
     });
 });
+</script>
+
+<script>
+$('.toggle-password').on('click', function() {
+  $(this).toggleClass('fa-eye fa-eye-slash');
+  let input = $($(this).attr('toggle'));
+  if (input.attr('type') == 'password') {
+    input.attr('type', 'text');
+  }
+  else {
+    input.attr('type', 'password');
+  }
+});
+
 </script>
 
 </html>

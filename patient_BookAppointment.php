@@ -1,5 +1,8 @@
+
 <?php session_start(); 
 require_once 'includes/auth_check.php';?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +70,7 @@ require_once 'includes/auth_check.php';?>
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user-injured"></i>
-                                    <span><?php echo( $_SESSION['fname']);?></span><span><?php echo( $_SESSION['id']);?></span> <i style="font-size: .8em;"
+                                    <span><?php echo( $_SESSION['fname']);?></span><span style="visibility: hidden;"><?php echo( $_SESSION['id']);?></span> <i style="font-size: .8em;"
                                         class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
@@ -108,7 +111,7 @@ require_once 'includes/auth_check.php';?>
                             <label for="">Time: </label>
                             <select name="time" class="form-control" id="">
                                 <option value="9am to 10am">9am to 10am</option>
-                                <option value="10am to 11ampm">10am to 11am</option>
+                                <option value="10am to 11am">10am to 11am</option>
                                 <option value="2pm to 3pm">2pm to 3pm</option>
                                 <option value="3pm to 4pm">3pm to 4pm</option>
                                 <option value="4pm to 5pm">4pm to 5pm</option>
