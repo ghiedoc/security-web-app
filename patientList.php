@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include("func.php");require_once 'includes/auth_check.php';?>
+<?php include("func.php");require_once 'includes/auth_adminCheck.php';?>
 <html lang="en" dir="ltr">
 
 <head>

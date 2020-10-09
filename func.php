@@ -25,10 +25,7 @@ if ( isset( $_POST['loginFormSubmit'] )) {
         
         if ( $row = mysqli_fetch_array( $result)  ) {
             $status = '.admin';
-            $id = $row['admin_id'];
-            $_SESSION['admin_id'] = $id;
-            $ids = $row['admin_id'];
-            $_SESSION['id'] = $ids;
+            $_SESSION['id'] = 'admin';
            
         } else {
             $status = '.error';
