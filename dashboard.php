@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php include("func.php");?>
+<?php include("func.php");
+require_once 'includes/auth_check.php';?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -61,12 +62,12 @@
             <li class="nav-item dropdown">
               <div class="nav-dropdown">
                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i>
-                  <span>Welcome, Admin</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                  <span>Welcome,<?php echo($_SESSION['admin_id'])?></span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                   <ul class="nav-list">
                     <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
                     <div class="dropdown-divider"></div>
-                    <li><a href="index.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li><a href="logout.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                   </ul>
                 </div>
               </div>
