@@ -142,12 +142,6 @@ require_once 'includes/auth_check.php';
 
 </body>
 
-<script type="text/javascript">
-$(function() {
-    $('#datetimepicker1').datetimepicker();
-});
-</script>
-
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
