@@ -10,9 +10,7 @@
     <title>Dashboard | Admin</title>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-    <link href="chartsjs/Chart.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="css/sidebar-dafault.css">
     <link rel="stylesheet" href="css/master.css" />
 </head>

@@ -20,4 +20,3 @@ $('#sidebarCollapse').on('click', function () {
 // });
 
 // Initiate time picker
-$('.timepicker').mdtimepicker(); 

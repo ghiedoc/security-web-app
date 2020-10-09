@@ -13,7 +13,6 @@ include("func.php");
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-    <link href="chartsjs/Chart.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
 

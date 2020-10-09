@@ -13,7 +13,6 @@ session_start();
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-    <link href="chartsjs/Chart.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
     <link rel="stylesheet"
@@ -141,11 +140,11 @@ session_start();
 
 </body>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(function() {
     $('#datetimepicker1').datetimepicker();
 });
-</script>
+</script> -->
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
