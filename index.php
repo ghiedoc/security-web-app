@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include("func.php");?>
+<?php include("func.php");
+?>
+
 <html lang="en">
 
 <head>
@@ -51,11 +53,12 @@
         </div>
     </section>
    
-    
     <!-- MODAL FOR SIGNING IN -->
     <!-- Modal Sign In-->
+    
     <div class=" modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
+        
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -91,7 +94,7 @@
                                 
                                     Login
                                 </button>
-                        
+                               
                                 <div class="form-group">
                                     <p class="mb-0 text-muted">
                                      <a href="forgotPasswordEmail.php">Forget Password</a>
@@ -101,11 +104,13 @@
                                 <p class="mb-0 text-muted">
                                     Don’t have an account? <a href="index.php">Signup</a>
                                 </p>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         
         <!-- Modal Sign Up-->
         <div class=" modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -250,6 +255,7 @@ $('.toggle-password').on('click', function() {
     input.attr('type', 'password');
   }
 });
+
 </script>
 
 </html>
