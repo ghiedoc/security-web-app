@@ -137,7 +137,7 @@ require_once 'includes/auth_adminCheck.php';?>
 
                                 <form action='func.php' method='POST'>
 
-                                    <tr>
+                                    <tr style="display:none">
                                         <td>
                                             <input type="hidden" name="id" id="id">
                                         </td>
@@ -156,6 +156,7 @@ require_once 'includes/auth_adminCheck.php';?>
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
+                                    
                                     <tr>
                                         <th>Appointment service :</th>
                                         <td>
@@ -180,13 +181,16 @@ require_once 'includes/auth_adminCheck.php';?>
                                         </td>
                                     </tr>
                                     
-                            </table>
-                        </div>
+                                    
+                                    
+                            
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
                             <button type="approve" name="approve" class='btn btn-primary'>approve</button>
-
-                            </form>
+                        </div>
+                        </form>
+                        </table>
+                        
                         </div>
                     </div>
                 </div>
@@ -239,19 +243,20 @@ require_once 'includes/auth_adminCheck.php';?>
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
-                            </table>
-                        </div>
+                            
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
                             <button type="decline" name="decline" class='btn btn-primary'>Decline</button>
-
+                            </div>
                             </form>
+                                    </table>
+                        
                         </div>
                     </div>
                 </div>
             </div>
 
-
+</div></div>
 </body>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
@@ -275,9 +280,9 @@ $(document).ready(function() {
         $('#id').val(data[0]);
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
-        $('#service').val(data[7]) ;
-        $('#date').val(data[5]);
-        $('#time').val(data[6]) ;
+        $('#service').val(data[6]) ;
+        $('#date').val(data[4]);
+        $('#time').val(data[5]) ;
         
        
     });
