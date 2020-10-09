@@ -164,7 +164,7 @@ try {
 function getPatientAppointment() {
     try{
     global $con;
-        $stats = 'PENDING';
+    $stats = 'PENDING';
     $query = "SELECT * FROM appointment WHERE stats='$stats'";
     $result = mysqli_query( $con, $query );
 

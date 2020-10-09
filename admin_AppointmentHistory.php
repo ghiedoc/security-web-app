@@ -157,7 +157,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Appointment service :</th>
+                                        <th>Appointment Status :</th>
                                         <td>
                                             <input type="text" name="service" id="service" placeholder='service'
                                                 class='form-control wd-450' required='true' class="field left" readonly>
@@ -184,7 +184,7 @@
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                            <button type="approve" name="approve" class='btn btn-primary'>approve</button>
+                            <button type="approve" name="approve" class='btn btn-primary'>Approve</button>
 
                             </form>
                         </div>
