@@ -6,6 +6,7 @@
 try{
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
+
 //FOR LOGGING IN MULTI-USER
 session_start();
 if ( isset( $_POST['loginFormSubmit'] )) {
@@ -20,15 +21,20 @@ if ( isset( $_POST['loginFormSubmit'] )) {
     $querys = "SELECT * FROM patienttb WHERE email='$email' and password='$password'";
     $results = mysqli_query( $con, $querys );
  
-    if ( $username == 'admin@email.com' ) {
-        if ( mysqli_num_rows( $result ) == 1 ) {
+    if ( $username == 'admin@email.com' and  mysqli_num_rows( $result ) == 1) {
+        
+        if ( $row = mysqli_fetch_array( $result)  ) {
             $status = '.admin';
+            $_SESSION['id'] = 'admin';
+           
         } else {
             $status = '.error';
         }
     }
      else if ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
         if ( $row = mysqli_fetch_array( $results ) ) {
+      
+        
             $id = $row['fname'];
             $_SESSION['fname'] = $id;
             $ids = $row['patient_id'];
@@ -43,6 +49,7 @@ if ( isset( $_POST['loginFormSubmit'] )) {
             $_SESSION['adds'] = $address;
             $regiDate = $row['regiDate'];
             $_SESSION['regiDate'] = $regiDate;
+            $_SESSION['auth']='true';
             
         }
         // echo $id;

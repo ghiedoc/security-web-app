@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<?php
-include("func.php");
-require_once 'includes/auth_check.php';
-?>
+<?php include("func.php");
+require_once 'includes/auth_adminCheck.php';?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -13,7 +11,6 @@ require_once 'includes/auth_check.php';
   <title>Dashboard |Admin</title>
 
   <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-  <link href="chartsjs/Chart.min.css" rel="stylesheet">
   <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/master.css" />
 </head>
@@ -64,7 +61,7 @@ require_once 'includes/auth_check.php';
             <li class="nav-item dropdown">
               <div class="nav-dropdown">
                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i>
-                  <span>Welcome, Admin</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                  <span>Welcome,ADMIN</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                   <ul class="nav-list">
                     <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>

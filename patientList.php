@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<?php
+<?php 
 include("func.php");
-require_once 'includes/auth_check.php';
+require_once 'includes/auth_adminCheck.php';
 ?>
 <html lang="en" dir="ltr">
 
@@ -13,9 +13,7 @@ require_once 'includes/auth_check.php';
     <title>Dashboard | Admin</title>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-    <link href="chartsjs/Chart.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="css/sidebar-dafault.css">
     <link rel="stylesheet" href="css/master.css" />
 </head>
@@ -75,7 +73,7 @@ require_once 'includes/auth_check.php';
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
                                         </li>
                                         <div class="dropdown-divider"></div>
-                                        <li><a href="index.php" class="dropdown-item"><i
+                                        <li><a href="logout.php" class="dropdown-item"><i
                                                     class="fas fa-sign-out-alt"></i> Logout</a></li>
                                     </ul>
                                 </div>

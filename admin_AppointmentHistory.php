@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php include("func.php");?>
+<?php include("func.php");
+require_once 'includes/auth_adminCheck.php';?>
 <html lang="en">
 
 <head>
@@ -11,7 +12,6 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-    <link href="chartsjs/Chart.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
 
@@ -137,7 +137,7 @@
 
                                 <form action='func.php' method='POST'>
 
-                                    <tr>
+                                    <tr style="display:none">
                                         <td>
                                             <input type="hidden" name="id" id="id">
                                         </td>
@@ -156,6 +156,7 @@
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
+                                    
                                     <tr>
                                         <th>Appointment Status :</th>
                                         <td>
@@ -180,13 +181,16 @@
                                         </td>
                                     </tr>
                                     
-                            </table>
-                        </div>
+                                    
+                                    
+                            
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                            <button type="approve" name="approve" class='btn btn-primary'>Approve</button>
-
-                            </form>
+                            <button type="approve" name="approve" class='btn btn-primary'>approve</button>
+                        </div>
+                        </form>
+                        </table>
+                        
                         </div>
                     </div>
                 </div>
@@ -239,19 +243,20 @@
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
-                            </table>
-                        </div>
+                            
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
                             <button type="decline" name="decline" class='btn btn-primary'>Decline</button>
-
+                            </div>
                             </form>
+                                    </table>
+                        
                         </div>
                     </div>
                 </div>
             </div>
 
-
+</div></div>
 </body>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
@@ -275,9 +280,9 @@ $(document).ready(function() {
         $('#id').val(data[0]);
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
-        $('#service').val(data[7]) ;
-        $('#date').val(data[5]);
-        $('#time').val(data[6]) ;
+        $('#service').val(data[6]) ;
+        $('#date').val(data[4]);
+        $('#time').val(data[5]) ;
         
        
     });
