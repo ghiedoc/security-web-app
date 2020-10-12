@@ -12,7 +12,6 @@ require_once 'includes/auth_adminCheck.php';?>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <!-- <link rel="stylesheet" href="css/patient.css"> -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />

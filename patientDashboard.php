@@ -9,7 +9,6 @@ require_once 'includes/auth_check.php';
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
-    <script defer src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
     <!-- <link rel = 'stylesheet' href = 'css/patient.css'> -->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
