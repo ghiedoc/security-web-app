@@ -10,6 +10,9 @@ $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 //FOR LOGGING IN MULTI-USER
 session_start();
 if ( isset( $_POST['loginFormSubmit'] )) {
+    
+    $email = mysqli_real_escape_string($con, $_POST['username']);
+    $password2 = mysqli_real_escape_string($con, $_POST['password']);
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -17,8 +20,8 @@ if ( isset( $_POST['loginFormSubmit'] )) {
     $query = "SELECT * FROM admindb WHERE username='$username' and password='$password'";
     $result = mysqli_query( $con, $query );
 
-    $email = $_POST['username'];
-    $querys = "SELECT * FROM patienttb WHERE email='$email' and password='$password'";
+    
+    $querys = "SELECT * FROM patienttb WHERE email='$_POST[username]'";
     $results = mysqli_query( $con, $querys );
  
     if ( $username == 'admin@email.com' and  mysqli_num_rows( $result ) == 1) {
@@ -31,27 +34,32 @@ if ( isset( $_POST['loginFormSubmit'] )) {
             $status = '.error';
         }
     }
-     else if ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
-        if ( $row = mysqli_fetch_array( $results ) ) {
-      
-        
-            $id = $row['fname'];
-            $_SESSION['fname'] = $id;
-            $ids = $row['patient_id'];
-            $_SESSION['id'] = $ids;
-            $lname = $row['lname'];
-            $_SESSION['lname'] = $lname;
-            $gender = $row['gender'];
-            $_SESSION['gender'] = $gender;
-            $email = $row['email'];
-            $_SESSION['email'] = $email;
-            $address = $row['adds'];
-            $_SESSION['adds'] = $address;
-            $regiDate = $row['regiDate'];
-            $_SESSION['regiDate'] = $regiDate;
-            $_SESSION['auth']='true';
+     else if ( $username!= 'admin@email.com' and mysqli_num_rows( $results ) ==1 ) {
+        while($row = mysqli_fetch_assoc($results)){
+            $hash = $row['password'];
+            if(password_verify($password2, $hash)){
+                $_SESSION['email'] = $email; //set the username in a session. This serves as a global variable
+                $_SESSION['id'] = $id;
+                $id = $row['fname'];
+                $_SESSION['fname'] = $id;
+                $ids = $row['patient_id'];
+                $_SESSION['id'] = $ids;
+                $lname = $row['lname'];
+                $_SESSION['lname'] = $lname;
+                $gender = $row['gender'];
+                $_SESSION['gender'] = $gender;
+                $email = $row['email'];
+                $_SESSION['email'] = $email;
+                $address = $row['adds'];
+                $_SESSION['adds'] = $address;
+                $regiDate = $row['regiDate'];
+                $_SESSION['regiDate'] = $regiDate;
+                $_SESSION['auth']='true';
             
+        }else{
+            $status = '.error'; 
         }
+    }
         // echo $id;
         // header( 'Location:patientDashboard.php' );
     } else {
@@ -110,7 +118,7 @@ try {
         $password = $_POST['password'];
 
         // ? HASHED PASSWORD
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
         $query_email = "SELECT * FROM patienttb WHERE email='$email'";
         $res = mysqli_query( $con, $query_email );
