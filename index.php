@@ -126,8 +126,6 @@ include("func.php");
                         <div class="card-body text-center">
                             <form action="func.php" class="form-group" method="post">
 
-                               
-
                                 <div class="form-group">
                                     <input type="text" name="fname" class="form-control" placeholder="First Name"
                                         required autocomplete="off"  style="text-transform: capitalize;" size="30">
