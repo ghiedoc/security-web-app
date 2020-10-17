@@ -49,6 +49,16 @@ require_once 'includes/auth_adminCheck.php';?>
             </li>
           </ul>
         </li>
+
+        <li>
+          <a href="#settingmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i
+              class="fas fa-cog"></i> Setting</a>
+          <ul class="collapse list-unstyled" id="settingmenu">
+            <li>
+              <a href="superAdmin_AdminRegistration.php"><i class="fas fa-lock"></i>Register Administrator</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
 

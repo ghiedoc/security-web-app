@@ -10,8 +10,8 @@
 
   <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/master.css">
-  <link rel="stylesheet" href="/css/superAdmin.css">
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/superAdmin.css">
 </head>
 
 <body>
@@ -87,7 +87,7 @@
             <div class="col-sm-4">
               <div class="register">
                 <h1>Register Administrator</h1>
-                <form action="register.php" method="post" autocomplete="off">
+                <form action="register_admin.php" method="post" autocomplete="off">
                   <input type="text" name="fname" placeholder="First Name" id="fname" required>
                   <input type="text" name="lname" placeholder="Last Name" id="lname" required>
                   <input type="tel" pattern="[0-9]{11}" name="contact" placeholder="Contact Number" id="contact" required>   
@@ -97,14 +97,16 @@
                 </form>
               </div>
             </div>
+
             <div class="col-sm-8">
               <!-- DATA TABLE -->
-              <table id="admintable" class="table table-striped table-bordered" style="width: auto; margin: 20px auto;">
+              <table id="admintable" class="table table-striped table-bordered" style="width: 70%; margin: 20px auto;">
                 <thead>
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Contact Number</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Options</th>
                     </tr>
@@ -114,6 +116,7 @@
                         <td>Tiger</td>
                         <td>Nixon</td>
                         <td>123456789</td>
+                        <td>username</td>
                         <td>@email.com</td>
                         <td></td>
                     </tr>
@@ -121,6 +124,7 @@
                         <td>Garrett</td>
                         <td>Winters</td>
                         <td>123456789</td>
+                        <td>username</td>
                         <td>@email.com</td>
                         <td></td>
                     </tr>

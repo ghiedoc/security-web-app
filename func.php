@@ -13,28 +13,26 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $email = $_POST['email'];
     
-    $query = "SELECT * FROM admindb WHERE username='$username' and password='$password'";
+    $query = "SELECT * FROM admindb WHERE email='$email' and password='$password'";
     $result = mysqli_query( $con, $query );
 
     $email = $_POST['username'];
     $querys = "SELECT * FROM patienttb WHERE email='$email' and password='$password'";
     $results = mysqli_query( $con, $querys );
  
-    if ( $username == 'admin@email.com' and  mysqli_num_rows( $result ) == 1) {
+    if ( $email == $_SESSION['email'] and  mysqli_num_rows( $result ) == 1) {
         
         if ( $row = mysqli_fetch_array( $result)  ) {
             $status = '.admin';
             $_SESSION['id'] = 'admin';
-           
         } else {
             $status = '.error';
         }
     }
      else if ( $username != 'admin@email.com' and mysqli_num_rows( $results ) == 1 ) {
         if ( $row = mysqli_fetch_array( $results ) ) {
-      
-        
             $id = $row['fname'];
             $_SESSION['fname'] = $id;
             $ids = $row['patient_id'];
