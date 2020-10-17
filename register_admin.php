@@ -45,7 +45,7 @@ if ($stmt = $con->prepare('SELECT admin_id, password FROM admindb WHERE email = 
         // Username doesnt exists, insert new account
         if ($stmt = $con->prepare('INSERT INTO admindb (first_name, last_name, contact_num, email, password) VALUES (?, ?, ?, ?, ?)')) {
             // We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $stmt->bind_param("sssss", $_POST['fname'], $_POST['lname'], $_POST['contact'], $_POST['email'], $password,);
             $stmt->execute();
             echo 'You have successfully registered as an administrator, you can now login!';

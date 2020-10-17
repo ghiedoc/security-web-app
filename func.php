@@ -16,23 +16,25 @@ if ( isset( $_POST['loginFormSubmit'] )) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $email = $_POST['email'];
     
-    $query = "SELECT * FROM admindb WHERE email='$email' and password='$password'";
+    $query = "SELECT * FROM admindb WHERE email='$username'";
     $result = mysqli_query( $con, $query );
 
     
     $querys = "SELECT * FROM patienttb WHERE email='$_POST[username]'";
     $results = mysqli_query( $con, $querys );
  
-    if ( $email == $_SESSION['email'] and  mysqli_num_rows( $result ) == 1) {
-        
-        if ( $row = mysqli_fetch_array( $result)  ) {
+    if (mysqli_num_rows( $result ) == 1) {
+        while($row = mysqli_fetch_assoc($results)){
+            $hash = $row['password'];
+            if(password_verify($password2, $hash)){
             $status = '.admin';
             $_SESSION['id'] = 'admin';
         } else {
             $status = '.error';
         }
+    }
+    $status = '.error';
     }
      else if ( $username!= 'admin@email.com' and mysqli_num_rows( $results ) ==1 ) {
         while($row = mysqli_fetch_assoc($results)){
@@ -118,7 +120,7 @@ try {
         $password = $_POST['password'];
 
         // ? HASHED PASSWORD
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $query_email = "SELECT * FROM patienttb WHERE email='$email'";
         $res = mysqli_query( $con, $query_email );
