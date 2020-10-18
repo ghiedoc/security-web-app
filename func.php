@@ -2,45 +2,39 @@
 ?>
 <?php
 
-// connection sa database sa mysql
+
 try{
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
 
-//FOR LOGGING IN MULTI-USER
 session_start();
 if ( isset( $_POST['loginFormSubmit'] )) {
     
     $email = mysqli_real_escape_string($con, $_POST['username']);
     $password2 = mysqli_real_escape_string($con, $_POST['password']);
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
     
-    $query = "SELECT * FROM admindb WHERE email='$username'";
+    $query = "SELECT * FROM admindb WHERE email='$_POST[username]'";
     $result = mysqli_query( $con, $query );
 
     
     $querys = "SELECT * FROM patienttb WHERE email='$_POST[username]'";
     $results = mysqli_query( $con, $querys );
  
-    if (mysqli_num_rows( $result ) == 1) {
-        while($row = mysqli_fetch_assoc($results)){
-            $hash = $row['password'];
-            if(password_verify($password2, $hash)){
+    if (mysqli_num_rows($result) > 0) {
+        while($rows = mysqli_fetch_assoc($result)){
+            $hashed = $rows['password'];
+            if(password_verify($password2, $hashed)){
             $status = '.admin';
             $_SESSION['id'] = 'admin';
         } else {
             $status = '.error';
         }
+          
     }
-    $status = '.error';
-    }
-     else if ( $username!= 'admin@email.com' and mysqli_num_rows( $results ) ==1 ) {
+    }else if ( mysqli_num_rows( $results ) > 0 ) {
         while($row = mysqli_fetch_assoc($results)){
             $hash = $row['password'];
             if(password_verify($password2, $hash)){
-                $_SESSION['email'] = $email; //set the username in a session. This serves as a global variable
                 $_SESSION['id'] = $id;
                 $id = $row['fname'];
                 $_SESSION['fname'] = $id;
@@ -62,8 +56,6 @@ if ( isset( $_POST['loginFormSubmit'] )) {
             $status = '.error'; 
         }
     }
-        // echo $id;
-        // header( 'Location:patientDashboard.php' );
     } else {
         $status = '.error';
     }
