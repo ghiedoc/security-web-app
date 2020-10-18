@@ -33,9 +33,9 @@ if ( isset( $_POST['loginFormSubmit'] )) {
             $status = '.error';
         }
     }
-    }elseif(mysqli_num_rows( $res ) > 0){
+    }else if(mysqli_num_rows( $res ) > 0){
         $status = '.admin';
-        $_SESSION['id'] = 'admin';
+        $_SESSION['id'] = 'super_admin';
     }else if ( mysqli_num_rows( $results ) > 0 ) {
         while($row = mysqli_fetch_assoc($results)){
             $hash = $row['password'];
