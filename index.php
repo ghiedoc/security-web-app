@@ -101,7 +101,7 @@ include("func.php");
                                 </div>
                                
                                 <p class="mb-0 text-muted">
-                                    Don’t have an account? <a href="index.php">Signup</a>
+                                    Don’t have an account? <a href="superAdmin_AdminRegistration.php">Signup</a>
                                 </p>
 
                         </div>
