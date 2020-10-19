@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<?php 
-include("func.php");
-require_once 'includes/auth_check.php';
-?>
+<?php include("func.php");
+require_once 'includes/auth_check.php';?>
 <html lang="en">
 
 <head>
@@ -17,6 +15,7 @@ require_once 'includes/auth_check.php';
     <link href="chartsjs/Chart.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
     <title>My Appointments</title>
 </head>
@@ -103,14 +102,16 @@ require_once 'includes/auth_check.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    
                                         <?php getPatientAppointmentLogs(); ?>
-                                    </tr>
+                                   
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
+                
             </div>
 </body>
 
@@ -118,6 +119,15 @@ require_once 'includes/auth_check.php';
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
 <script src="js/script.js"></script>
 
+<script>
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+} );
+
+
+</script>
 </html>
