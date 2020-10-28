@@ -19,6 +19,9 @@ if ( isset( $_POST['loginFormSubmit'] )) {
     
     $querys = "SELECT * FROM patienttb WHERE email='$_POST[username]'";
     $results = mysqli_query( $con, $querys );
+
+    $super_ad = "SELECT * FROM super_admin_tb WHERE username='$email' AND password = '$password2'";
+    $res = mysqli_query( $con, $super_ad );
  
     if (mysqli_num_rows($result) > 0) {
         while($rows = mysqli_fetch_assoc($result)){
@@ -29,8 +32,10 @@ if ( isset( $_POST['loginFormSubmit'] )) {
         } else {
             $status = '.error';
         }
-          
     }
+    }else if(mysqli_num_rows( $res ) > 0){
+        $status = '.admin';
+        $_SESSION['id'] = 'super_admin';
     }else if ( mysqli_num_rows( $results ) > 0 ) {
         while($row = mysqli_fetch_assoc($results)){
             $hash = $row['password'];
@@ -543,5 +548,14 @@ try {
 } catch( Exception $e ) {
     echo $e->getMessage();
 }
+
+// function accessAllowed(){
+//    $command =  mysql_query("SELECT COUNT(super_admin_id) FROM super_admin_tb");
+//    $num_rows = mysql_num_rows($command);
+// }
+// $stats = accessAllowed();
+// if($stats > 0 ){
+
+// }
 
 ?>

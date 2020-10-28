@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <?php include("func.php");
-require_once 'includes/auth_adminCheck.php';?>
+require_once 'includes/auth_adminCheck.php';
+?>
+
 <html lang="en" dir="ltr">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +16,11 @@ require_once 'includes/auth_adminCheck.php';?>
   <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/master.css" />
+
 </head>
 
 <body>
+
   <div class="wrapper">
     <nav id="sidebar" class="active">
       <div class="sidebar-header">
@@ -50,8 +55,8 @@ require_once 'includes/auth_adminCheck.php';?>
           </ul>
         </li>
 
-        <li>
-          <a href="#settingmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i
+        <li <?php if ($_SESSION['id'] == 'admin'){?>style="display:none"<?php } ?>>
+          <a href="#settingmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down" ><i
               class="fas fa-cog"></i> Setting</a>
           <ul class="collapse list-unstyled" id="settingmenu">
             <li>
