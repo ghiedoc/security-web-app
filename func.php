@@ -2,7 +2,7 @@
 ?>
 <?php
 
-
+// MULTI-USER LOGIN
 try{
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 

@@ -10,8 +10,10 @@
 
   <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
+ 
   <link rel="stylesheet" href="css/master.css">
   <link rel="stylesheet" href="css/superAdmin.css">
+
 </head>
 
 <body>
@@ -90,7 +92,7 @@
                 <form action="register_admin.php" method="post" autocomplete="off">
                   <input type="text" name="fname" placeholder="First Name" id="fname" required>
                   <input type="text" name="lname" placeholder="Last Name" id="lname" required>
-                  <input type="tel" pattern="[0-9]{11}" name="contact" placeholder="Contact Number" id="contact" required>   
+                  <input type="tel" pattern="[0-9]{11}" name="mobile" placeholder="Contact Number" required>   
                   <input type="email" name="email" placeholder="Email" id="email" required>
                   <input type="password" name="password" placeholder="Password" id="password" required>
                   <input type="submit" value="Register">
@@ -128,10 +130,93 @@
                         <td>@email.com</td>
                         <td></td>
                     </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Garrett</td>
+                        <td>Winters</td>
+                        <td>123456789</td>
+                        <td>username</td>
+                        <td>@email.com</td>
+                        <td></td>
+                    </tr>
                 </tbody> 
             </table>
             </div>
           </div>
+          <!-- monitoring ng administrator -->
+          <hr>
+          <h2>Monitor Administrator</h2>
 
         </div>
       </div>
@@ -147,15 +232,14 @@
   } );
 </script>
 
+<!-- DATATABLES SCRIPT USED -->
+
+
 <!-- OTHER SCRIPTS NEEDED -->
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
 <script src="js/script.js"></script>
-
-
-
-
 
 </html>
