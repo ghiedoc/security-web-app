@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<?php 
-include("func.php");
-require_once 'includes/auth_adminCheck.php';
-?>
+<?php include("func.php");require_once 'includes/auth_adminCheck.php';?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -16,6 +13,7 @@ require_once 'includes/auth_adminCheck.php';
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sidebar-dafault.css">
     <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 </head>
 
 <body>
@@ -224,6 +222,8 @@ require_once 'includes/auth_adminCheck.php';
 <script src="vendor/chartsjs/Chart.min.js"></script>
 <script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
 <?php include('alertconfig.php');?>
 
 
@@ -269,6 +269,10 @@ $(document).ready(function() {
        
     });
 });
+
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+} );
 </script>
 
 </html>

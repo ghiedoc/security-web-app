@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<?php
-include("func.php");
-require_once 'includes/auth_adminCheck.php';
-?>
+<?php include("func.php");
+require_once 'includes/auth_adminCheck.php';?>
 <html lang="en">
 
 <head>
@@ -15,6 +13,7 @@ require_once 'includes/auth_adminCheck.php';
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="css/master.css" />
 
     <title>Patient Appointments</title>
@@ -111,9 +110,9 @@ require_once 'includes/auth_adminCheck.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    
                                         <?php getPatientAppointment(); ?>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -160,7 +159,7 @@ require_once 'includes/auth_adminCheck.php';
                                     </tr>
                                     
                                     <tr>
-                                        <th>Appointment Status :</th>
+                                        <th>Appointment service :</th>
                                         <td>
                                             <input type="text" name="service" id="service" placeholder='service'
                                                 class='form-control wd-450' required='true' class="field left" readonly>
@@ -265,6 +264,8 @@ require_once 'includes/auth_adminCheck.php';
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
 <script src="js/script.js"></script>
 
 <script>
@@ -311,5 +312,9 @@ $(document).ready(function() {
        
     });
 });
+
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+} );
 </script>
 </html>

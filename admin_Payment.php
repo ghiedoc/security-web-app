@@ -12,11 +12,12 @@ require_once 'includes/auth_adminCheck.php';?>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <!-- <link rel="stylesheet" href="css/patient.css"> -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
 </head>
 
@@ -112,8 +113,8 @@ require_once 'includes/auth_adminCheck.php';?>
                     <h3>List of Payment's</h3>
                     <hr>
                     <div class="box box-primary">
-                        <div class="box-body">
-                            <table width="100%" class="table table-hover" id="dataTables-example">
+                    <div class="card-body">
+                    <table class="table table-hover" id="dataTables-example" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Appointment ID</th>
@@ -128,9 +129,9 @@ require_once 'includes/auth_adminCheck.php';?>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    
                                         <?php getPaymentHistory(); ?>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -149,7 +150,15 @@ require_once 'includes/auth_adminCheck.php';?>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
 <script src="js/script.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
 
+<script>
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+} );
+
+</script>
     
     <?php 
     //POPULATE PAYMENT HISTORY
