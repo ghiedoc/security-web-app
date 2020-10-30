@@ -33,7 +33,7 @@ if ( isset( $_POST['loginFormSubmit'] )) {
             $status = '.error';
         }
     }
-    }else if(mysqli_num_rows( $res ) > 0){
+    }elseif(mysqli_num_rows( $res ) > 0){
         $status = '.admin';
         $_SESSION['id'] = 'super_admin';
     }else if ( mysqli_num_rows( $results ) > 0 ) {
@@ -549,13 +549,5 @@ try {
     echo $e->getMessage();
 }
 
-// function accessAllowed(){
-//    $command =  mysql_query("SELECT COUNT(super_admin_id) FROM super_admin_tb");
-//    $num_rows = mysql_num_rows($command);
-// }
-// $stats = accessAllowed();
-// if($stats > 0 ){
-
-// }
 
 ?>
