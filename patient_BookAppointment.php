@@ -16,7 +16,8 @@ require_once 'includes/auth_check.php';
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
 
 
     <title>Book an Appointment</title>
@@ -28,7 +29,7 @@ require_once 'includes/auth_check.php';
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <!-- DASHBOARD  -->
@@ -67,8 +68,9 @@ require_once 'includes/auth_check.php';
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user-injured"></i>
-                                    <span><?php echo( $_SESSION['fname']);?></span><span style="visibility: hidden;"><?php echo( $_SESSION['id']);?></span> <i style="font-size: .8em;"
-                                        class="fas fa-caret-down"></i></a>
+                                    <span><?php echo( $_SESSION['fname']);?></span><span
+                                        style="visibility: hidden;"><?php echo( $_SESSION['id']);?></span> <i
+                                        style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="logout.php" class="dropdown-item"><i
@@ -93,17 +95,21 @@ require_once 'includes/auth_check.php';
                             <!-- Patient details form -->
                             <h3 align="center">Patient Details</h3>
                             <label for="">First Name: </label>
-                            <input type="text" id="fname" class="form-control" value =  <?php echo( $_SESSION['fname'] );?> disabled><br>
+                            <input type="text" id="fname" class="form-control" value=<?php echo( $_SESSION['fname'] );?>
+                                disabled><br>
                             <label for="">Last Name: </label>
-                            <input type="text" id="lname" class="form-control" value =  <?php echo( $_SESSION['lname'] );?> disabled><br>
+                            <input type="text" id="lname" class="form-control" value=<?php echo( $_SESSION['lname'] );?>
+                                disabled><br>
                             <label for="">Cellphone Number: </label>
-                            <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required autocomplete="on" placeholder="Enter your 11 digit number">
+                            <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required
+                                autocomplete="on" placeholder="Enter your 11 digit number">
                             <!-- Appointment Details form -->
                             <hr>
                             <h3 align="center">Appointment Details</h3>
                             <label for="">Date: </label>
                             <div id="datepicker" class="input-group input-daterange">
-                                <input type="text" name="date" class="form-control" required autocomplete="off" placeholder="Click to choose date"><br>
+                                <input type="text" name="date" class="form-control" required autocomplete="off"
+                                    placeholder="Click to choose date"><br>
                             </div>
                             <label for="">Time: </label>
                             <select name="time" class="form-control" id="">
@@ -126,11 +132,13 @@ require_once 'includes/auth_check.php';
                             </select>
                             <br>
                             <label for="">Appointment Status: </label>
-                            <input type="text" name="pend" class="form-control"  required autocomplete="on" value="PENDING" class="field left" readonly><br>
+                            <input type="text" name="pend" class="form-control" required autocomplete="on"
+                                value="PENDING" class="field left" readonly><br>
                             <hr>
                             <h3 align="center">Payment Details</h3>
                             <label for="">Payment Status: </label>
-                            <input type="text" name="payment" class="form-control"  required autocomplete="on" value="PAY LATER" class="field left" readonly><br>
+                            <input type="text" name="payment" class="form-control" required autocomplete="on"
+                                value="PAY LATER" class="field left" readonly><br>
                             <input type="submit" name="pat_submit" value="Submit Appointment"
                                 class="btn btn-success shadow-2 mb-4 float-right btn-block" required autocomplete="off">
                         </form>

@@ -16,8 +16,9 @@ require_once 'includes/auth_adminCheck.php';?>
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
 </head>
 
@@ -25,7 +26,7 @@ require_once 'includes/auth_adminCheck.php';?>
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <li>
@@ -68,7 +69,8 @@ require_once 'includes/auth_adminCheck.php';?>
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user"></i>
-                                    <span>Welcome, Admin</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                                    <span>Welcome, Admin</span> <i style="font-size: .8em;"
+                                        class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
@@ -84,24 +86,27 @@ require_once 'includes/auth_adminCheck.php';?>
                 </div>
             </nav>
 
-            
-            
-            
+
+
+
             <!-- CONTENT HERE -->
             <div class="content">
                 <!-- Update Payment Status -->
                 <div class="col-md-5">
                     <div class="card-body">
-                    <h3>Update Payment Status Here</h3>
-                    <hr>
+                        <h3>Update Payment Status Here</h3>
+                        <hr>
                         <form action="func.php" method="post" class="form-group">
-                            <input type="text" name="id" id="id" class="form-control" required autocomplete="off" readonly style='display:none' >
-                            <input type="text" name="contact" id="contact" class="form-control" placeholder="Select patient in the table" required autocomplete="off" readonly >
+                            <input type="text" name="id" id="id" class="form-control" required autocomplete="off"
+                                readonly style='display:none'>
+                            <input type="text" name="contact" id="contact" class="form-control"
+                                placeholder="Select patient in the table" required autocomplete="off" readonly>
                             <small id="contactHelp" class="form-text text-muted">Patient Name.</small><br>
                             <select name="status" id="" class="form-control">
                                 <option value="PAID">Paid</option>
                             </select> <br>
-                            <input type="submit" value="Update" id="update" name="update_data" class="btn btn-success btn-block float-right" style="display:none">
+                            <input type="submit" value="Update" id="update" name="update_data"
+                                class="btn btn-success btn-block float-right" style="display:none">
                         </form>
                         <br>
                     </div>
@@ -110,32 +115,32 @@ require_once 'includes/auth_adminCheck.php';?>
                 <!-- View Payment's Table -->
                 <div class="col-md">
                     <div class="card-body">
-                    <h3>List of Payment's</h3>
-                    <hr>
-                    <div class="box box-primary">
-                    <div class="card-body">
-                    <table class="table table-hover" id="dataTables-example" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>Appointment ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Appointment Date</th>
-                                        <th>Appointment time</th>
-                                        <th>Service</th>
-                                        <th>Payment Date</th>
-                                        <th>Payment Status</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
+                        <h3>List of Payment's</h3>
+                        <hr>
+                        <div class="box box-primary">
+                            <div class="card-body">
+                                <table class="table table-hover" id="dataTables-example" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Appointment ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Appointment Date</th>
+                                            <th>Appointment time</th>
+                                            <th>Service</th>
+                                            <th>Payment Date</th>
+                                            <th>Payment Status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
                                         <?php getPaymentHistory(); ?>
-                                    
-                                </tbody>
-                            </table>
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
 
@@ -156,11 +161,10 @@ require_once 'includes/auth_adminCheck.php';?>
 <script>
 $(document).ready(function() {
     $('#dataTables-example').DataTable();
-} );
-
+});
 </script>
-    
-    <?php 
+
+<?php 
     //POPULATE PAYMENT HISTORY
 function getPaymentHistory() {
     global $con;
@@ -213,4 +217,5 @@ if ( isset( $_POST['pay_btn'] ) ) {
        
 }
     ?>
+
 </html>

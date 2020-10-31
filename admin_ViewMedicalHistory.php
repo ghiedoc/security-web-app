@@ -19,13 +19,13 @@ require_once 'includes/auth_adminCheck.php';?>
 </head>
 
 <body>
-    
-    
+
+
     <!-- NAVIGATION BAR -->
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <li>
@@ -68,7 +68,8 @@ require_once 'includes/auth_adminCheck.php';?>
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user"></i>
-                                    <span>Welcome, Admin</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                                    <span>Welcome, Admin</span> <i style="font-size: .8em;"
+                                        class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
@@ -141,11 +142,11 @@ require_once 'includes/auth_adminCheck.php';?>
                                     <th>Temperature</th>
                                     <th>Medical History</th>
                                 </tr>
-                                
+
                                 <tbody>
-                                <?php getPatientMedicalHistory( $_POST["id"]); ?>
+                                    <?php getPatientMedicalHistory( $_POST["id"]); ?>
                                 </tbody>
-                                
+
                             </table>
 
                             <!-- BUTTTON ADD MEDICAL HISTORY HERE... -->
@@ -175,59 +176,66 @@ require_once 'includes/auth_adminCheck.php';?>
                                                         <th>Blood Pressure :</th>
                                                         <td>
                                                             <div class='col-xs-3'>
-                                                                <input type="number" id="upper" name="upper" min="50" max="180" placeholder='120' required='true'>
-                                                            /
-                                                            <input type="number"  id="lower" name="lower" min="50" max="120" placeholder='80' required='true'>
-                                                            mm Hg
+                                                                <input type="number" id="upper" name="upper" min="50"
+                                                                    max="180" placeholder='120' required='true'>
+                                                                /
+                                                                <input type="number" id="lower" name="lower" min="50"
+                                                                    max="120" placeholder='80' required='true'>
+                                                                mm Hg
                                                             </div>
-                                                            
+
                                                         </td>
-                                                        
+
                                                     </tr>
                                                     <tr>
                                                         <th>Weight :</th>
                                                         <td>
                                                             <input name='weight' placeholder='Weight'
-                                                                class='form-control wd-450' required='true'></td>
+                                                                class='form-control wd-450' required='true'>
+                                                        </td>
                                                     </tr>
-                                                    
+
                                                     <tr>
                                                         <th>Temperature :</th>
                                                         <td>
-                                                            <input type="number" name='temp' step="any" placeholder='36.0'
-                                                                class='form-control wd-450' min="30" max="45" required='true'></td>
+                                                            <input type="number" name='temp' step="any"
+                                                                placeholder='36.0' class='form-control wd-450' min="30"
+                                                                max="45" required='true'>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Medical History :</th>
                                                         <td>
                                                             <textarea name='med_history' placeholder='Medical History'
-                                                                rows='3' cols='5' class='form-control wd-450' style='resize: none;'
-                                                                required='true'></textarea></td>
+                                                                rows='3' cols='5' class='form-control wd-450'
+                                                                style='resize: none;' required='true'></textarea>
+                                                        </td>
                                                     </tr>
-                                                    
-                                                    
+
+
                                                     <tr style="display:none">
                                                         <th></th>
                                                         <td>
                                                             <input value='<?php echo $_POST["id"] ?>' name='addid'>
-                                                           
+
                                                         </td>
                                                     </tr>
 
                                             </table>
                                         </div>
                                         <div class='modal-footer'>
-                                          
+
                                             <button type='button' class='btn btn-secondary'
                                                 data-dismiss='modal'>Close</button>
-                                            <button type='submit' name='addsubmit' class='btn btn-primary'>Submit</button>
+                                            <button type='submit' name='addsubmit'
+                                                class='btn btn-primary'>Submit</button>
 
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                                                                                                   
+
                             <!-- MODAL EDIT PATIENT DETAILS HERE... -->
                             <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog'
                                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -249,25 +257,29 @@ require_once 'includes/auth_adminCheck.php';?>
                                                         <th>First Name :</th>
                                                         <td>
                                                             <input name='fn' placeholder='First Name'
-                                                                class='form-control wd-450' required='true'></td>
+                                                                class='form-control wd-450' required='true'>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Last Name :</th>
                                                         <td>
                                                             <input name='ln' placeholder='Last Name'
-                                                                class='form-control wd-450' required='true'></td>
+                                                                class='form-control wd-450' required='true'>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Patient Email :</th>
                                                         <td>
                                                             <input name='email' placeholder='Email'
-                                                                class='form-control wd-450' required='true'></td>
+                                                                class='form-control wd-450' required='true'>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Patient Address :</th>
                                                         <td>
                                                             <input name='address' placeholder='Patient Address'
-                                                                class='form-control wd-450' required='true'></td>
+                                                                class='form-control wd-450' required='true'>
+                                                        </td>
                                                     </tr>
                                             </table>
                                         </div>
@@ -277,7 +289,7 @@ require_once 'includes/auth_adminCheck.php';?>
                                             <button type='edit' name='edit' class='btn btn-primary'>Edit</button>
 
                                             </form>
-                                                                                      
+
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +303,7 @@ require_once 'includes/auth_adminCheck.php';?>
     </div>
     </div>
 
-    
+
 </body>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>

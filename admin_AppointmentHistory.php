@@ -25,7 +25,7 @@ require_once 'includes/auth_adminCheck.php';?>
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <li>
@@ -68,7 +68,8 @@ require_once 'includes/auth_adminCheck.php';?>
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user"></i>
-                                    <span>Welcome, Admin</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                                    <span>Welcome, Admin</span> <i style="font-size: .8em;"
+                                        class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
@@ -110,9 +111,9 @@ require_once 'includes/auth_adminCheck.php';?>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                        <?php getPatientAppointment(); ?>
-                                    
+
+                                    <?php getPatientAppointment(); ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -120,9 +121,9 @@ require_once 'includes/auth_adminCheck.php';?>
                 </div>
             </div>
 
-            
-                <!-- MODAL approve patient here... -->
-                <div class='modal fade' id='modalApprove' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
+
+            <!-- MODAL approve patient here... -->
+            <div class='modal fade' id='modalApprove' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
                     <div class='modal-content'>
@@ -147,7 +148,7 @@ require_once 'includes/auth_adminCheck.php';?>
                                         <th>First Name :</th>
                                         <td>
                                             <input type="text" name="fname" id="fname" placeholder='First Name'
-                                                class='form-control wd-450' required='true' class="field left" readonly >
+                                                class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
                                     <tr>
@@ -157,7 +158,7 @@ require_once 'includes/auth_adminCheck.php';?>
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <th>Appointment service :</th>
                                         <td>
@@ -165,7 +166,7 @@ require_once 'includes/auth_adminCheck.php';?>
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <th>date :</th>
                                         <td>
@@ -173,7 +174,7 @@ require_once 'includes/auth_adminCheck.php';?>
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <th>time :</th>
                                         <td>
@@ -181,24 +182,26 @@ require_once 'includes/auth_adminCheck.php';?>
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
-                                    
-                                    
-                                    
-                            
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                            <button type="approve" name="approve" class='btn btn-primary'>approve</button>
-                        </div>
-                        </form>
-                        </table>
-                        
+
+
+
+
+                                    <div class='modal-footer'>
+                                        <button type='button' class='btn btn-secondary'
+                                            data-dismiss='modal'>Close</button>
+                                        <button type="approve" name="approve" class='btn btn-primary'>approve</button>
+                                    </div>
+                                </form>
+                            </table>
+
                         </div>
                     </div>
                 </div>
             </div>
-            
-                <!-- MODAL Decline patient here... -->
-                <div class='modal fade' id='modalDecline' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+
+            <!-- MODAL Decline patient here... -->
+            <div class='modal fade' id='modalDecline' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
+                aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
                     <div class='modal-content'>
                         <div class='modal-header'>
@@ -244,20 +247,22 @@ require_once 'includes/auth_adminCheck.php';?>
                                                 class='form-control wd-450' required='true' class="field left" readonly>
                                         </td>
                                     </tr>
-                            
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                            <button type="decline" name="decline" class='btn btn-primary'>Decline</button>
-                            </div>
-                            </form>
-                                    </table>
-                        
+
+                                    <div class='modal-footer'>
+                                        <button type='button' class='btn btn-secondary'
+                                            data-dismiss='modal'>Close</button>
+                                        <button type="decline" name="decline" class='btn btn-primary'>Decline</button>
+                                    </div>
+                                </form>
+                            </table>
+
                         </div>
                     </div>
                 </div>
             </div>
 
-</div></div>
+        </div>
+    </div>
 </body>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
@@ -283,11 +288,11 @@ $(document).ready(function() {
         $('#id').val(data[0]);
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
-        $('#service').val(data[6]) ;
+        $('#service').val(data[6]);
         $('#date').val(data[4]);
-        $('#time').val(data[5]) ;
-        
-       
+        $('#time').val(data[5]);
+
+
     });
 });
 </script>
@@ -307,14 +312,15 @@ $(document).ready(function() {
         $('#Id').val(data[0]);
         $('#Fname').val(data[1]);
         $('#Lname').val(data[2]);
-        $('#Email').val(data[3]) ;
+        $('#Email').val(data[3]);
         $('#Mobile').val(data[4]);
-       
+
     });
 });
 
 $(document).ready(function() {
     $('#dataTables-example').DataTable();
-} );
+});
 </script>
+
 </html>
