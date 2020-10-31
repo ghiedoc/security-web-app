@@ -214,38 +214,6 @@ function getPatientAppointment() {
 }
 
 
-//PATIENT APPOINTMENT HISTORY, dito sana mafefetch lang yung info nung user na naka login
-// try{
-//     function getPatientAppointmentLogs() {
-//         global $con;
-//         $ids = $_SESSION['id'];
-//         $query = "SELECT * FROM appointment WHERE patient_fk='$ids'";
-//         $result = mysqli_query( $con, $query );
-    
-//         while( $row = mysqli_fetch_array( $result ) ) {
-//             $ids = $row['Appointment_Id'];
-//             $fname = $row['Fname'];
-//             $lname = $row['Lname'];
-//             $date = $row['Appointment_Date'];
-//             $time = $row['Appointment_Time'];
-//             $services = $row['Appointment_Service'];
-//             $patientfk = $row['patient_fk'];
-//             $status = $row['stats'];
-//             echo "<tr> 
-//                 <td>$ids</td>
-//                 <td>$fname</td>
-//                 <td>$lname</td>
-//                 <td>$date</td>
-//                 <td>$time</td>
-//                 <td>$services</td> 
-//                 <td>$status</td>
-//                 </tr>";
-//         }
-//     }
-// }catch(Exception $e){
-//     echo 'error contact admin';
-// }
-
 function getPatientAppointmentHistory() {
     try{
     global $con;
@@ -313,6 +281,39 @@ function getPatientAppointmentLogs() {
 }
 }
 
+
+function getAdmin(){
+    try{
+        global $con;
+
+        $query = 'SELECT * FROM admindb';
+        $result = mysqli_query( $con, $query );
+
+        while($row = mysqli_fetch_array( $result  ) ) {
+            $admin_id = $row['admin_id'];
+            $fname = $row['first_name'];
+            $lname = $row['last_name'];
+            $contact_num = $row['contact_num'];
+            $email = $row['email'];
+            echo "
+            <tr>
+                <td>$admin_id</td>
+                <td>$fname</td>
+                <td>$lname</td>
+                <td>$contact_num</td>
+                <td>$email</td>
+                <td>
+                    <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
+                    <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
+                </td>
+                
+            </tr>";
+    }
+}catch(Exception $e){
+    echo 'ERROR',$e->getMessage();
+}
+}
+
 //POPULATE THE DATA FROM DATABASE IN patienttb TO TABLE IN ADMIN PATIENT LIST
 
 function getPatientDetails() {
@@ -334,6 +335,7 @@ function getPatientDetails() {
         <tr>
             <td>$id</td>
             <td>$fname</td>
+
             <td>$lname</td>
             <td>$gender</td>
             <td>$email</td>
@@ -348,7 +350,7 @@ function getPatientDetails() {
                 <input type='text' name='address' value='$address' style='display:none'>
                 <input type='text' name='regiDate' value='$regiDate' style='display:none'>
                 <button type='submit' class='viewbtn btn btn-success' name= 'view_btn'>View</button>
-                
+
                 <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
                 <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
             </form>
@@ -409,6 +411,31 @@ try {
     echo $e->getMessage();
 }
 
+try{
+    if ( isset( $_POST['edit_admin'] ) ) {
+        $id = $_POST['admin_id'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $contact_num = $_POST['contact_num'];
+        $email = $_POST['email'];
+
+       $query = "UPDATE admindb SET first_name = '$fname', last_name = '$lname', contact_num = '$contact_num', email = '$email' WHERE admin_id = '$id'";
+        $query_run =  mysqli_query( $con, $query );
+        if ( $query_run ) {
+            $_SESSION['status'] = 'Updated Successfully!';
+            $_SESSION['status_code'] = 'success';
+            header( 'Location:superAdmin_AdminRegistration.php' );
+        } else {
+            $_SESSION['status'] = 'Something went wrong!';
+            $_SESSION['status_code'] = 'error';
+            header( 'Location:superAdmin_AdminRegistration.php' );
+        }
+    }
+} catch( Exception $e ) {
+    echo $e->getMessage();
+
+}
+
 //UPDATE THE PATIENT LIST TABLE
 try {
     if ( isset( $_POST['edit'] ) ) {
@@ -435,6 +462,29 @@ try {
 } catch( Exception $e ) {
     echo $e->getMessage();
 }
+
+try {
+    if ( isset( $_POST['delete_admin'] ) ) {
+        $deleteId = $_POST['admin_id'];
+
+        $query = "DELETE FROM admindb WHERE admin_id = '$deleteId'";
+        $query_run =  mysqli_query( $con, $query );
+        if ( $query_run ) {
+            // echo "<script>alert('Payment Status Updated!')</script>";
+            $_SESSION['status'] = 'Delete Successfully!';
+            $_SESSION['status_code'] = 'success';
+            header( 'location:superAdmin_AdminRegistration.php' );
+        } else {
+            $_SESSION['status'] = 'Something went wrong!';
+            $_SESSION['status_code'] = 'error';
+            header( 'Location:superAdmin_AdminRegistration.php' );
+        }
+
+    }
+} catch( Exception $e ) {
+    echo $e->getMessage();
+}
+
 
 //DELETE FUNCTION IN POPULATING THE DATA IN THE DATABASE IN patienttb TO ADMIN PATIENT LIST
 try {

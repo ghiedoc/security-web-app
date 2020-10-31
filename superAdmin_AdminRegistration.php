@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include("func.php")?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -96,11 +97,11 @@
                             <div class="register">
                                 <h1>Register Administrator</h1>
                                 <form action="register_admin.php" method="post" autocomplete="off">
-                                    <input type="text" name="fname" placeholder="First Name" id="fname" required>
-                                    <input type="text" name="lname" placeholder="Last Name" id="lname" required>
+                                    <input type="text" name="fname" placeholder="First Name" id="firstname" required>
+                                    <input type="text" name="lname" placeholder="Last Name" id="lastname" required>
                                     <input type="tel" pattern="[0-9]{11}" name="mobile" placeholder="Contact Number"
                                         required>
-                                    <input type="email" name="email" placeholder="Email" id="email" required>
+                                    <input type="email" name="email" placeholder="Email" id="emails" required>
                                     <input type="password" name="password" placeholder="Password" id="password"
                                         required>
                                     <input type="submit" value="Register">
@@ -108,22 +109,118 @@
                             </div>
                         </div>
 
+   <!-- MODAL EDIT PATIENT DETAILS HERE... -->
+   <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
+                aria-hidden='true'>
+                <div class='modal-dialog' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title' id='exampleModalLabel'>Edit Patient Details</h5>
+                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                <span aria-hidden='true'>&times;
+                                </span>
+                            </button>
+                        </div>
+                        <div class='modal-body'>
+                            <table class='table table-bordered table-hover data-tables'>
+                                <form action='func.php' method='POST'>
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" name="admin_id" id="admin_id">
+                    
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Name :</th>
+                                        <td>
+                                            <input type="text" name="fname" id="fname" placeholder='First Name'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Name :</th>
+                                        <td>
+                                            <input type="text" name="lname" id="lname" placeholder='Last Name'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact Number :</th>
+                                        <td>
+                                            <input type="text" name="contact_num" id="contact_num" placeholder='Contact Number'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email :</th>
+                                        <td>
+                                        <input type="text" name="email" id="email" placeholder='Email'
+                                                class='form-control wd-450' required='true'>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                            <button type="edit" name="edit_admin" class='btn btn-primary'>Edit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- MODAL DELETE PATIENT DETAILS HERE... -->
+            <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
+                aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title' id='exampleModalLabel'>You want to delete?</h5>
+                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                <span aria-hidden='true'>&times;
+                                </span>
+                            </button>
+                        </div>
+                        <div class='modal-body' style='display:none'>
+                            <table class='table table-bordered table-hover data-tables'>
+
+                                <form action='func.php' method='POST'>
+
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" name="admin_id" id="deleteId">
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type="delete" name="delete_admin" class='btn btn-primary'>Yes</button>
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
+
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
                         <div class="col-sm-8">
                             <!-- DATA TABLE -->
                             <table id="dataTables-example" class="table table-hover"
-                                style="width: 70%; margin: 20px auto;">
+                                style="width: 90%; margin: 20px auto;">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Contact Number</th>
-                                        <th>Username</th>
                                         <th>Email</th>
                                         <th>Options</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php ?>
+                                    <?php getAdmin();?>
                                 </tbody>
                             </table>
                         </div>
@@ -146,9 +243,57 @@
 <script src="js/script.js"></script>
 <script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
+<?php include('alertconfig.php');?>
+
 
 <!-- not working pa -->
 <script>
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+});
+</script>
+
+
+<!-- Show modal edit -->
+<script>
+$(document).ready(function() {
+    $('.editbtn').on('click', function() {
+        $('#myModalPatient').modal('show');
+
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+        console.log(data);
+        $('#admin_id').val(data[0]);
+        $('#fname').val(data[1]);
+        $('#lname').val(data[2]);
+        $('#contact_num').val(data[3]);
+        $('#email').val(data[4]);
+    });
+});
+</script>
+
+<!-- Show modal delete -->
+<script>
+$(document).ready(function() {
+    $('.deletebtn').on('click', function() {
+        $('#myModalDeletePatient').modal('show');
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+        console.log(data);
+
+        $('#deleteId').val(data[0]);
+
+    });
+});
+
 $(document).ready(function() {
     $('#dataTables-example').DataTable();
 });
