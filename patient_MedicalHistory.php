@@ -28,7 +28,7 @@ require_once 'includes/auth_check.php';
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <!-- DASHBOARD  -->
@@ -67,10 +67,9 @@ require_once 'includes/auth_check.php';
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user-injured"></i>
-                                    <span><?php echo( $_SESSION['fname']);?></span> 
-                                     
-                                    <i style="font-size: .8em;"
-                                        class="fas fa-caret-down"></i></a>
+                                    <span><?php echo( $_SESSION['fname']);?></span>
+
+                                    <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="logout.php" class="dropdown-item"><i
@@ -80,19 +79,19 @@ require_once 'includes/auth_check.php';
                             </div>
                         </li>
                     </ul>
-                    
+
                 </div>
-                
+
             </nav>
             <!-- CONTENT-->
             <br>
-            
+
             <!-- CONTENT HERE -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">
                         <h3>Manage Medical History
-                            
+
                         </h3>
                     </div>
                     <div class="box box-primary">
@@ -116,7 +115,7 @@ require_once 'includes/auth_check.php';
                                     <td><?php echo $_SESSION["email"];?></td>
                                     <th>Patient Gender:</th>
                                     <td><?php echo $_SESSION["gender"];?></td>
-                                    
+
                                 </tr>
                                 <tr>
                                     <th>Patient Address:</th>
@@ -143,18 +142,18 @@ require_once 'includes/auth_check.php';
                                     <th>Temperature</th>
                                     <th>Medical History</th>
                                 </tr>
-                                
+
                                 <tbody>
-                                <?php getPatientMedicalHistory( $_SESSION['id']); ?>
+                                    <?php getPatientMedicalHistory( $_SESSION['id']); ?>
                                 </tbody>
-                                
+
                             </table>
-                        
-            
-            
-            
-            
-       
+
+
+
+
+
+
 </body>
 
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>

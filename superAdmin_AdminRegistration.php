@@ -22,7 +22,7 @@
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <li>

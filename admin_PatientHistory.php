@@ -21,7 +21,7 @@ require_once 'includes/auth_adminCheck.php';?>
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <li>
@@ -64,7 +64,8 @@ require_once 'includes/auth_adminCheck.php';?>
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
                                         class="fas fa-user"></i>
-                                    <span>Welcome, Admin</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                                    <span>Welcome, Admin</span> <i style="font-size: .8em;"
+                                        class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>

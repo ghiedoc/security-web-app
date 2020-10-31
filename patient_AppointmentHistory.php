@@ -26,7 +26,7 @@ require_once 'includes/auth_check.php';?>
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
-                <img src="" alt="bootraper logo" class="app-logo">
+                <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
                 <!-- DASHBOARD  -->
@@ -83,8 +83,9 @@ require_once 'includes/auth_check.php';?>
                 <div class="container-fluid">
                     <div class="page-title">
                         <h3>My Appointment's History
-                            <a href="patient_AppointmentHistory.php" class="btn btn-sm btn-outline-primary float-right"><i
-                                    class="fas fa-user-shield"></i> Appointments</a>
+                            <a href="patient_AppointmentHistory.php"
+                                class="btn btn-sm btn-outline-primary float-right"><i class="fas fa-user-shield"></i>
+                                Appointments</a>
                         </h3>
                     </div>
                     <div class="box box-primary">
@@ -102,16 +103,16 @@ require_once 'includes/auth_check.php';?>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                        <?php getPatientAppointmentLogs(); ?>
-                                   
+
+                                    <?php getPatientAppointmentLogs(); ?>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                
+
             </div>
 </body>
 
@@ -126,8 +127,7 @@ require_once 'includes/auth_check.php';?>
 <script>
 $(document).ready(function() {
     $('#dataTables-example').DataTable();
-} );
-
-
+});
 </script>
+
 </html>
