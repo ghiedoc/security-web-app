@@ -123,30 +123,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger</td>
-                                        <td>Nixon</td>
-                                        <td>123456789</td>
-                                        <td>username</td>
-                                        <td>@email.com</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett</td>
-                                        <td>Winters</td>
-                                        <td>123456789</td>
-                                        <td>username</td>
-                                        <td>@email.com</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett</td>
-                                        <td>Winters</td>
-                                        <td>123456789</td>
-                                        <td>username</td>
-                                        <td>@email.com</td>
-                                        <td></td>
-                                    </tr>
+                                    <?php ?>
                                 </tbody>
                             </table>
                         </div>
