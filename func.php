@@ -348,7 +348,7 @@ function getPatientDetails() {
                 <input type='text' name='address' value='$address' style='display:none'>
                 <input type='text' name='regiDate' value='$regiDate' style='display:none'>
                 <button type='submit' class='viewbtn btn btn-success' name= 'view_btn'>View</button>
-            
+                
                 <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
                 <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
             </form>
