@@ -269,7 +269,7 @@ require_once 'includes/auth_adminCheck.php';?>
 <script src="js/script.js"></script>
 
 <script>
-<<<<<<< HEAD
+
 $(document).ready(function() {
     $('.approvebtn').on('click', function() {
         $('#modalApprove').modal('show');
@@ -317,13 +317,13 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#dataTables-example').DataTable();
 });
-=======
+
 $(document).ready(function(){$(".approvebtn").on("click",function(){$("#modalApprove").modal("show"),Str=$(this).closest("tr");var t=Str.children("td").map(function(){return $(this).text()}).get();$("#id").val(t[0]),$("#fname").val(t[1]),$("#lname").val(t[2]),$("#service").val(t[6]),$("#date").val(t[4]),$("#time").val(t[5])})});
 </script>
 
 <script>
 $(document).ready(function(){$(".declinebtn").on("click",function(){$("#modalDecline").modal("show"),Str=$(this).closest("tr");var a=Str.children("td").map(function(){return $(this).text()}).get();$("#Id").val(a[0]),$("#Fname").val(a[1]),$("#Lname").val(a[2]),$("#Email").val(a[3]),$("#Mobile").val(a[4])})}),$(document).ready(function(){$("#dataTables-example").DataTable()});
->>>>>>> 0d0718dd36b1e58e9d31e79365c09abd3ebd96ed
+
 </script>
 
 </html>
