@@ -220,7 +220,6 @@
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
 <script src="vendor/chartsjs/Chart.min.js"></script>
-<script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
 <script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
