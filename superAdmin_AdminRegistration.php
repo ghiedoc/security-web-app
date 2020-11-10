@@ -244,11 +244,6 @@
 <?php include('alertconfig.php');?>
 
 
-<script>
-$(document).ready(function() {
-    $('#dataTables-example').DataTable();
-});
-</script>
 
 
 <script>
