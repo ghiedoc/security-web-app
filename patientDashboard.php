@@ -8,10 +8,7 @@ require_once 'includes/auth_check.php';
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
-    <!-- <link rel = 'stylesheet' href = 'css/patient.css'> -->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
     <link href='vendor/bootstrap4/css/bootstrap.min.css' rel='stylesheet'>
     <link href='vendor/flagiconcss3/css/flag-icon.min.css' rel='stylesheet'>
     <link rel='stylesheet' href='css/master.css' />
@@ -19,8 +16,6 @@ require_once 'includes/auth_check.php';
 </head>
 
 <body>
-
-
     <!-- NAVIGATION BAR -->
     <div class='wrapper'>
         <nav id='sidebar' class='active'>
