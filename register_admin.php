@@ -15,7 +15,7 @@ if (!isset($_POST['password'], $_POST['email'], $_POST['fname'], $_POST['lname']
 }
 
 if (empty($_POST['password']) || empty($_POST['email']) || empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['mobile'])) {
-	// One or more values are empty.
+
 	echo "<script>alert('Please complete the admin registration form!')</script>";
 	echo "<script>window.open('superAdmin_AdminRegistration.php', '_self')</script>";
 }
@@ -32,17 +32,17 @@ if (preg_match('/[A-Za-z0-9]+/', $_POST['email']) == 0) {
 
 try{
 	$pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
-	// We need to check if the account with that username exists.
+
 if ($stmt = $con->prepare('SELECT admin_id, password FROM admindb WHERE email = ?')) {
 	$stmt->bind_param('s', $_POST['email']);
 	$stmt->execute();
 	$stmt->store_result();
 	if ($stmt->num_rows > 0) {
-		// Username already exists
+
 		echo "<script>alert('Email exists, please choose another!')</script>";
 		echo "<script>window.open('superAdmin_AdminRegistration.php', '_self')</script>";	
 	} else {
-        // Insert new account
+
 		if(preg_match($pattern, $_POST['password'])){
 			if ($stmt = $con->prepare('INSERT INTO admindb (first_name, last_name, contact_num, email, password) VALUES (?, ?, ?, ?, ?)')) {
 				$password = password_hash($_POST['password'], PASSWORD_BCRYPT);

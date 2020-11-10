@@ -99,7 +99,7 @@ require_once 'includes/auth_adminCheck.php';
                 <div class="container-fluid">
                     <div class="row">
 
-                        <!-- TOTAL PATIENT NUMBER CARD -->
+
                         <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
                             <div class="card">
                                 <div class="content">
@@ -123,7 +123,6 @@ require_once 'includes/auth_adminCheck.php';
                             </div>
                         </div>
 
-                        <!-- NUMBER OF APPOINTMENTS CARD -->
                         <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
                             <div class="card">
                                 <div class="content">
@@ -147,11 +146,11 @@ require_once 'includes/auth_adminCheck.php';
                             </div>
                         </div>
 
-                        <!-- EMPTY CARD -->
+
                         <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
                         </div>
 
-                        <!-- EMPTY CARD -->
+
                         <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
                         </div>
 

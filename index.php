@@ -22,7 +22,7 @@ include("func.php");
 </head>
 
 <body>
-    <!-- HAMBURGER MENU -->
+
     <div class="menu-wrap">
         <input type="checkbox" class="toggler">
         <div class="butt">
@@ -31,7 +31,7 @@ include("func.php");
         </div>
     </div>
 
-    <!-- LANDING PAGE -->
+
     <section id="banner">
         <div class="container">
             <div class="row">
@@ -52,8 +52,7 @@ include("func.php");
         </div>
     </section>
 
-    <!-- MODAL FOR SIGNING IN -->
-    <!-- Modal Sign In-->
+
 
     <div class=" modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -69,14 +68,11 @@ include("func.php");
                     <div class="card-body text-center">
                         <h6 class="mb-4 text-muted">Sign in to your Account</h6>
 
-                        <!-- LOGIN -->
-                        <!-- error validation login-->
-                        <!-- <div class="alert alert-danger alert-dismissable" dispaly="none">
-                            <a href="#" class="close" data-dismiss="alert" aria-hidden="true"">&times;</a>
-                            <strong><?php $message;?></strong>
-                        </div> -->
 
-                        <!-- <form action=" func.php" method="post"> -->
+                            <?php $message;?>
+
+
+
                         <p class="statusMsg"></p>
                         <div class="form-group">
                             <input type="email" id="username" class="form-control" placeholder="Email" required
@@ -89,7 +85,7 @@ include("func.php");
                                 style="padding-top: 15px"></span>
                         </div>
                         <br>
-                        <!-- SUBMIT BUTTON -->
+
                         <button type="submit" id="login_submit" class="btn btn-primary shadow-2 mb-4">
 
                             Login
@@ -111,8 +107,6 @@ include("func.php");
         </div>
     </div>
 
-
-    <!-- Modal Sign Up-->
     <div class=" modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -175,10 +169,80 @@ include("func.php");
 </body>
 <?php include('alertconfig.php');?>
 
-<!-- Log in Validation  -->
+
 
 <script>
+
+$(document).ready(function() {
+    var login_attempts = 5;
+    $('#login_submit').on('click', function() {
+        var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+        var username = $('#username').val();
+        var password = $('#password').val();
+        if (login_attempts > 1) {
+            if (username.trim() == '' || !reg.test(username)) {
+
+                console.log('Invalid Email');
+                $('.statusMsg').html('<span style="color:red;">Invalid Email</p>');
+                document.getElementById("username").value = "";
+            } else if (password.trim() == '') {
+                console.log('Password Field is Empty');
+                $('.statusMsg').html("<span style='color:red;'>Password field can't be empty</p>");
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    dataType: "text",
+                    url: 'func.php',
+                    data: {
+                        'loginFormSubmit': 1,
+                        'username': username,
+                        'password': password
+                    },
+                    beforeSend: function() {
+                        console.log('Processing. . .');
+                    },
+                    success: function(response) {
+                        response = response.substr(response.lastIndexOf('.') + 1);
+                        console.log(response);
+                        if (response === 'admin') {
+                            login_attempts = 5;
+                            window.location.href = "dashboard.php"
+                        } else if (response === 'error') {
+                            login_attempts--;
+                            console.log("Atempts left: " + login_attempts)
+                            alert("Login Attempts Left: " + login_attempts);
+                            $('.statusMsg').html(
+                                "<span style='color:red;'>Invalid Credentials</p>");
+
+                        } else {
+                            login_attempts = 5;
+                            console.log('User login');
+                            window.location.href = "patientDashboard.php"
+                        }
+                    }
+
+                });
+
+            }
+        } else {
+            $('.statusMsg').html(
+                "<span style='color:red;'>Login limit reached. Please wait for 30 seconds.</p>");
+            document.getElementById("login_submit").style.visibility = "hidden";
+            document.getElementById("username").disabled = true;
+            document.getElementById("password").disabled = true;
+
+            setTimeout(function() {
+                document.getElementById("username").disabled = false;
+                document.getElementById("password").disabled = false;
+                document.getElementById("login_submit").style.visibility = "visible";
+                login_attempts = 5;
+            }, 30000);
+        }
+
+    });
+});
 $(document).ready(function(){var e=5;$("#login_submit").on("click",function(){var t=$("#username").val(),s=$("#password").val();e>1?""!=t.trim()&&/^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i.test(t)?""==s.trim()?(console.log("Password Field is Empty"),$(".statusMsg").html("<span style='color:red;'>Password field can't be empty</p>")):$.ajax({type:"POST",dataType:"text",url:"func.php",data:{loginFormSubmit:1,username:t,password:s},beforeSend:function(){console.log("Processing. . .")},success:function(t){t=t.substr(t.lastIndexOf(".")+1),console.log(t),"admin"===t?(e=5,window.location.href="dashboard.php"):"error"===t?(e--,console.log("Atempts left: "+e),alert("Login Attempts Left: "+e),$(".statusMsg").html("<span style='color:red;'>Invalid Credentials</p>")):(e=5,console.log("User login"),window.location.href="patientDashboard.php")}}):(console.log("Invalid Email"),$(".statusMsg").html('<span style="color:red;">Invalid Email</p>'),document.getElementById("username").value=""):($(".statusMsg").html("<span style='color:red;'>Login limit reached. Please wait for 30 seconds.</p>"),document.getElementById("login_submit").style.visibility="hidden",document.getElementById("username").disabled=!0,document.getElementById("password").disabled=!0,setTimeout(function(){document.getElementById("username").disabled=!1,document.getElementById("password").disabled=!1,document.getElementById("login_submit").style.visibility="visible",e=5},3e4))})});
+
 </script>
 
 <script>

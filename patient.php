@@ -10,7 +10,7 @@ require_once 'includes/auth_check.php';
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
     <script defer src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
-    <!-- <link rel = 'stylesheet' href = 'css/patient.css'> -->
+
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     <link href='vendor/bootstrap4/css/bootstrap.min.css' rel='stylesheet'>
@@ -21,18 +21,18 @@ require_once 'includes/auth_check.php';
 
 <body>
 
-    <!-- NAVIGATION BAR -->
+
     <div class='wrapper'>
         <nav id='sidebar' class='active'>
             <div class='sidebar-header'>
                 <span>Healthy Smile Clinic</span>
             </div>
             <ul class='list-unstyled components'>
-                <!-- DASHBOARD  -->
+  
                 <li>
                     <a href='patientDashboard.php'><i class='fas fa-home'></i> Dashboard</a>
                 </li>
-                <!-- APPOINTMENTS -->
+
                 <li>
                     <a href='#appointmenu' data-toggle='collapse' aria-expanded='false'
                         class='dropdown-toggle no-caret-down'><i class='fas fa-calendar-check'></i> Appointment</a>
@@ -65,7 +65,6 @@ require_once 'includes/auth_check.php';
                 <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                     <ul class='nav navbar-nav ml-auto'>
 
-                        <!-- SIDE BAR NAME TOGGLE -->
                         <li class='nav-item dropdown'>
                             <div class='nav-dropdown'>
                                 <a href='' class='nav-item nav-link dropdown-toggle' data-toggle='dropdown'><i
@@ -84,7 +83,7 @@ require_once 'includes/auth_check.php';
                 </div>
             </nav>
 
-            <!-- MY APPOINTMENT HISTORY CARD -->
+
             <div class='content'>
                 <div class='container-fluid'>
                     <div class='row'>
@@ -112,7 +111,7 @@ require_once 'includes/auth_check.php';
                             </div>
                         </div>
 
-                        <!-- BOOK AN APPOINTMENT CARD -->
+
                         <div class='col-sm-6 col-md-6 col-lg-3 mt-3'>
                             <div class='card'>
                                 <div class='content'>

@@ -109,7 +109,6 @@
                             </div>
                         </div>
 
-   <!-- MODAL EDIT PATIENT DETAILS HERE... -->
    <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -170,7 +169,7 @@
             </div>
 
 
-            <!-- MODAL DELETE PATIENT DETAILS HERE... -->
+
             <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -206,7 +205,7 @@
 
 
                         <div class="col-sm-8">
-                            <!-- DATA TABLE -->
+
                             <table id="dataTables-example" class="table table-hover"
                                 style="width: 90%; margin: 20px auto;">
                                 <thead>
@@ -225,7 +224,7 @@
                             </table>
                         </div>
                     </div>
-                    <!-- monitoring ng administrator -->
+
                     <hr>
                     <h2>Monitor Administrator</h2>
 
@@ -235,7 +234,6 @@
     </div>
 </body>
 
-<!-- OTHER SCRIPTS NEEDED -->
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
@@ -246,9 +244,57 @@
 <?php include('alertconfig.php');?>
 
 
-<!-- not working pa -->
 <script>
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+});
+</script>
+
+
+<script>
+$(document).ready(function() {
+    $('.editbtn').on('click', function() {
+        $('#myModalPatient').modal('show');
+
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+        console.log(data);
+        $('#admin_id').val(data[0]);
+        $('#fname').val(data[1]);
+        $('#lname').val(data[2]);
+        $('#contact_num').val(data[3]);
+        $('#email').val(data[4]);
+    });
+});
+</script>
+
+
+<script>
+$(document).ready(function() {
+    $('.deletebtn').on('click', function() {
+        $('#myModalDeletePatient').modal('show');
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+        console.log(data);
+
+        $('#deleteId').val(data[0]);
+
+    });
+});
+
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+});
 $(document).ready(function(){$("#dataTables-example").DataTable()}),$(document).ready(function(){$(".editbtn").on("click",function(){$("#myModalPatient").modal("show"),Str=$(this).closest("tr");var t=Str.children("td").map(function(){return $(this).text()}).get();console.log(t),$("#admin_id").val(t[0]),$("#fname").val(t[1]),$("#lname").val(t[2]),$("#contact_num").val(t[3]),$("#email").val(t[4])})}),$(document).ready(function(){$(".deletebtn").on("click",function(){$("#myModalDeletePatient").modal("show"),Str=$(this).closest("tr");var t=Str.children("td").map(function(){return $(this).text()}).get();console.log(t),$("#deleteId").val(t[0])})}),$(document).ready(function(){$("#dataTables-example").DataTable()});
+
 </script>
 
 </html>

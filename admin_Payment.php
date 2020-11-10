@@ -11,7 +11,7 @@ require_once 'includes/auth_adminCheck.php';?>
     <title>Payment Status</title>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <!-- <link rel="stylesheet" href="css/patient.css"> -->
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
@@ -89,9 +89,8 @@ require_once 'includes/auth_adminCheck.php';?>
 
 
 
-            <!-- CONTENT HERE -->
             <div class="content">
-                <!-- Update Payment Status -->
+
                 <div class="col-md-5">
                     <div class="card-body">
                         <h3>Update Payment Status Here</h3>
@@ -112,7 +111,7 @@ require_once 'includes/auth_adminCheck.php';?>
                     </div>
                 </div>
 
-                <!-- View Payment's Table -->
+
                 <div class="col-md">
                     <div class="card-body">
                         <h3>List of Payment's</h3>
@@ -163,7 +162,7 @@ $(document).ready(function(){$("#dataTables-example").DataTable()});
 </script>
 
 <?php 
-    //POPULATE PAYMENT HISTORY
+
 function getPaymentHistory() {
     global $con;
     $query = 'SELECT * FROM paymenttable';
@@ -201,7 +200,7 @@ function getPaymentHistory() {
 }
 
 
-//PAYNOW BUTTON
+
 if ( isset( $_POST['pay_btn'] ) ) {
         $name = $_POST['fname'];
         $id = $_POST['id'];

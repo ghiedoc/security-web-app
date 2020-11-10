@@ -81,7 +81,6 @@
             </nav>
 
 
-            <!-- MODAL EDIT PATIENT DETAILS HERE... -->
             <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -141,7 +140,7 @@
             </div>
 
 
-            <!-- MODAL DELETE PATIENT DETAILS HERE... -->
+
             <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -175,7 +174,7 @@
                 </div>
             </div>
 
-            <!-- table -->
+
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">
@@ -219,7 +218,6 @@
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
 <script src="vendor/fontawesome5/js/fontawesome.min.js"></script>
 <script src="vendor/chartsjs/Chart.min.js"></script>
-<script src="js/dashboard-charts.js"></script>
 <script src="js/script.js"></script>
 <script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
@@ -227,8 +225,51 @@
 
 
 
-<!-- Show modal edit -->
+
 <script>
+$(document).ready(function() {
+    $('.editbtn').on('click', function() {
+        $('#myModalPatient').modal('show');
+
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+
+        $('#id').val(data[0]);
+        $('#fname').val(data[1]);
+        $('#lname').val(data[2]);
+        $('#gender').val(data[3]);
+        $('#email').val(data[4]);
+        $('#address').val(data[5]);
+    });
+});
+</script>
+
+
+<script>
+$(document).ready(function() {
+    $('.deletebtn').on('click', function() {
+        $('#myModalDeletePatient').modal('show');
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+        console.log(data);
+
+        $('#deleteId').val(data[0]);
+
+    });
+});
+
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+});
+
 $(document).ready(function() {
     $(".editbtn").on("click", function() {
         $("#myModalPatient").modal("show"), Str = $(this).closest("tr");

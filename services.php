@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <!-- HAMBURGER MENU -->
+
   <div class="menu-wrap">
     <input type="checkbox" class="toggler">
     <div class="butt">
@@ -43,7 +43,7 @@
       </div>
     </div>
   </div>
-  <!-- HAMBURGER MENU -->
+
 
 
   <div class="header">
@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <!-- NEXT ROW -->
+
 
   <div class="holder">
     <div class="box">

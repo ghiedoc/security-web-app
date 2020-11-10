@@ -8,7 +8,7 @@ require_once 'includes/auth_adminCheck.php';?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <!-- <link rel="stylesheet" href="css/patient.css"> -->
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@ require_once 'includes/auth_adminCheck.php';?>
 
 <body>
 
-    <!-- NAVIGATION BAR -->
+
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
@@ -84,9 +84,7 @@ require_once 'includes/auth_adminCheck.php';?>
                     </ul>
                 </div>
             </nav>
-            <!-- END OF NAVIGATION -->
 
-            <!-- CONTENT HERE -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">
@@ -121,8 +119,6 @@ require_once 'includes/auth_adminCheck.php';?>
                 </div>
             </div>
 
-
-            <!-- MODAL approve patient here... -->
             <div class='modal fade' id='modalApprove' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -199,7 +195,6 @@ require_once 'includes/auth_adminCheck.php';?>
                 </div>
             </div>
 
-            <!-- MODAL Decline patient here... -->
             <div class='modal fade' id='modalDecline' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -274,11 +269,61 @@ require_once 'includes/auth_adminCheck.php';?>
 <script src="js/script.js"></script>
 
 <script>
+
+$(document).ready(function() {
+    $('.approvebtn').on('click', function() {
+        $('#modalApprove').modal('show');
+
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+
+        $('#id').val(data[0]);
+        $('#fname').val(data[1]);
+        $('#lname').val(data[2]);
+        $('#service').val(data[6]);
+        $('#date').val(data[4]);
+        $('#time').val(data[5]);
+
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('.declinebtn').on('click', function() {
+        $('#modalDecline').modal('show');
+
+
+        Str = $(this).closest('tr');
+
+        var data = Str.children("td").map(function() {
+            return $(this).text();
+        }).get();
+
+        $('#Id').val(data[0]);
+        $('#Fname').val(data[1]);
+        $('#Lname').val(data[2]);
+        $('#Email').val(data[3]);
+        $('#Mobile').val(data[4]);
+
+    });
+});
+
+$(document).ready(function() {
+    $('#dataTables-example').DataTable();
+});
+
 $(document).ready(function(){$(".approvebtn").on("click",function(){$("#modalApprove").modal("show"),Str=$(this).closest("tr");var t=Str.children("td").map(function(){return $(this).text()}).get();$("#id").val(t[0]),$("#fname").val(t[1]),$("#lname").val(t[2]),$("#service").val(t[6]),$("#date").val(t[4]),$("#time").val(t[5])})});
 </script>
 
 <script>
 $(document).ready(function(){$(".declinebtn").on("click",function(){$("#modalDecline").modal("show"),Str=$(this).closest("tr");var a=Str.children("td").map(function(){return $(this).text()}).get();$("#Id").val(a[0]),$("#Fname").val(a[1]),$("#Lname").val(a[2]),$("#Email").val(a[3]),$("#Mobile").val(a[4])})}),$(document).ready(function(){$("#dataTables-example").DataTable()});
+
 </script>
 
 </html>
