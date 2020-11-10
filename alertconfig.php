@@ -1,6 +1,6 @@
 <script src="js/sweetalert.js"></script>
 
-<!-- Show sweetAlert-->
+
 <?php
 if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
     ?>

@@ -109,7 +109,6 @@
                             </div>
                         </div>
 
-   <!-- MODAL EDIT PATIENT DETAILS HERE... -->
    <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -170,7 +169,7 @@
             </div>
 
 
-            <!-- MODAL DELETE PATIENT DETAILS HERE... -->
+
             <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -206,7 +205,7 @@
 
 
                         <div class="col-sm-8">
-                            <!-- DATA TABLE -->
+
                             <table id="dataTables-example" class="table table-hover"
                                 style="width: 90%; margin: 20px auto;">
                                 <thead>
@@ -225,7 +224,7 @@
                             </table>
                         </div>
                     </div>
-                    <!-- monitoring ng administrator -->
+
                     <hr>
                     <h2>Monitor Administrator</h2>
 
@@ -235,7 +234,6 @@
     </div>
 </body>
 
-<!-- OTHER SCRIPTS NEEDED -->
 <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
 <script src="vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontawesome5/js/solid.min.js"></script>
@@ -246,7 +244,6 @@
 <?php include('alertconfig.php');?>
 
 
-<!-- not working pa -->
 <script>
 $(document).ready(function() {
     $('#dataTables-example').DataTable();
@@ -254,7 +251,6 @@ $(document).ready(function() {
 </script>
 
 
-<!-- Show modal edit -->
 <script>
 $(document).ready(function() {
     $('.editbtn').on('click', function() {
@@ -276,7 +272,7 @@ $(document).ready(function() {
 });
 </script>
 
-<!-- Show modal delete -->
+
 <script>
 $(document).ready(function() {
     $('.deletebtn').on('click', function() {

@@ -1,11 +1,4 @@
-/*------------------------------------------------------------------
-* Bootstrap Simple Admin Template
-* Email: heyalexluna@gmail.com
-* Version: 1.1
-* Author: Alexis Luna
-* Copyright 2019 Alexis Luna
-* Website: https://github.com/mralexisluna/bootstrap-simple-admin-template
--------------------------------------------------------------------*/
+
 #sidebar {
     min-width: 250px;
     max-width: 250px;
@@ -36,7 +29,7 @@
     font-size: 1rem;
     display: block;
     color: #ed765e;
-    /* color: #b6cdff; */
+
 }
 
 #sidebar ul li a .svg-inline--fa {

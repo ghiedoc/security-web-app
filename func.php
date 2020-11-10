@@ -2,7 +2,7 @@
 ?>
 <?php
 
-// MULTI-USER LOGIN
+
 try{
 $con = mysqli_connect( 'localhost', 'root', '', 'hmsdbs' );
 
@@ -71,9 +71,6 @@ if ( isset( $_POST['loginFormSubmit'] )) {
     echo 'Error Login', $e->getMessage();
 }
 
-
-
-// BOOKING/ADDING AN APPOINTMENT
 try{
 if ( isset( $_POST['pat_submit'] ) ) {
 
@@ -105,7 +102,6 @@ if ( isset( $_POST['pat_submit'] ) ) {
     echo 'ERROR Addding appointment: ', $e->getMessage();
 }
 
-//PATIENT REGISTRATION
 try {
     $pattern = '/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/';
     if ( isset( $_POST['pat_register'] ) ) {
@@ -116,7 +112,6 @@ try {
         $adds = $_POST['address'];
         $password = $_POST['password'];
 
-        // ? HASHED PASSWORD
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $query_email = "SELECT * FROM patienttb WHERE email='$email'";
@@ -146,7 +141,6 @@ try {
     echo 'Error Patient Register',$e->getMessage();
 }
 
-//PATIENT ADD MEDICAL HISTORY
 try {
     if ( isset( $_POST['addsubmit'] ) ) {
         $addid = $_POST['addid'];
@@ -173,7 +167,6 @@ try {
     echo 'ERROR PATIENT HISTORY',$e->getMessage();
 }
 
-//POPULATE THE DATA FROM DATABASE IN appointment TO TABLE IN APPOINTMENT HISTORY
 
 function getPatientAppointment() {
     try{
@@ -248,7 +241,6 @@ function getPatientAppointmentHistory() {
 }
 }
 
-//PATIENT APPOINTMENT HISTORY, dito sana mafefetch lang yung info nung user na naka login
 
 function getPatientAppointmentLogs() {
     try{
@@ -314,7 +306,6 @@ function getAdmin(){
 }
 }
 
-//POPULATE THE DATA FROM DATABASE IN patienttb TO TABLE IN ADMIN PATIENT LIST
 
 function getPatientDetails() {
     try{
@@ -390,7 +381,7 @@ function getPatientMedicalHistory( $x ) {
     echo 'ERROR',$e->getMessage();
 }
 }
-// UPDATE PAYMENT OF PATIENT
+
 try {
     if ( isset( $_POST['update_data'] ) ) {
         $id = $_POST['id'];
@@ -436,7 +427,7 @@ try{
 
 }
 
-//UPDATE THE PATIENT LIST TABLE
+
 try {
     if ( isset( $_POST['edit'] ) ) {
         $id = $_POST['id'];
@@ -449,7 +440,7 @@ try {
         $query = "UPDATE patienttb SET fname= '$fname', lname='$lname',gender='$gender',email= '$email',adds='$add' WHERE patient_id = '$id' ";
         $query_run =  mysqli_query( $con, $query );
         if ( $query_run ) {
-            // echo "<script>alert('Payment Status Updated!')</script>";
+
             $_SESSION['status'] = 'Updated Successfully!';
             $_SESSION['status_code'] = 'success';
             header( 'location:patientList.php' );
@@ -470,7 +461,6 @@ try {
         $query = "DELETE FROM admindb WHERE admin_id = '$deleteId'";
         $query_run =  mysqli_query( $con, $query );
         if ( $query_run ) {
-            // echo "<script>alert('Payment Status Updated!')</script>";
             $_SESSION['status'] = 'Delete Successfully!';
             $_SESSION['status_code'] = 'success';
             header( 'location:superAdmin_AdminRegistration.php' );
@@ -486,7 +476,7 @@ try {
 }
 
 
-//DELETE FUNCTION IN POPULATING THE DATA IN THE DATABASE IN patienttb TO ADMIN PATIENT LIST
+
 try {
     if ( isset( $_POST['delete'] ) ) {
         $deleteId = $_POST['id'];
@@ -494,7 +484,7 @@ try {
         $query = "DELETE FROM patienttb WHERE patient_id = '$deleteId'";
         $query_run =  mysqli_query( $con, $query );
         if ( $query_run ) {
-            // echo "<script>alert('Payment Status Updated!')</script>";
+
             $_SESSION['status'] = 'Delete Successfully!';
             $_SESSION['status_code'] = 'success';
             header( 'location:patientList.php' );
@@ -509,19 +499,7 @@ try {
     echo $e->getMessage();
 }
 
-// show the fname and lname from book appointment
-// try{
-//     $fname = 'SELECT fname FROM patienttb';
-//     $lname = 'SELECT lname FROM patienttb';
-//     $resultfname = mysqli_query( $con, $fname);
-//     $resultlname = mysqli_query( $con, $lname);
-//     $values = mysqli_fetch_array($resultfname);
-    
-// }catch(Exception $e){
-//     echo 'ERROR',$e->getMessage();
-// }
 
-// COUNT THE TOTAL APPOINTMENT
 try{
   
 $query_count = 'SELECT (Appointment_Id) FROM appointment';
@@ -531,7 +509,7 @@ $values = mysqli_num_rows( $result );
     echo 'ERROR',$e->getMessage();
 }
 
-//TOTAL PATIENT
+
 try{
 $query_count = 'SELECT (patient_id) AS TOTAL FROM patienttb';
 $result = mysqli_query( $con, $query_count );
@@ -540,7 +518,6 @@ $patient_values = mysqli_num_rows( $result );
     echo 'ERROR',$e->getMessage();
 }
 
-//approve button appointmentHistory.php
 try {
     if ( isset( $_POST['approve'] ) ) {
         $id = $_POST['id'];
@@ -585,7 +562,7 @@ try {
         $query = "UPDATE appointment SET Fname= '$fname', Lname='$lname',Email= '$email',Mobile='$mobile',stats='DECLINED' WHERE Appointment_Id = '$id' ";
         $query_run =  mysqli_query( $con, $query );
         if ( $query_run ) {
-            // echo "<script>alert('Declined Status Updated!')</script>";
+
             $_SESSION['status'] = 'Declined Successfully!';
             $_SESSION['status_code'] = 'success';
             header( 'location:patientList.php' );

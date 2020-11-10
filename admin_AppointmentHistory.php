@@ -8,7 +8,7 @@ require_once 'includes/auth_adminCheck.php';?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <!-- <link rel="stylesheet" href="css/patient.css"> -->
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@ require_once 'includes/auth_adminCheck.php';?>
 
 <body>
 
-    <!-- NAVIGATION BAR -->
+
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
@@ -84,9 +84,7 @@ require_once 'includes/auth_adminCheck.php';?>
                     </ul>
                 </div>
             </nav>
-            <!-- END OF NAVIGATION -->
 
-            <!-- CONTENT HERE -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">
@@ -121,8 +119,6 @@ require_once 'includes/auth_adminCheck.php';?>
                 </div>
             </div>
 
-
-            <!-- MODAL approve patient here... -->
             <div class='modal fade' id='modalApprove' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -199,7 +195,6 @@ require_once 'includes/auth_adminCheck.php';?>
                 </div>
             </div>
 
-            <!-- MODAL Decline patient here... -->
             <div class='modal fade' id='modalDecline' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -284,7 +279,7 @@ $(document).ready(function() {
         var data = Str.children("td").map(function() {
             return $(this).text();
         }).get();
-        // console.log(data);
+
         $('#id').val(data[0]);
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
@@ -308,7 +303,7 @@ $(document).ready(function() {
         var data = Str.children("td").map(function() {
             return $(this).text();
         }).get();
-        // console.log(data);
+
         $('#Id').val(data[0]);
         $('#Fname').val(data[1]);
         $('#Lname').val(data[2]);

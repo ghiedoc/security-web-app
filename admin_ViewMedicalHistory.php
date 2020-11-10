@@ -8,7 +8,7 @@ require_once 'includes/auth_adminCheck.php';?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <!-- <link rel="stylesheet" href="css/patient.css"> -->
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,6 @@ require_once 'includes/auth_adminCheck.php';?>
 <body>
 
 
-    <!-- NAVIGATION BAR -->
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
@@ -84,9 +83,7 @@ require_once 'includes/auth_adminCheck.php';?>
                     </ul>
                 </div>
             </nav>
-            <!-- END OF NAVIGATION -->
 
-            <!-- CONTENT HERE -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">
@@ -98,7 +95,7 @@ require_once 'includes/auth_adminCheck.php';?>
                     <div class="box box-primary">
                         <div class="box-body">
 
-                            <!-- PATIENT DETAILS TABLE -->
+
                             <table border="1" class="table table-bordered">
                                 <tr align="center">
                                     <td colspan="4" style="font-size:20px;color:black">
@@ -127,7 +124,6 @@ require_once 'includes/auth_adminCheck.php';?>
                             <br>
                             <br>
 
-                            <!-- MEDICAL HISTORY TABLE-->
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <tr align="center">
@@ -149,13 +145,13 @@ require_once 'includes/auth_adminCheck.php';?>
 
                             </table>
 
-                            <!-- BUTTTON ADD MEDICAL HISTORY HERE... -->
+
                             <p align="center">
                                 <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal"
                                     data-target="#myModal">Add Medical History</button>
                             </p>
 
-                            <!-- MODAL ADD MEDICAL HISTORY HERE... -->
+
                             <div class='modal fade' id='myModal' tabindex='-1' role='dialog'
                                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
                                 <div class='modal-dialog' role='document'>
@@ -236,7 +232,6 @@ require_once 'includes/auth_adminCheck.php';?>
                                 </div>
                             </div>
 
-                            <!-- MODAL EDIT PATIENT DETAILS HERE... -->
                             <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog'
                                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
                                 <div class='modal-dialog' role='document'>

@@ -10,7 +10,7 @@ require_once 'includes/auth_check.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <!-- <link rel="stylesheet" href="css/patient.css"> -->
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <link href="vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
@@ -25,18 +25,18 @@ require_once 'includes/auth_check.php';
 
 <body>
 
-    <!-- NAVIGATION BAR -->
+
     <div class="wrapper">
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
                 <span>Healthy Smile Clinic</span>
             </div>
             <ul class="list-unstyled components">
-                <!-- DASHBOARD  -->
+
                 <li>
                     <a href="patientDashboard.php"><i class="fas fa-home"></i> Dashboard</a>
                 </li>
-                <!-- APPOINTMENTS -->
+
                 <li>
                     <a href="#appointmenu" data-toggle="collapse" aria-expanded="false"
                         class="dropdown-toggle no-caret-down"><i class="fas fa-calendar-check"></i> Appointment</a>
@@ -63,7 +63,7 @@ require_once 'includes/auth_check.php';
                         class="fas fa-bars"></i><span></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
-                        <!-- NAME TOGGLE SIDEBAR -->
+
                         <li class="nav-item dropdown">
                             <div class="nav-dropdown">
                                 <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown"><i
@@ -83,7 +83,6 @@ require_once 'includes/auth_check.php';
                 </div>
             </nav>
 
-            <!-- CONTENT -->
             <br>
             <div class="col-md-7">
                 <div class="card">
@@ -92,7 +91,7 @@ require_once 'includes/auth_check.php';
                     </div>
                     <div class="card-body">
                         <form action="func.php" class="form-group" method="post">
-                            <!-- Patient details form -->
+ 
                             <h3 align="center">Patient Details</h3>
                             <label for="">First Name: </label>
                             <input type="text" id="fname" class="form-control" value=<?php echo( $_SESSION['fname'] );?>
@@ -103,7 +102,7 @@ require_once 'includes/auth_check.php';
                             <label for="">Cellphone Number: </label>
                             <input type="tel" name="mobile" class="form-control" pattern="[0-9]{11}" required
                                 autocomplete="on" placeholder="Enter your 11 digit number">
-                            <!-- Appointment Details form -->
+
                             <hr>
                             <h3 align="center">Appointment Details</h3>
                             <label for="">Date: </label>
@@ -156,7 +155,7 @@ require_once 'includes/auth_check.php';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
     integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
 
-<!-- DATE PICKER -->
+
 <script>
 $(function() {
     $("#datepicker").datepicker({

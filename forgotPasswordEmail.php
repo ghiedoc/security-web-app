@@ -19,10 +19,7 @@
 </head>
 
 <body>
-    <!-- HAMBURGER MENU -->
-   
 
-    <!-- LANDING PAGE -->
     <section id="banner" >
         <div class="container" >
             <div class="row">
@@ -59,17 +56,13 @@
                 </div>
                 <div class="modal-body mx-3">
                     <div class="card-body text-center">
-                        
-<!--                        <form action="func.php" class="form-group" method="post">-->
+
                         
                         <h6 class="mb-4 text-muted">Forgot Password</h6>
 
-                        <!-- LOGIN -->
-                        <!-- error validation login-->
-                        <!-- <div class="alert alert-danger alert-dismissable" dispaly="none">
-                            <a href="#" class="close" data-dismiss="alert" aria-hidden="true"">&times;</a>
-                            <strong><?php $message;?></strong>
-                        </div> -->
+
+                            <?php $message;?>
+  
 
                          <form action=" forgotPasswordEmail.php" method="post"> 
                                 <div class="form-group">
@@ -87,7 +80,7 @@
                             
                                 
                         
-                                <!-- SUBMIT BUTTON -->
+
                                 <button type="submit" name="forgot" id="forgot" class="btn btn-primary shadow-2 mb-4">
                                 
                                     Submit
@@ -120,7 +113,7 @@
 
     
 <?php 
-    //FORGOT PASSWORD FUNCTION
+
 if ( isset( $_POST['forgot'] )) {
 $email = $_POST["username"];
 $to = $email;

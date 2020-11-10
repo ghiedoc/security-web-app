@@ -22,7 +22,7 @@ include("func.php");
 </head>
 
 <body>
-    <!-- HAMBURGER MENU -->
+
     <div class="menu-wrap">
         <input type="checkbox" class="toggler">
         <div class="butt">
@@ -31,7 +31,7 @@ include("func.php");
         </div>
     </div>
 
-    <!-- LANDING PAGE -->
+
     <section id="banner">
         <div class="container">
             <div class="row">
@@ -52,8 +52,7 @@ include("func.php");
         </div>
     </section>
 
-    <!-- MODAL FOR SIGNING IN -->
-    <!-- Modal Sign In-->
+
 
     <div class=" modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -69,14 +68,11 @@ include("func.php");
                     <div class="card-body text-center">
                         <h6 class="mb-4 text-muted">Sign in to your Account</h6>
 
-                        <!-- LOGIN -->
-                        <!-- error validation login-->
-                        <!-- <div class="alert alert-danger alert-dismissable" dispaly="none">
-                            <a href="#" class="close" data-dismiss="alert" aria-hidden="true"">&times;</a>
-                            <strong><?php $message;?></strong>
-                        </div> -->
 
-                        <!-- <form action=" func.php" method="post"> -->
+                            <?php $message;?>
+
+
+
                         <p class="statusMsg"></p>
                         <div class="form-group">
                             <input type="email" id="username" class="form-control" placeholder="Email" required
@@ -89,7 +85,7 @@ include("func.php");
                                 style="padding-top: 15px"></span>
                         </div>
                         <br>
-                        <!-- SUBMIT BUTTON -->
+
                         <button type="submit" id="login_submit" class="btn btn-primary shadow-2 mb-4">
 
                             Login
@@ -111,8 +107,6 @@ include("func.php");
         </div>
     </div>
 
-
-    <!-- Modal Sign Up-->
     <div class=" modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -175,7 +169,7 @@ include("func.php");
 </body>
 <?php include('alertconfig.php');?>
 
-<!-- Log in Validation  -->
+
 
 <script>
 $(document).ready(function() {
@@ -218,8 +212,7 @@ $(document).ready(function() {
                             alert("Login Attempts Left: " + login_attempts);
                             $('.statusMsg').html(
                                 "<span style='color:red;'>Invalid Credentials</p>");
-                            // document.getElementById("username").value = "";
-                            // document.getElementById("password").value = "";
+
                         } else {
                             login_attempts = 5;
                             console.log('User login');

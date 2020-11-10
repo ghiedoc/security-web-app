@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     defaultView: 'dayGridMonth',
     defaultDate: '2019-06-12',
-    navLinks: true, // can click day/week names to navigate views
+    navLinks: true, 
     editable: true,
-    eventLimit: true, // allow "more" link when too many events
+    eventLimit: true, 
     events: [
         {
         title: 'All Day Event',
@@ -86,8 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         right: 'listDay,listWeek,dayGridMonth'
     },
 
-    // customize the button names,
-    // otherwise they'd all just say "list"
+
     views: {
         listDay: { buttonText: 'list day' },
         listWeek: { buttonText: 'list week' }
@@ -95,9 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     defaultView: 'listWeek',
     defaultDate: '2019-06-12',
-    navLinks: true, // can click day/week names to navigate views
+    navLinks: true, 
     editable: true,
-    eventLimit: true, // allow "more" link when too many events
+    eventLimit: true, 
     events: [
         {
         title: 'All Day Event',

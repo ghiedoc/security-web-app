@@ -1,4 +1,4 @@
-// Initiate summernote wysiwyg editor
+
 $('#summernote').summernote({
     dialogsInBody: true,
     minHeight: 300,

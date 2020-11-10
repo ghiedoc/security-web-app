@@ -1,4 +1,4 @@
-/* LANDING PAGE/ BANNER SECTION */
+
 #banner {
   background-image: linear-gradient(to right, #ed765e, #e3bde5);
   color: #fff;
@@ -12,7 +12,7 @@
   bottom: auto;
   width: 300px;
   height: auto;
-  /* background: #646464; */
+
 }
 
 #banner a {
@@ -31,7 +31,7 @@
   margin-top: 100px;
 }
 
-/*BUTTON BOOK LAYOUT*/
+
 .btn-book {
   padding: 0.5vw 3vw;
   font-size: 1.25rem;
@@ -61,11 +61,7 @@
   margin-bottom: 20px;
 }
 
-/* LANDING PAGE/ BANNER SECTION */
-/* other code is located on services.css */
 
-/* MODAL */
-/* login and sign up modal */
 .hero {
   height: 100%;
   width: 100%;
@@ -124,21 +120,17 @@ p {
   padding: 0;
 }
 
-/* FOOTER */
 footer {
   background-color: #e26349;
 }
 
-/* Sign Up
-.wrapper {
-  background-image: linear-gradient(to right, #ed765e, #e3bde5);
-} */
+
 
 html {
   scroll-behavior: smooth;
 }
 
-/* TOGGLE VISIBILITY */
+
 input[type=text].form-control.valid+label:after,
 input[type=text].form-control:focus.valid+label:after,
 input[type=text].form-control.invalid+label:after,

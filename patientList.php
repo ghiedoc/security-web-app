@@ -83,7 +83,6 @@
             </nav>
 
 
-            <!-- MODAL EDIT PATIENT DETAILS HERE... -->
             <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -143,7 +142,7 @@
             </div>
 
 
-            <!-- MODAL DELETE PATIENT DETAILS HERE... -->
+
             <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
                 aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
@@ -177,7 +176,7 @@
                 </div>
             </div>
 
-            <!-- table -->
+
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">
@@ -229,7 +228,7 @@
 
 
 
-<!-- Show modal edit -->
+
 <script>
 $(document).ready(function() {
     $('.editbtn').on('click', function() {
@@ -241,7 +240,7 @@ $(document).ready(function() {
         var data = Str.children("td").map(function() {
             return $(this).text();
         }).get();
-        // console.log(data);
+
         $('#id').val(data[0]);
         $('#fname').val(data[1]);
         $('#lname').val(data[2]);
@@ -252,7 +251,7 @@ $(document).ready(function() {
 });
 </script>
 
-<!-- Show modal delete -->
+
 <script>
 $(document).ready(function() {
     $('.deletebtn').on('click', function() {
