@@ -172,6 +172,7 @@ include("func.php");
 
 
 <script>
+<<<<<<< HEAD
 $(document).ready(function() {
     var login_attempts = 5;
     $('#login_submit').on('click', function() {
@@ -240,18 +241,13 @@ $(document).ready(function() {
 
     });
 });
+=======
+$(document).ready(function(){var e=5;$("#login_submit").on("click",function(){var t=$("#username").val(),s=$("#password").val();e>1?""!=t.trim()&&/^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i.test(t)?""==s.trim()?(console.log("Password Field is Empty"),$(".statusMsg").html("<span style='color:red;'>Password field can't be empty</p>")):$.ajax({type:"POST",dataType:"text",url:"func.php",data:{loginFormSubmit:1,username:t,password:s},beforeSend:function(){console.log("Processing. . .")},success:function(t){t=t.substr(t.lastIndexOf(".")+1),console.log(t),"admin"===t?(e=5,window.location.href="dashboard.php"):"error"===t?(e--,console.log("Atempts left: "+e),alert("Login Attempts Left: "+e),$(".statusMsg").html("<span style='color:red;'>Invalid Credentials</p>")):(e=5,console.log("User login"),window.location.href="patientDashboard.php")}}):(console.log("Invalid Email"),$(".statusMsg").html('<span style="color:red;">Invalid Email</p>'),document.getElementById("username").value=""):($(".statusMsg").html("<span style='color:red;'>Login limit reached. Please wait for 30 seconds.</p>"),document.getElementById("login_submit").style.visibility="hidden",document.getElementById("username").disabled=!0,document.getElementById("password").disabled=!0,setTimeout(function(){document.getElementById("username").disabled=!1,document.getElementById("password").disabled=!1,document.getElementById("login_submit").style.visibility="visible",e=5},3e4))})});
+>>>>>>> 0d0718dd36b1e58e9d31e79365c09abd3ebd96ed
 </script>
 
 <script>
-$('.toggle-password').on('click', function() {
-    $(this).toggleClass('fa-eye fa-eye-slash');
-    let input = $($(this).attr('toggle'));
-    if (input.attr('type') == 'password') {
-        input.attr('type', 'text');
-    } else {
-        input.attr('type', 'password');
-    }
-});
+$(".toggle-password").on("click",function(){$(this).toggleClass("fa-eye fa-eye-slash");let t=$($(this).attr("toggle"));"password"==t.attr("type")?t.attr("type","text"):t.attr("type","password")});
 </script>
 
 </html>

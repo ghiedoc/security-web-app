@@ -158,9 +158,7 @@ require_once 'includes/auth_adminCheck.php';?>
 <script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
 
 <script>
-$(document).ready(function() {
-    $('#dataTables-example').DataTable();
-});
+$(document).ready(function(){$("#dataTables-example").DataTable()});
 </script>
 
 <?php 

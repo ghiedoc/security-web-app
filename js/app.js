@@ -1,6 +1,1 @@
-function smoothScroll(target, duration) {
-    var targer = document.querySelector(target);
-    var targetPosition = targetPosition.getBoundingClientRect();
-}
-
-smoothScroll('.services', 1000)
+function smoothScroll(e,o){document.querySelector(e);var t=t.getBoundingClientRect()}smoothScroll(".services",1e3);

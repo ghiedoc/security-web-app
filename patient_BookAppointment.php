@@ -157,11 +157,7 @@ require_once 'includes/auth_check.php';
 
 
 <script>
-$(function() {
-    $("#datepicker").datepicker({
-        startDate: new Date()
-    }).datepicker('update', new Date());
-});
+$(function(){$("#datepicker").datepicker({startDate:new Date}).datepicker("update",new Date)});
 </script>
 
 </html>

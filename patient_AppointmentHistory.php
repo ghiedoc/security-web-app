@@ -125,9 +125,7 @@ require_once 'includes/auth_check.php';?>
 <script src="js/script.js"></script>
 
 <script>
-$(document).ready(function() {
-    $('#dataTables-example').DataTable();
-});
+$(document).ready(function(){$("#dataTables-example").DataTable()});
 </script>
 
 </html>
