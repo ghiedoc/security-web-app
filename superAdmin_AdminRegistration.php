@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php include("func.php")?>
+<?php include("func.php");
+require_once 'includes/auth_superAdmin.php';?>
 <html lang="en" dir="ltr">
 
 <head>
