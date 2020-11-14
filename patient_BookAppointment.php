@@ -121,8 +121,8 @@ require_once 'includes/auth_check.php';
                             <br>
                             <label for="">Services: </label>
                             <select name="services" class="form-control" id="">
-                                <option value="Check Up - General">Check Up - General</option>
-                                <option value="Check Up - I'm in pain">Check Up - I'm in pain</option>
+                                <option value=" Check Up - I'm in pain">Check Up - General</option>
+                                <option value="Check Up - General">Check Up - I'm in pain</option>
                                 <option value="Check Up - For Braces">Check Up - For Braces</option>
                                 <option value="Check Up - For Child">Check Up - For Child</option>
                                 <option value="Dental Cleaning">Dental Cleaning</option>
@@ -154,6 +154,7 @@ require_once 'includes/auth_check.php';
 <script src="js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
     integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
+    <?php include('alertconfig.php');?>
 
 
 <script>
