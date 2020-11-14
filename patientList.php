@@ -67,8 +67,6 @@
                                         class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
-                                        </li>
                                         <div class="dropdown-divider"></div>
                                         <li><a href="logout.php" class="dropdown-item"><i
                                                     class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -192,7 +190,6 @@
 
 
 <script>
-
 $(document).ready(function() {
     $(".editbtn").on("click", function() {
         $("#myModalPatient").modal("show"), Str = $(this).closest("tr");

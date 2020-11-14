@@ -55,7 +55,7 @@ require_once 'includes/auth_superAdmin.php';?>
                     </ul>
                 </li>
                 <li>
-                    <a href="#settingmenu" data-toggle="collapse" aria-expanded="false"
+                    <a href="register_admin.php" data-toggle="collapse" aria-expanded="false"
                         class="dropdown-toggle no-caret-down"><i class="fas fa-cog"></i> Setting</a>
                     <ul class="collapse list-unstyled" id="settingmenu">
                         <li>
@@ -110,99 +110,103 @@ require_once 'includes/auth_superAdmin.php';?>
                             </div>
                         </div>
 
-   <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
-                aria-hidden='true'>
-                <div class='modal-dialog' role='document'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h5 class='modal-title' id='exampleModalLabel'>Edit Patient Details</h5>
-                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                <span aria-hidden='true'>&times;
-                                </span>
-                            </button>
+                        <div class='modal fade' id='myModalPatient' tabindex='-1' role='dialog'
+                            aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                            <div class='modal-dialog' role='document'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <h5 class='modal-title' id='exampleModalLabel'>Edit Patient Details</h5>
+                                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class='modal-body'>
+                                        <table class='table table-bordered table-hover data-tables'>
+                                            <form action='func.php' method='POST'>
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" name="admin_id" id="admin_id">
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>First Name :</th>
+                                                    <td>
+                                                        <input type="text" name="fname" id="fname"
+                                                            placeholder='First Name' class='form-control wd-450'
+                                                            required='true'>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Last Name :</th>
+                                                    <td>
+                                                        <input type="text" name="lname" id="lname"
+                                                            placeholder='Last Name' class='form-control wd-450'
+                                                            required='true'>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Contact Number :</th>
+                                                    <td>
+                                                        <input type="text" name="contact_num" id="contact_num"
+                                                            placeholder='Contact Number' class='form-control wd-450'
+                                                            required='true'>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Email :</th>
+                                                    <td>
+                                                        <input type="text" name="email" id="email" placeholder='Email'
+                                                            class='form-control wd-450' required='true'>
+                                                    </td>
+                                                </tr>
+                                        </table>
+                                    </div>
+                                    <div class='modal-footer'>
+                                        <button type='button' class='btn btn-secondary'
+                                            data-dismiss='modal'>Close</button>
+                                        <button type="edit" name="edit_admin" class='btn btn-primary'>Edit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class='modal-body'>
-                            <table class='table table-bordered table-hover data-tables'>
-                                <form action='func.php' method='POST'>
-                                    <tr>
-                                        <td>
-                                            <input type="hidden" name="admin_id" id="admin_id">
-                    
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>First Name :</th>
-                                        <td>
-                                            <input type="text" name="fname" id="fname" placeholder='First Name'
-                                                class='form-control wd-450' required='true'>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Last Name :</th>
-                                        <td>
-                                            <input type="text" name="lname" id="lname" placeholder='Last Name'
-                                                class='form-control wd-450' required='true'>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Contact Number :</th>
-                                        <td>
-                                            <input type="text" name="contact_num" id="contact_num" placeholder='Contact Number'
-                                                class='form-control wd-450' required='true'>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email :</th>
-                                        <td>
-                                        <input type="text" name="email" id="email" placeholder='Email'
-                                                class='form-control wd-450' required='true'>
-                                        </td>
-                                    </tr>
-                            </table>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                            <button type="edit" name="edit_admin" class='btn btn-primary'>Edit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
 
-            <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
-                aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog' role='document'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h5 class='modal-title' id='exampleModalLabel'>You want to delete?</h5>
-                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                <span aria-hidden='true'>&times;
-                                </span>
-                            </button>
-                        </div>
-                        <div class='modal-body' style='display:none'>
-                            <table class='table table-bordered table-hover data-tables'>
+                        <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
+                            aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                            <div class='modal-dialog' role='document'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <h5 class='modal-title' id='exampleModalLabel'>You want to delete?</h5>
+                                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class='modal-body' style='display:none'>
+                                        <table class='table table-bordered table-hover data-tables'>
 
-                                <form action='func.php' method='POST'>
+                                            <form action='func.php' method='POST'>
 
-                                    <tr>
-                                        <td>
-                                            <input type="hidden" name="admin_id" id="deleteId">
-                                        </td>
-                                    </tr>
-                            </table>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type="delete" name="delete_admin" class='btn btn-primary'>Yes</button>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" name="admin_id" id="deleteId">
+                                                    </td>
+                                                </tr>
+                                        </table>
+                                    </div>
+                                    <div class='modal-footer'>
+                                        <button type="delete" name="delete_admin" class='btn btn-primary'>Yes</button>
+                                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
 
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
 
 
                         <div class="col-sm-8">
@@ -248,9 +252,28 @@ require_once 'includes/auth_superAdmin.php';?>
 
 
 <script>
-
-$(document).ready(function(){$("#dataTables-example").DataTable()}),$(document).ready(function(){$(".editbtn").on("click",function(){$("#myModalPatient").modal("show"),Str=$(this).closest("tr");var t=Str.children("td").map(function(){return $(this).text()}).get();console.log(t),$("#admin_id").val(t[0]),$("#fname").val(t[1]),$("#lname").val(t[2]),$("#contact_num").val(t[3]),$("#email").val(t[4])})}),$(document).ready(function(){$(".deletebtn").on("click",function(){$("#myModalDeletePatient").modal("show"),Str=$(this).closest("tr");var t=Str.children("td").map(function(){return $(this).text()}).get();console.log(t),$("#deleteId").val(t[0])})}),$(document).ready(function(){$("#dataTables-example").DataTable()});
-
+$(document).ready(function() {
+    $("#dataTables-example").DataTable()
+}), $(document).ready(function() {
+    $(".editbtn").on("click", function() {
+        $("#myModalPatient").modal("show"), Str = $(this).closest("tr");
+        var t = Str.children("td").map(function() {
+            return $(this).text()
+        }).get();
+        console.log(t), $("#admin_id").val(t[0]), $("#fname").val(t[1]), $("#lname").val(t[2]), $(
+            "#contact_num").val(t[3]), $("#email").val(t[4])
+    })
+}), $(document).ready(function() {
+    $(".deletebtn").on("click", function() {
+        $("#myModalDeletePatient").modal("show"), Str = $(this).closest("tr");
+        var t = Str.children("td").map(function() {
+            return $(this).text()
+        }).get();
+        console.log(t), $("#deleteId").val(t[0])
+    })
+}), $(document).ready(function() {
+    $("#dataTables-example").DataTable()
+});
 </script>
 
 </html>

@@ -73,8 +73,6 @@ require_once 'includes/auth_adminCheck.php';?>
                                         class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
-                                        </li>
                                         <div class="dropdown-divider"></div>
                                         <li><a href="logout.php" class="dropdown-item"><i
                                                     class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -158,7 +156,9 @@ require_once 'includes/auth_adminCheck.php';?>
 <script src="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
 
 <script>
-$(document).ready(function(){$("#dataTables-example").DataTable()});
+$(document).ready(function() {
+    $("#dataTables-example").DataTable()
+});
 </script>
 
 <?php 
