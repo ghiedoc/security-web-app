@@ -140,41 +140,6 @@
             </div>
 
 
-
-            <div class='modal fade' id='myModalDeletePatient' tabindex='-1' role='dialog'
-                aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog' role='document'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h5 class='modal-title' id='exampleModalLabel'>You want to delete?</h5>
-                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                <span aria-hidden='true'>&times;
-                                </span>
-                            </button>
-                        </div>
-                        <div class='modal-body' style='display:none'>
-                            <table class='table table-bordered table-hover data-tables'>
-
-                                <form action='func.php' method='POST'>
-
-                                    <tr>
-                                        <td>
-                                            <input type="hidden" name="id" id="deleteId">
-                                        </td>
-                                    </tr>
-                            </table>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type="delete" name="delete" class='btn btn-primary'>Yes</button>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
-
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="content">
                 <div class="container-fluid">
                     <div class="page-title">
@@ -227,48 +192,6 @@
 
 
 <script>
-$(document).ready(function() {
-    $('.editbtn').on('click', function() {
-        $('#myModalPatient').modal('show');
-
-
-        Str = $(this).closest('tr');
-
-        var data = Str.children("td").map(function() {
-            return $(this).text();
-        }).get();
-
-        $('#id').val(data[0]);
-        $('#fname').val(data[1]);
-        $('#lname').val(data[2]);
-        $('#gender').val(data[3]);
-        $('#email').val(data[4]);
-        $('#address').val(data[5]);
-    });
-});
-</script>
-
-
-<script>
-$(document).ready(function() {
-    $('.deletebtn').on('click', function() {
-        $('#myModalDeletePatient').modal('show');
-
-        Str = $(this).closest('tr');
-
-        var data = Str.children("td").map(function() {
-            return $(this).text();
-        }).get();
-        console.log(data);
-
-        $('#deleteId').val(data[0]);
-
-    });
-});
-
-$(document).ready(function() {
-    $('#dataTables-example').DataTable();
-});
 
 $(document).ready(function() {
     $(".editbtn").on("click", function() {

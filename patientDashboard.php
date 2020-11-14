@@ -89,12 +89,14 @@ require_once 'includes/auth_check.php';
                                                 <i class='teal fas fa-clipboard-list'></i>
                                             </div>
                                         </div>
+                                        <a href="patient_BookAppointment.php">
                                         <div class='col-sm-8'>
                                             <div class='detail text-center'>
                                                 <p>Book an Appointment</p>
                                                 <span class='number'>Here</span>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class='footer'>
                                         <hr />
@@ -114,10 +116,12 @@ require_once 'includes/auth_check.php';
                                             </div>
                                         </div>
                                         <div class='col-sm-8'>
+                                        <a href="patient_AppointmentHistory.php">
                                             <div class='detail text-center'>
                                                 <p>My Appointment History</p>
                                                 <span class='number'>Here</span>
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class='footer'>

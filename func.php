@@ -90,13 +90,15 @@ if ( isset( $_POST['pat_submit'] ) ) {
     $result = mysqli_query( $con, $query );
 
     if ( $result ) {
-        echo "<script>alert('Appointment Added!')</script>";
-        echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
+        $_SESSION['status'] = 'Book Successfully!';
+        $_SESSION['status_code'] = 'success';
+        header( 'Location:patient_BookAppointment.php' );
     } else {
-        echo $id;
-        echo "<script>alert('Error Adding Appointment!')</script>";
-        echo "<script>window.open('patient_BookAppointment.php', '_self')</script>";
+        $_SESSION['status'] = 'Something went wrong!';
+        $_SESSION['status_code'] = 'error';
+        header( 'Location:patient_BookAppointment.php' );
     }
+
 }
 }catch(Exception $e){
     echo 'ERROR Addding appointment: ', $e->getMessage();
@@ -126,11 +128,13 @@ try {
                 $query = "INSERT INTO patienttb(fname, lname,gender,email,adds, password) VALUE('$fname','$lname','$gender','$email','$adds','$hashed_password')";
                 $result = mysqli_query( $con, $query );
                 if ( $result ) {
-                    echo "<script>alert('Success Registering!')</script>";
-                    echo "<script>window.open('index.php', '_self')</script>";
+                    $_SESSION['status'] = 'Book Successfully!';
+                    $_SESSION['status_code'] = 'success';
+                    header( 'Location:index.php' );
                 } else {
-                    echo "<script>alert('Error Registering!')</script>";
-                    echo "<script>window.open('index.php', '_self')</script>";
+                    $_SESSION['status'] = 'Something went wrong!';
+                    $_SESSION['status_code'] = 'error';
+                    header( 'Location:index.php' );
                 }
             } else {
                 echo "<script>alert('Error Registering!')</script>";
@@ -343,7 +347,6 @@ function getPatientDetails() {
                 <button type='submit' class='viewbtn btn btn-success' name= 'view_btn'>View</button>
 
                 <button type='button' class='editbtn btn btn-info' name= 'edit_btn'>Edit</button> 
-                <button type='button' class='deletebtn btn btn-danger' name= 'delete_btn'>Delete</button>
             </form>
             </td>
         </tr>";
@@ -433,11 +436,10 @@ try {
         $id = $_POST['id'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
-        $gender = $_POST['gender'];
         $email = $_POST['email'];
         $add = $_POST['address'];
 
-        $query = "UPDATE patienttb SET fname= '$fname', lname='$lname',gender='$gender',email= '$email',adds='$add' WHERE patient_id = '$id' ";
+        $query = "UPDATE patienttb SET fname= '$fname', lname='$lname',email= '$email',adds='$add' WHERE patient_id = '$id' ";
         $query_run =  mysqli_query( $con, $query );
         if ( $query_run ) {
 

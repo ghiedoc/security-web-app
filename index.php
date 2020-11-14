@@ -97,10 +97,6 @@ include("func.php");
                             </p>
                         </div>
 
-                        <p class="mb-0 text-muted">
-                            Don’t have an account? <a href="index.php">Signup</a>
-                        </p>
-
                     </div>
                 </div>
             </div>
@@ -164,6 +160,8 @@ include("func.php");
     </div>
 
     <script src="vendor/jquery3/jquery-3.4.1.min.js"></script>
+
+
     <script src="vendor/bootstrap4/js/bootstrap.min.js"></script>
 
 </body>
@@ -178,7 +176,7 @@ $(document).ready(function() {
         var t = $("#username").val(),
             s = $("#password").val();
         e > 1 ? "" != t.trim() && /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i.test(t) ? "" == s
-        .trim() ? (console.log("Password Field is Empty"), $(".statusMsg").html(
+            .trim() ? (console.log("Password Field is Empty"), $(".statusMsg").html(
                 "<span style='color:red;'>Password field can't be empty</p>")) : $.ajax({
                 type: "POST",
                 dataType: "text",
